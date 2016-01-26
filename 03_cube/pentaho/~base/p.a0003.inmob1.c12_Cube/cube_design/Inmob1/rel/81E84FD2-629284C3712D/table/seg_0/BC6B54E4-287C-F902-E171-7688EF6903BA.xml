@@ -1,0 +1,28 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BC6B54E4-287C-F902-E171-7688EF6903BA" name="pk_clntcons">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>inmob1</sourceObjSchema>
+<sourceObjName>pk_clntcons</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:07 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<schemaObject>3B09C9D2-8641-2D9E-5785-92EF0DA80BC9</schemaObject>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="5B0697F8-5C09-6051-F88C-A97F781E3929">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>pk_clntcons</sourceObjSchema>
+<sourceObjName>id</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:07 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+</Table>

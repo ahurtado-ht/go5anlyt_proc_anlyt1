@@ -1,0 +1,160 @@
+<Schema name="BVRD-INV-RentaFija" description="Implementacion Ejemplo Cubos">
+  <Cube name="RentaFija_Operaciones_Cube" caption="Datos Renta Fija" visible="true" description="Cubo DatosRentaFija" cache="true" enabled="true">
+    <Annotations>
+      <Annotation name="InfoGeneral">
+        <![CDATA[Permite la exploracion de las operaciones transadas en los ultimos N meses.]]>
+      </Annotation>
+    </Annotations>
+    <View alias="OPERACION_FACT">
+      <SQL dialect="generic">
+        <![CDATA[SELECT * from V_OPERACIONESEMISIONEMISOR]]>
+      </SQL>
+    </View>
+    <Dimension type="TimeDimension" visible="true" foreignKey="ID_TLD_FECHAREGOPERACION" highCardinality="false" name="FechaRegOperacion_Dim">
+      <Hierarchy name="FechaRegistro_Hierarchy" visible="true" hasAll="true" allMemberName="todos" primaryKey="ID">
+        <Table name="TIMELINE_DIM">
+        </Table>
+        <Level name="Year" visible="true" column="YEAR" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="Month" visible="true" column="MONTH" type="Numeric" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="Day" visible="true" column="DAY" type="Numeric" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Emision_Dim">
+      <Hierarchy name="Emision_Hierarchy" visible="true" hasAll="true">
+        <Level name="Emision" visible="true" column="CODIGOISIN" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Emisor_Dim">
+      <Hierarchy name="Emisor_Hierarchy" visible="true" hasAll="true">
+        <Level name="Mercado" visible="true" column="MERCADONOMBRE" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Emisor" visible="true" column="EMISORNOMBRE" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="ID_INDUSTRIA" highCardinality="false" name="Industria_Dim">
+      <Hierarchy name="Industria_Hierarchy" visible="true" hasAll="true" allMemberName="todos" primaryKey="ID">
+        <Table name="INDUSTRIA_DIM" schema="BVRD1_OLAP">
+        </Table>
+        <Level name="SectorEconomico" visible="true" column="SECTORECONOMICONOMBRE" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Industria" visible="true" column="INDUSTRIANOMBRE" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="ID_TLD_FECHAEMISION" highCardinality="false" name="Emision_Fecha_Dim">
+      <Hierarchy name="FechaEmision_Hierarchy" visible="true" hasAll="true" allMemberName="todos" primaryKey="ID">
+        <Table name="TIMELINE_DIM" schema="BVRD1_OLAP">
+        </Table>
+        <Level name="Year" visible="true" column="YEAR" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="Month" visible="true" column="MONTH" type="Numeric" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="Day" visible="true" column="DAY" type="Numeric" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="ID_TLD_FECHAVENCIMIENTO" highCardinality="false" name="FechaVencimiento_Dim">
+      <Hierarchy name="FechaVencimiento_Hierarchy" visible="true" hasAll="true" allMemberName="todos" primaryKey="ID">
+        <Table name="TIMELINE_DIM" schema="BVRD1_OLAP">
+        </Table>
+        <Level name="Year" visible="true" column="YEAR" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="Month" visible="true" column="MONTH" type="Numeric" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="Day" visible="true" column="DAY" type="Numeric" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="ID_TLD_FECHALIQUIDACION" highCardinality="false" name="FechaLiquidacion_Dim">
+      <Hierarchy name="FechaLiquidacion_Hierarchy" visible="true" hasAll="true" allMemberName="todos" primaryKey="ID">
+        <Table name="TIMELINE_DIM" schema="BVRD1_OLAP">
+        </Table>
+        <Level name="Year" visible="true" column="YEAR" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="Month" visible="true" column="MONTH" type="Numeric" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="Day" visible="true" column="DAY" type="Numeric" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="ID_TLD_FECHACOLOCACIONINICIO" highCardinality="false" name="FechaColocacionIni_Dim">
+      <Hierarchy name="FechaColocacionIni_Hierarchy" visible="true" hasAll="true" allMemberName="todos" primaryKey="ID">
+        <Table name="TIMELINE_DIM" schema="BVRD1_OLAP">
+        </Table>
+        <Level name="Year" visible="true" column="YEAR" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="Month" visible="true" column="MONTH" type="Numeric" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="Day" visible="true" column="DAY" type="Numeric" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="ID_TLD_FECHACOLOCACIONFIN" highCardinality="false" name="FechaColocacionFin_Dim">
+      <Hierarchy name="FechaColocacionFin_Hierarchy" visible="true" hasAll="true" allMemberName="todos" primaryKey="ID">
+        <Table name="TIMELINE_DIM" schema="BVRD1_OLAP">
+        </Table>
+        <Level name="Year" visible="true" column="YEAR" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="Month" visible="true" column="MONTH" type="Numeric" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="Day" visible="true" column="DAY" type="Numeric" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="CalificacionEmisor_Dim">
+      <Hierarchy name="CalificacionEmisor_Hierarchy" visible="true" hasAll="true">
+        <Level name="Calificacion" visible="true" column="CALIFICACIONVR" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="TipoEmisor_Dim">
+      <Hierarchy name="TipoEmisor_Hierarchy" visible="true" hasAll="true">
+        <Level name="TipoEmisor" visible="true" column="EMISORTIPO" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="CaracteristicasEmision_Dim">
+      <Hierarchy name="CaracteristicasEmision_Hierarchy" visible="true" hasAll="true">
+        <Level name="Instrumento" visible="true" column="NOMBREINSTRUMENTO" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" name="Plazo_Dim">
+      <Hierarchy name="Plazo_Hierarcy" visible="true" hasAll="true">
+        <Level name="Plazo" visible="true" column="VRPLAZO" type="String" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="CantidadOperaciones" column="CANTIDADOPER" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="VrTransadoUSD" column="VRTRANSADOUSD" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="VrTransadoDOP" column="VRTRANSADODOP" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="DiasAcum" column="DIASACUM" datatype="Integer" aggregator="max" visible="true">
+    </Measure>
+    <Measure name="DiasAlVenci" column="DIASALVENCI" datatype="Integer" aggregator="min" visible="true">
+    </Measure>
+    <Measure name="CantidadTitulos" column="CANTIDADTITULOS" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="VrNomTotal" column="VRNOMTOTAL" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="VrNomUnit" column="VRNOMUNIT" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="PrecioLimp" column="PRECIOLIMP" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Yield" column="YIELD" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="VrCupon" column="VRCUPON" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="VrTran" column="VRTRAN" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="PrecioLimp" column="PRECIOLIMP" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

@@ -1,0 +1,30 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="44AEF3E3-6F6A-AE84-EE41-EF6EE22EF4B5" name="ProductoBono_D">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-22 01:42:16 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<engineerTo>
+<item key="F446C263-0DEE-CFC6-4622-441AB656BD97" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="bonoEspecieCod" id="D90F6F51-B747-33FA-AF8C-06376CACF5A3">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-22 02:40:21 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<engineerTo>
+<item key="F446C263-0DEE-CFC6-4622-441AB656BD97" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8BB6FECD-30AE-5F1F-9A74-F5B0EBC0866B" name="Geo_Ciudad_D">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-22 01:46:21 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<engineerTo>
+<item key="F446C263-0DEE-CFC6-4622-441AB656BD97" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_ciudad" id="4593A255-1E78-1295-FED2-A66AD69BF293">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-23 20:58:57 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<engineerTo>
+<item key="F446C263-0DEE-CFC6-4622-441AB656BD97" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="departamento" id="2C8C67AE-7824-85ED-FD20-A3967C6682BE">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-23 20:59:04 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<engineerTo>
+<item key="F446C263-0DEE-CFC6-4622-441AB656BD97" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pais" id="A8C971EA-8F6D-15A4-B0FF-DE3865887A37">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-23 20:59:08 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<engineerTo>
+<item key="F446C263-0DEE-CFC6-4622-441AB656BD97" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="latitude" id="74BB97CE-B2C8-5C6E-7F35-5870CBA1260D">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-26 01:14:31 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<engineerTo>
+<item key="F446C263-0DEE-CFC6-4622-441AB656BD97" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="longitude" id="B1163718-6237-E4E3-C05C-3AFCB34C205A">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-26 01:14:35 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<engineerTo>
+<item key="F446C263-0DEE-CFC6-4622-441AB656BD97" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

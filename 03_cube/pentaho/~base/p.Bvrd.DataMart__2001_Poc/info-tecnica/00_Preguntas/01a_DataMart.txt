@@ -1,0 +1,67 @@
+=====================================
+= PLAN PARA IMPLEMENTAR DATAMART (bi)
+=====================================
+
+
+
+0.Planeacion
+-------------------------------------
+	a.Identificar Requerimientos funcionales del sistema
+	b.Identificar Requerimientos no funcionales del sistema.
+	c.Establecer las prioridades para poder manejar los nuevos requerimientos de los usuarios y de esa forma, evolucionar y crecer.
+
+
+
+1.Analisis de Requerimentos (Reunion)
+-------------------------------------
+
+	a.Identificar Preguntas
+		.Descripcion de la empresa y los resultados de la operacion de la misma
+		.Cuales son los clientes y quienes esperan recibir la informacion
+		.Caracterizacion del proceso de negocio sobre el cual se aplicara el analisis
+		.Cuales serian las fuentes de informacion a tener en cuenta
+		.CUales son las herramientas actualemente utilizadas para consultar la informacion de forma desagregada
+		.Que informacion o actividades son las mas relevante del proceso de negocio
+		.Que desea medir?
+		.Que informacion le permite tomar decisiones sobre el proceso a analizar
+		.Qué indicadores representan de mejor modo el proceso
+		.Cuales serian las perspectivas desde las cuales se consultarán dichos indicadores
+		.Cantidad aproximda de usuarios concurrentes
+
+
+	b.Indentificar indificadores y perspectivas
+		obtener indicadores y perspectivas del caso anterior
+		indicadores: valores numericos / saldos, promedios, sumatorias
+		perspectivas: objetos mediante los cuales se quiere examinar los indicadores
+			ejemplo: 
+			indicador: operaciones concluidas con exito 
+			perspectivcas: titulo, tipo de operacion, cliente, periodo-determinado
+			
+			ejemplo: 
+			indicador: clasificacion por tipo de operacion realida
+			perspecctivas: clientes, regional, rango-de-tiempo
+		
+		
+
+	c.Modelo Conceptual
+
+2.Analisis de los OLTP
+-------------------------------------
+	a.Conformar Indicadores
+	b.Establecer correspondencias
+	c.Nivel de granularidad
+	d.Modelo COnceptual Ampliado
+
+
+3.Modelo logico del Data Warehouse
+-------------------------------------
+	a.Tipo de Modelo Logico del DW
+	b.Tablas de Dimensiones
+	c.Tablas de Hechos
+	d.Uniones	
+
+4.Integracion de Datos
+-------------------------------------
+	a. Carga Inicial
+	b. Actualizacion
+	

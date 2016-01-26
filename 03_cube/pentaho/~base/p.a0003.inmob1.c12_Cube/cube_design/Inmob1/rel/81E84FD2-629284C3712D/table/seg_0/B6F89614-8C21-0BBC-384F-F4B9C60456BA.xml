@@ -1,0 +1,316 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B6F89614-8C21-0BBC-384F-F4B9C60456BA" name="proyectoinmob_dim">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>inmob1</sourceObjSchema>
+<sourceObjName>proyectoinmob_dim</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<commentInRDBMS>modela el proyecto inmobiliario existente o el prospecto&lt;br/&gt;(product)&lt;br/&gt;+++++++++++++++++++++++++++++++++++&lt;br/&gt;- es un proyecto, por lo cual es una estimacion del futuro&lt;br/&gt;- medidas para establecer: liquidez y ROI&lt;br/&gt;PREGUNTAS&lt;br/&gt;- debe partirse en una jerarquia por tipo de unidad inmobiliaria?&lt;br/&gt;SUBENTIDADES&lt;br/&gt;- tipologia del inmueble&lt;br/&gt;- rentabilidad del proyecto&lt;br/&gt;&lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>Inmob1</ownerDesignName>
+<schemaObject>3B09C9D2-8641-2D9E-5785-92EF0DA80BC9</schemaObject>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="00041403-39F4-DB0B-7694-E1BE669AA093">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>proyectoinmob_dim</sourceObjSchema>
+<sourceObjName>id</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tmp_apreciacion_calificacion" id="521854B6-5B8E-2A6F-8F32-4273E8DAF3A2">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>proyectoinmob_dim</sourceObjSchema>
+<sourceObjName>tmp_apreciacion_calificacion</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tmp_codigo" id="125CB2C7-1DC0-C301-C329-1599A5738D71">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>proyectoinmob_dim</sourceObjSchema>
+<sourceObjName>tmp_codigo</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tmp_estado" id="EDA837DC-361A-6403-C8D5-2D1BE5249BD2">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>proyectoinmob_dim</sourceObjSchema>
+<sourceObjName>tmp_estado</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<commentInRDBMS>se han detectado los siguientes estados&lt;br/&gt;es una dimension slowly-change&lt;br/&gt;- Prospecto&lt;br/&gt;- EnDesarrollo (venta+construccion)&lt;br/&gt;- Terminado&lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tmp_estrato_socioeconomico" id="2A25FC96-47AC-D701-609C-72C6DE792DB7">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>proyectoinmob_dim</sourceObjSchema>
+<sourceObjName>tmp_estrato_socioeconomico</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_entrega" id="B64A3006-97E0-4C31-D209-EDDEBBFDE1FB">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>proyectoinmob_dim</sourceObjSchema>
+<sourceObjName>fecha_entrega</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_inicio" id="FA41250C-97DA-849C-A8C6-D1619EDF6859">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>proyectoinmob_dim</sourceObjSchema>
+<sourceObjName>fecha_inicio</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="unidades_totales" id="82D8704F-8F49-F541-F20D-5564C78FAAFC">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>proyectoinmob_dim</sourceObjSchema>
+<sourceObjName>unidades_totales</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="areaconstruida_promedio" id="13427653-2C6F-F33A-BC96-D594667A42F9">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>proyectoinmob_dim</sourceObjSchema>
+<sourceObjName>areaconstruida_promedio</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo_inmueble_ofrecido" id="559B115B-E493-1329-14D4-9B90EA0C98B1">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>proyectoinmob_dim</sourceObjSchema>
+<sourceObjName>tipo_inmueble_ofrecido</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<commentInRDBMS>casa&lt;br/&gt;apartamento&lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tmp_ubicacion_latitude" id="309D652F-4B5B-0857-1A3B-ECE338265ADF">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>proyectoinmob_dim</sourceObjSchema>
+<sourceObjName>tmp_ubicacion_latitude</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>10</dataTypeScale>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tmp_ubicacion_longitude" id="EB6FBF65-9F81-C77B-DF33-DE464888D30C">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>proyectoinmob_dim</sourceObjSchema>
+<sourceObjName>tmp_ubicacion_longitude</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>10</dataTypeScale>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tmp_ubicacion_direccion" id="E42B2B5D-B931-A96B-7260-FBB61BCC8A04">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>proyectoinmob_dim</sourceObjSchema>
+<sourceObjName>tmp_ubicacion_direccion</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tmp_vr_ventas_promedio" id="2AAED46B-04DD-ACEE-480A-2D5CF91C4905">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>proyectoinmob_dim</sourceObjSchema>
+<sourceObjName>tmp_vr_ventas_promedio</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="areaunidad_promedio" id="62C36D17-DB7A-EB48-2989-C1F1DB4204B7">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>proyectoinmob_dim</sourceObjSchema>
+<sourceObjName>areaunidad_promedio</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tmp_num_habitaciones" id="9B30218A-6259-0893-1B36-49476CDAAE1B">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>proyectoinmob_dim</sourceObjSchema>
+<sourceObjName>tmp_num_habitaciones</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_ubicacion" id="B322EB13-AC7F-EEE3-9F64-6DE6225FCD1A">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>proyectoinmob_dim</sourceObjSchema>
+<sourceObjName>id_ubicacion</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<delegate>B6DCFCC8-B30F-7453-919A-B01C6828CE58</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6760F20A-1C39-5E81-8089-89DB40DC787E" referredColumn="B6DCFCC8-B30F-7453-919A-B01C6828CE58"/>
+</associations>
+</Column>
+<Column name="id_mngr" id="06DF119F-6029-C1E7-F8F5-FDCBFE8A2A3A">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>proyectoinmob_dim</sourceObjSchema>
+<sourceObjName>id_mngr</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<commentInRDBMS>referencia a manager/fiduciaria asociada al proyecto</commentInRDBMS>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<delegate>3DC58AB5-FA5F-39B1-907F-4862DE2E5D28</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EE5AAD7F-AF49-0E3E-0FC0-3BE4986BE1D6" referredColumn="3DC58AB5-FA5F-39B1-907F-4862DE2E5D28"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3F9BAE79-93D9-5374-BFCA-FA6999681BE8" name="pk_prinmb">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>inmob1</sourceObjSchema>
+<sourceObjName>pk_prinmb</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="00041403-39F4-DB0B-7694-E1BE669AA093"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E776A142-EEF6-9DB4-CA8B-632135FC741D" name="fk_prinb_mngr">
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="06DF119F-6029-C1E7-F8F5-FDCBFE8A2A3A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="06B9889E-93BD-3280-F3C4-73161A48AD9C" name="fk_prinm_ubic">
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B322EB13-AC7F-EEE3-9F64-6DE6225FCD1A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

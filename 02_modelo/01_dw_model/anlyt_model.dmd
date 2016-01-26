@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="anlyt_model" id="12D4CA00-F1FB-F81A-F7AA-3C65BA6B58F9" version="3.5">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-22 01:41:32 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>12D4CA00-F1FB-F81A-F7AA-3C65BA6B58F9</designId>
+</OSDM_Design>

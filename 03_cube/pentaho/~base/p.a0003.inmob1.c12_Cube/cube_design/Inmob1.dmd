@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Inmob1" id="C59DCD22-839C-CFE9-77F3-1AF7A58A3E10" version="3.5">
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:03:41 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>C59DCD22-839C-CFE9-77F3-1AF7A58A3E10</designId>
+</OSDM_Design>

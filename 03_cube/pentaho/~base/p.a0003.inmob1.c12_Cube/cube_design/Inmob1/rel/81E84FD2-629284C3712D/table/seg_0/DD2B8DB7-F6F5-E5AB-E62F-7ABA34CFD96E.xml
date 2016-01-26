@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DD2B8DB7-F6F5-E5AB-E62F-7ABA34CFD96E" name="manager">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>inmob1</sourceObjSchema>
+<sourceObjName>manager</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<commentInRDBMS>modela a la fiduciaria que maneja el proeycto inmobiliario</commentInRDBMS>
+<ownerDesignName>Inmob1</ownerDesignName>
+<schemaObject>3B09C9D2-8641-2D9E-5785-92EF0DA80BC9</schemaObject>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="3DC58AB5-FA5F-39B1-907F-4862DE2E5D28">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>manager</sourceObjSchema>
+<sourceObjName>id</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="E80B0464-ACF5-FDD5-FA86-2B6A1EE54533">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>manager</sourceObjSchema>
+<sourceObjName>nombre</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<commentInRDBMS>nombre de la fiduciaria</commentInRDBMS>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>128</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="37DC4EAD-A18D-93DF-5AAB-7BE7CB96038E" name="pk_mngr">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>inmob1</sourceObjSchema>
+<sourceObjName>pk_mngr</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3DC58AB5-FA5F-39B1-907F-4862DE2E5D28"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,94 @@
+<Schema name="FC-INMOB-Prospectos" description="Esquema de hechos relacionados con prospectos del modulo de inmobiliario" >
+  <Cube name="Inmobiliario_Revisiones_Cube" visible="true" cache="true" enabled="true" description="Cubo de prospectos que representa los proyectos inmobiliarios que han involucrado a los prospectos (vendedores y desarrolladores)">
+    <View alias="revision_fact">
+      <SQL dialect="generic">
+        <![CDATA[SELECT r_valor_ventas_proyecto, r_promedio_valor_unidad_area, r_promedio_area_inmueble, 
+       r_promedio_valor_inmueble, p_tipo_vivienda_vis, p_total_area_vendible_proyecto, 
+       u_area_construida_unidad, p_nombre_proyecto, p_cod_proyecto_glinmob, 
+       d_cvendedor_nombre, d_cconstructor_nombre, d_ubicacion_zona1_nombre, 
+       d_ubicacion_zona2_nombre, d_ubicacion_zona3_nombre, d_ubicacion_zona4_nombre, 
+       p_estrato_socioeconom, r_revision_fecha, r_revision_estado, d_manager_nombre, 
+       r_revision_id, r_revision_fecha_year, r_revision_fecha_month, r_revision_fecha_day
+  FROM v_revision_fact]]>
+      </SQL>
+    </View>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Ubicacion_Dim">
+      <Hierarchy name="Hierarchy" visible="true" hasAll="true" primaryKeyTable="v_revision_fact">
+        <Level name="Ciudad" visible="true" column="d_ubicacion_zona1_nombre" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Sector" visible="true" column="d_ubicacion_zona2_nombre" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Subsector" visible="true" column="d_ubicacion_zona3_nombre" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Barrio" visible="true" column="d_ubicacion_zona4_nombre" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Constructor_Dim">
+      <Hierarchy name="Hierarchy" visible="true" hasAll="true">
+        <Level name="Constructor" visible="true" column="d_cconstructor_nombre" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Vendedor_Dim">
+      <Hierarchy name="Hierarchy" visible="true" hasAll="true">
+        <Level name="Vendedor" visible="true" column="d_cvendedor_nombre" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" highCardinality="false" name="FechaRevision_Dim">
+      <Hierarchy name="Hierarchy" visible="true" hasAll="true">
+        <Level name="Anho" visible="true" column="r_revision_fecha_year" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="Mes" visible="true" column="r_revision_fecha_month" type="Numeric" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="Dia" visible="true" column="r_revision_fecha_day" type="Numeric" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="TipoVivienda_Dim">
+      <Hierarchy name="Hierarchy" visible="true" hasAll="true">
+        <Level name="TipoVivienda" visible="true" column="p_tipo_vivienda_vis" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Proyecto_Dim">
+      <Hierarchy name="Hierarchy" visible="true" hasAll="true">
+        <Level name="Proyecto" visible="true" column="p_nombre_proyecto" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+          <Property name="CodProyecto" column="p_cod_proyecto_glinmob" type="String">
+          </Property>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" name="Estrato_Dim">
+      <Hierarchy name="Hierarchy" visible="true" hasAll="true">
+        <Level name="EstratoSocioeconomico" visible="true" column="p_estrato_socioeconom" type="String" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" name="Estado_Dim">
+      <Hierarchy name="Hierarchy" visible="true" hasAll="true">
+        <Level name="Estado" visible="true" column="r_revision_estado" type="String" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" name="Manager_Dim">
+      <Hierarchy name="Hierarchy" visible="true" hasAll="true">
+        <Level name="Manager" visible="true" column="d_manager_nombre" type="String" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="valor_ventas_proyecto" column="r_valor_ventas_proyecto" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="promedio_valor_unidad_area" column="r_promedio_valor_unidad_area" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="promedio_area_inmueble" column="r_promedio_area_inmueble" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="promedio_valor_inmueble" column="r_promedio_valor_inmueble" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="area_construida_unidad" column="u_area_construida_unidad" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="total_area_vendible_proyecto" column="p_total_area_vendible_proyecto" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

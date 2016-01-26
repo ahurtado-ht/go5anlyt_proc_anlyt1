@@ -1,0 +1,115 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="827B7664-5C87-2396-FFA3-A4DCEF0AEFBC" name="ubicacion_dim">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>inmob1</sourceObjSchema>
+<sourceObjName>ubicacion_dim</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<commentInRDBMS>es la entidad de la jerarquia de Zona mas representativa&lt;br/&gt;La zona es la llave con la cual se busca la forma en la cual un sector ha crecido&lt;br/&gt;&lt;&lt; modela el DONDE &gt;&gt;</commentInRDBMS>
+<ownerDesignName>Inmob1</ownerDesignName>
+<schemaObject>3B09C9D2-8641-2D9E-5785-92EF0DA80BC9</schemaObject>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="zona5_barrio" id="6AD4279F-DA47-2D0D-92D5-F9AA9FF213FD">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>ubicacion_dim</sourceObjSchema>
+<sourceObjName>zona5_barrio</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>128</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="zona4_subsector" id="1315F172-0847-8C4F-0A07-ACAD57CE6373">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>ubicacion_dim</sourceObjSchema>
+<sourceObjName>zona4_subsector</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<commentInRDBMS>subsector</commentInRDBMS>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>128</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="zona3_sector" id="A4817332-4BCE-DCC6-B4DA-F1811E3723AC">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>ubicacion_dim</sourceObjSchema>
+<sourceObjName>zona3_sector</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>128</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="zona2_ciudad" id="DBD34DC4-5310-A635-1919-BCA689F0C798">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>ubicacion_dim</sourceObjSchema>
+<sourceObjName>zona2_ciudad</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>128</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="zona1_pais" id="165FCC1A-2025-3BF9-CE0F-2DE3EBAB555D">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>ubicacion_dim</sourceObjSchema>
+<sourceObjName>zona1_pais</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>128</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id" id="B6DCFCC8-B30F-7453-919A-B01C6828CE58">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>ubicacion_dim</sourceObjSchema>
+<sourceObjName>id</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E404A83D-D789-9926-7984-F2C430507CA2" name="pk_ubic">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>inmob1</sourceObjSchema>
+<sourceObjName>pk_ubic</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B6DCFCC8-B30F-7453-919A-B01C6828CE58"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,56 @@
+-> precio limpio (cuánto vale el precio en el mercado): el precio que se cotiza mejor en el mercado
+	variable que ayuda mucho
+-> cupon: cuánto está rindiendo el papel:
+
+
+cupon:
+a mayor riesgo, mayor tasa
+los mejor calificacion tienen mas baja tasa xq tienen menos riesgo.
+-> se puede mejor entidades que 
+
+
+
+
+plazo vs cupon: 
+  a mayor tiempo, menor tasa
+  (dias entre fecha de emision y fecha de vencimiento del papel)
+  traer a valor presente lo que se va a ganar.: si necesito saber cuánto vale si lo necesito vender.
+ 
+tipo de emisor y cupón: 
+	la teoria dice que en sector gobierno, las tasas son más bajas, 
+	pero en RD se ve que el gobierno tiene el más alto.
+  
+emision mejor calificada (codigo emision vr calificaicon)
+emision mejor paga  (codigo emision vs cupon)
+  
+nemo: como internamente identifica la emision ()
+isin: lo vuelve identificacion internacional
+codigo emision:   
+
+
+plazo: fechaVencimiento-fechaEmision
+
+
+titulos mejor transados en el mercado: 
+
+
+-> promedio del cupon:  
+ 
+  
+LO QUE SE VE
+
+-> mas transado, se vuelve escaso: nadie quiere salir de la accion
+-> a largo plazo: menos riesgo, un perfil mas conservador: entidades de mejor calificacion (menor tasa pero mejor calificacion)
+	-> carteras agresivas y conservadoras
+	
+-> cuál isin es el que tiene más transacciones	
+-> volatilidad de un isin
+
+	
+analisis1: lo mas negociado en lso ultimpos 3 meses
+analisis2: 
+	cual es el mas negociado: el valor transado
+	por mercado: 		
+	
+analisis3: 
+	a una fecha tiene varias ocurrencias

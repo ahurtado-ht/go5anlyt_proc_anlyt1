@@ -1,0 +1,129 @@
+reunion 01: bvrd
+  
+-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
+
+winston 
+ivan carvajal
+
+-------------------------------------------------------------------------------------
+
+- acuerdo de confidencialidad [ok]
+- los mas importantes: 
+	- integracion de mercados
+	- data mart
+-------------------------------------------------------------------------------------
+  
+  
+  DataMart
+  - 
+  
+  
+ - operaciones que se integran al dw
+ - va a ser procesada y explotada
+	fuentes de datos
+	- data transaccional de las operaciones del dia a dia
+		- sistema de backoffice
+			- participantes
+			- emisiones
+		- 
+		- informacion publica: banco central, min hacienda, los organismos economicos
+			- indice de inflacion
+			- indicadores macroeconomicos del pais
+			- resultado de las subastas del banco central
+			- resultado de la operacion de la misma
+			- ventanilla de facilidades
+			
+			
+--------------> DATAMART proyecto ---------------------------------
+	
+	- 
+	deberes de la bolsa 
+	- proveer info
+	- permitir el trading
+	- 
+
+	USUARIO: PUESTO DE BOLSA/ TRADER / CUALQUIER INVERSIONISTA (AFP,AFI)
+	
+		- para el momento de la PRETOMA de la decision
+		
+			Contexto Económico
+			
+				lectura de tasas (a nivel macroeconomico / indicadores macroeconomicos)?
+				- cómo anda la inflacion, el crecimiento, tasa de cambio, tasa de contraccion, tasa activa ponderada del sistema
+			
+			Liquidez
+			
+				cómo anda el mercado a nivel de liquidez (cual es la tasa de polica monetaria)
+				qué flujo de dinero se esta moviendo en el mercado financiero [qué pasa en el mercado]
+				qué tan líquido es el mercado (cupanto se tiene invertido en el banco central)
+				qué gano con el dinero parqueado en el banco central?
+			
+				[para tomar la decision de invertir, mira la liquidez]
+				[complementa la informacion con datos cualitativos: noticias que ocurren]
+				[invierto hoy en x titulo? o me aguanto una semana para invertir?]
+			
+			Negociacion
+				
+				- cuándo son las próximas subastas de la prox semana
+				- cuáles son los hechos futuros que se avecinan?
+				- cómo se comportan las subastas en cuanto a precio y riesgo con relacion a la politica monetaria
+				- fijar mi posicion con lo que entro a la subasta
+					- cómo se ha comportado x titulo en cuanto a subasta, precio y titulo
+				- qué está pagando otro instrumento , otro mercado
+				
+				- invierto en el mercado con un bono? o con un certificado de depósito?
+					
+					- tasa de contraccion
+					- tasa pasiva
+				
+				- que puedan acceder al usuario a traves de pip para recibir diariamente los precios del mercado
+					- vector gubernamental
+					- vector corporativo
+					[que el usuario pueda ver el vector de precios al datamart: comparar la data del datamart con la proveedora de precios]
+				
+				- cuanto está pagando un bono corporativo a 7 años?
+			
+		- en el momemto de la TOMA de decision
+		
+			cómo está el precio de un titulo en el nercado secundario.
+			necesito un titulo de vencimiento en el secundario
+			cuales titulos han sido negociados en las ultimas fechas [los titulos mas liquidos]
+			ultimas negociaciones de titulos semejantes
+			
+			reporte de la bolsa de valores que se publica hoy en dia,
+			reportes no amigables para tomar el tipo de decision
+			
+			[TODO: bolsa envia ejemplo de reportes: 
+				- boletin diario
+				- boletin de emisiones disponibles en bvrd
+				- ultimos precios de los instrumentos
+			]
+			
+			* la parte de liquidez en el titulo (10 titulos mas negociados: por volumen o por cantidad de hechos)
+
+			[tranza de operaciones: proceso core de bolss]
+			
+			* upgrade o downgrade a un titulo: qué pasó con ese título en el mercado? (si ha bajado o subido la calificación en un titulo: casi siempre en el gobierno siempre son triple-a)
+			* cual es la tendencia o la tasa en el tiempo 
+				- o cada cuanto tiempo cambia la tasa de un titulo: sube o baja la tasa de un titulo? (bonos: tasa variable)
+		
+		- posterior a la toma de decision
+			[cómo están variando los precios]
+  
+		-> superintendencia de valores tiene la data de los hechos del mercado
+		
+-> quien tiene un sistema? : la superintendencia de valores SEDI (servicios de informacion)
+
+	- emisor
+	- puesto de bolsa
+	- calificadora de riesgo
+	-> postean la info
+	
+	-> hay informacion que viene de la super
+	
+------------------------------------------------------------------------------------------	
+	[prox reunion martes a la 1:30]
+	
+	- logo alta resolucion
+	- 

@@ -1,0 +1,53 @@
+
+
+PROCESO DE TRADING ------------------------------------
+
+ (trading-transacciones)
+		2 formas de hacer trading: 
+		- OTC (over the counter/sobre el mostrador) o negociacion: acordar directamente (2 personas): mercado de OTC: hago la negociacion,
+		- Negociacion a ciegas (se muestra la oferta)
+
+	- quiero comprar 
+	- quiero vender
+	- los pone en contacto 
+	- (calce)
+	- clearing: liquidacion
+ (clearing - liquidacion)
+	
+ (selttement-cumplimiento)
+	
+ (custody-pago)
+ 
+ENTREGA DE INFORMACION ----------------------------------
+ (informacion de operacion sobre bolsa)
+	-> Proyecto dataMart / info procesos bolsa [3.1]
+ (entrega de info sobre el mercado)
+	-> Proyecto DataMart / infoMercado consolidada [3.2]
+ (proceso de participantes y emisiones)
+ 
+------------------------------------------------------------------------------
+mnemotecnico TTBR20 TES20
+------------------------------------------------------------------------------
+-> front: hacer transacciones, calzar / SIOPEL / a la terminal le llaman MEC-plus (pantallas que usan los corredores): solo para renta fija
+->																		XStream: para renta variable
+	[front: para calzar operaciones 1milon usd]
+
+-> backoffice: otro sw
+  
+-> sae: articula el puesto de bolsa con el banco de la republica, dcv, etc  
+
+-------------------------------------------------------------------------------------------------
+[fecha: 20130611]
+winston 
+ivan  
+
+-----------------------------------------------------------------------------
+1. leer http://www.bvrd.com.do/sites/default/files/docs/manual-procedimientos-bvrd-jul-2007.pdf (ch5: registro de op-bursatil)
+2. revision de entidades de hechos
+	- posibles entidades
+	- posibles cubos
+	- 
+	- 
+	
+------------------
+microstrategy mobile bi (para probar)	

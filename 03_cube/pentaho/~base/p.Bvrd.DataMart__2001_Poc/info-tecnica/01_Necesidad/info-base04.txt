@@ -1,0 +1,172 @@
+preparacion 20130717 (dw info)
+
+
+DW: proyecto --------------------------------------------------
+ - plan
+ req negocio
+ estructura
+ - arq-tec
+ - modelado dimensional
+	jerarquias: -> considerar relaciines a nivel negocio
+				-> una dimension puede clasigficarse en mas de una jerarquia ej: time [week,day] [month,week]
+				-> drill_down drill_up
+				
+				-> forma de refrescar
+					acumulating snapshot: un proceso de varios eventos; se modelan atributos-fecha en la cual pasa x evento, para el mismo hecho. la fila se actualiza
+
+				
+DW: inicio --------------------------------------------------
+ - top-down: vision empresarial (inmon)
+ - bottom-up: kimpball (datamarts)
+ 
+ 
+ http://www.teradata.com/resources/white-papers/Implementing-AJIs-for-ROLAP-eb5299/ (rolap data warehouse for stock exchange)
+ http://www.bvrd.com.do/sites/default/files/docs/manual-procedimientos-bvrd-jul-2007.pdf (ch5: registro de op-bursatil)
+ tableau nyse (newyork stock exchange)
+ http://churriwifi.wordpress.com (bi)
+referencias :::
+* the process of trading -> london stock exchange (electroning trading)
+* SIX sqiss exchange
+* Manual de procedimientos de la BVRD (en la web de la bolsa)
+	
+------------------------------------------------------------------------------------------		
+No olvidar validar: 
+
+* que los requerimientos o user stories sean SMART (Specific, Measurable,Achievable,Relevant, Time-bound)
+* 5 why (con el fin de validar las preguntas de negocio que salen):por qué es importante x pregunta de negocio
+
+Requerimientos:
+	Topic		(area principal o proceso al cual el requerimeinto pertenece)
+	Audience	(usuario de negocio de la solución  - del cubo - )
+	Owner		(usuario a quien le sirve más la solución)
+	User Demand (qué necesita el usuario y cómo lo va a usar)
+	Questions answwered (las preguntas de negpcio a las cuales la solución da respuesta)
+	Delivery Mechanism (la forma en la cual se va a enviar la información generada a los usuarios)
+	Information Sources: dónde hay información adicional al respecto o qué personas deben ser preguntados
+	Data Sources: databases/tables  usadas apra obtener la informacion
+	Data Coverage: indicar la completez de los datos disponibles para responder la pregunta de negocio
+	Cost Estimation: time + investment necesitado para construir la solucion
+
+		
+------------------------------------------------------------------------------------------		
+BVRD :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+PREGunta 1: ...........................
+
+	hemos desarrollado varios proyectos con herrameintas de manejo analítico como ssis, pentaho y ahora estamos evaluando microstrategy. 
+	Antes de mirar costos, nos gustaría dimensioanr el esfuerzo para el proceso de desarrollo de un hecho real o un trabajo real dentro de la bolsa, por lo cual:
+		
+		- ejemplo real de un informe por el cual el cliente hoy en día pague, con el fin de hacer un prototipo y de paso estimar 
+			el esfuerzo para realizar una de esas salidas.
+		
+		-> hecho real / ejemplo real. -> si por favor 
+		
+	a qué preguntas responde ese informe?
+	qué procesos de negocios se encuentran implicados?
+	qué indicadores se encuentran representados?
+
+PREGUNTA 2: ..............................
+	
+- qué indicadores representan mejor el proceso o la actividad de la bolsa que se quieren reflejar? (ejemplos de preguntas)
+
+	* How much revenue do we generate by region, month, and movie category?
+	* Which movie categories generate the highest revenue and is this constant over time?
+	* How does our performance compare to the total entertainment market?
+	* Are we growing faster or slower than our main competitors? 
+	
+	ejemplo del cuadro a armar
+	[Tema analitico] [requested analysis]			[business process] [comments]
+		sales planning hystorical order analysis	sales				by region, by customer type
+	
+	
+- qué información del proceso se quiere recolectar y pide el cliente del datamart
+
+	
+
+
+- que informacion pide el cliente que es mas costosa procesar
+
+
+
+
+
+- temas pendientes: revision de entidades de hechos
+	- posibles entidades
+	- posibles cubos
+	
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+reunión 20130718 (informe) ------------------------------------------------------------------------------------------
+-> ivan preparó el informe
+	
+-> tendencia del mercado entero 
+	se agilizaron mas las transacciones
+	
+	PREGUNTAS DE NEGOCIO
+	
+	* 	lo mas negociado en diferentes mercados en los ultimos 3 meses (informe preparado por ivan)
+		un participante quiere saber cuál es el titulo mas negociado y los datos por vendimiento de título
+	
+	* 	los titulso mas negociados en una fecha que tenian x fecha de vencimiento
+		la tendencia que mas se ve: colcoarse en la curva media
+
+	*	volumen: cantiodad de operaciones x lines linea: un titulo  y se agrupa segun mercado
+		
+	*	en el 2013, qué títulos fueron negociados
+			
+	*	titulos mas caros 
+
+	*	precio promedio ponderado de las transacciones de los titulos en los ultimos meses
+		-> segun volumen x precio acorde a x horizonte de tiempo
+		-> fecha incicial y final.
+		
+	*	la evolucion del valor de los titulos que vencen en determinado año, según la fecha de operación
+			(valor en DOP de la operacion) vs (fecha de operacion)
+plata *y(
+fecha operacion
+serie> anio vencimiento		
+
+	CARACTERISTICAS ESPECIFICAS
+	
+		-> segun el mercado: de momento solo renta fija (se quitó renta variable)
+		-> que el usuario tenga la herramienta para poder crear los grids de datos
+		-> tratando de llegar a que sea en linea
+		-> terminal para acceder 
+		-> que yo pueda a una data dinamica que se le cambie la fecha
+		
+	ATRIBUTOS
+		-> pesos o dolares: tasa en la cual se hizo la oepracion (otra tabla).
+		-> existen titulos p-ej en dolares 
+		-> x vencimiento en dolares 
+		-> x año vencimeinto
+		-> x año mes dia
+		-> emisores
+		-> operaciones
+		-> emisiones			
+	
+	FUENTES DE REPORTE
+	
+	2 fuentes del reporte: 
+		- transacciones del mercado secundario (datos de las operaciones)
+		- market makers o creadores del mercado (datos de las emisiones)
+		-> tabla de emisores, emisiones y operaciones.
+		- x solicitud
+		
+	

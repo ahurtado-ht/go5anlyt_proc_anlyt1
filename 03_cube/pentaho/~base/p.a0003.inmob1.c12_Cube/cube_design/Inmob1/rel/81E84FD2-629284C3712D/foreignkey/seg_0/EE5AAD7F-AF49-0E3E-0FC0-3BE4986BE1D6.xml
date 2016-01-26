@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="EE5AAD7F-AF49-0E3E-0FC0-3BE4986BE1D6" name="fk_prinb_mngr">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>inmob1</sourceObjSchema>
+<sourceObjName>fk_prinb_mngr</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<containerWithKeyObject>B6F89614-8C21-0BBC-384F-F4B9C60456BA</containerWithKeyObject>
+<deleteRule>NO ACTION</deleteRule>
+<localFKIndex>E776A142-EEF6-9DB4-CA8B-632135FC741D</localFKIndex>
+<keyObject>37DC4EAD-A18D-93DF-5AAB-7BE7CB96038E</keyObject>
+<mandatory>false</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

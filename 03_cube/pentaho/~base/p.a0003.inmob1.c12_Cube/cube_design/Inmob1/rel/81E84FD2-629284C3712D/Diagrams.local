@@ -1,0 +1,4 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="main_view" objectID="B0B26C9C-3F66-C98E-3E8B-D46A961E6F7B" name="inmob1_dw.postgres" visible="true"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

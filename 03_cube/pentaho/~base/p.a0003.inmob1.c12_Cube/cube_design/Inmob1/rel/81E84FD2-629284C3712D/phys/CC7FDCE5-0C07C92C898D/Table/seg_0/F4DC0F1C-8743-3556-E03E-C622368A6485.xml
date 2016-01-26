@@ -1,0 +1,35 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyDB2v80 class="oracle.dbtools.crest.model.design.storage.db2.v80.TableProxyDB2v80" name="pk_itemvt" directorySegmentName="seg_0" id="F4DC0F1C-8743-3556-E03E-C622368A6485">
+<createdTime>2015-02-09 11:04:07 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<schemaObject>3B09C9D2-8641-2D9E-5785-92EF0DA80BC9</schemaObject>
+<numberOfRows>0</numberOfRows>
+<owner>OWNER_IMPLICIT</owner>
+<materializedQuery>NO</materializedQuery>
+<mqColumnDefaults>EXCLUDING</mqColumnDefaults>
+<mqIdentityColumnAttr>EXCLUDE</mqIdentityColumnAttr>
+<mqmaintenance>BY SYSTEM</mqmaintenance>
+<mqQueryOptimization>ENABLE</mqQueryOptimization>
+<mqStatus>MATERIALIZED QUERY</mqStatus>
+<partitioned>NO</partitioned>
+<tableAccess>NOT VOLATILE</tableAccess>
+<columnProxies>
+<ColumnProxy class="oracle.dbtools.crest.model.design.storage.db2.v80.ColumnProxyDB2v80" name="id" id="F411850A-A5FE-725B-4D9F-283AEFE6D616">
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:07 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<columnIdentity class="oracle.dbtools.crest.model.design.storage.db2.v80.ColumnIdentityDB2v80" name="CI3" id="EAD11842-63A1-5DCA-0066-D88915E80A94">
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:07 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<cache>0</cache>
+<column>F411850A-A5FE-725B-4D9F-283AEFE6D616</column>
+<cycle>false</cycle>
+<generate>BY DEFAULT</generate>
+<incrementBy>1</incrementBy>
+<startWith>1</startWith>
+<order>YES</order>
+</columnIdentity>
+</ColumnProxy>
+</columnProxies>
+</TableProxyDB2v80>

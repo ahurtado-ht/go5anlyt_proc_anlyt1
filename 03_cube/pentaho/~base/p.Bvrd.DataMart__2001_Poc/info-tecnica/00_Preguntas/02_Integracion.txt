@@ -1,0 +1,136 @@
+PLAN PARA IMPLEMENTAR INTEGRACION-DE-MERCADOS  (soa) --------------------------------------------------------------------------------- 
+
+a: contexto del negocio
+
+	0: identificar necesidades de negocio o motivadores de los proyectos
+	
+		- describir el impacto
+		
+			Ejemplo 1: 
+		
+				De la reunion anterior se ha extraido el siguiente motivador de negocio:
+				
+					- 	la bolsa debe brindar facilidad para introducir ordenes, dado que es el centro de 
+						negociación para inversionistas y emisores. Los problemas que se han identificado son:
+						
+						- baja latencia en ingreso de ordenes 
+						- eficiencia operacional 							
+						- agilidad en adaptacion a nuevos negocios			
+						- redigitacion (riesgo en los clientes)
+						
+						lo cual da origen al proyecto: integracion de mercados
+		
+			PREGUNTA: [cuáles son las líneas de negocio que maneja la bolsa de valores?]
+			PREGUNTA: [qué necesidad de negocio motiva c/u de los proyectos de integracion de mercados, datamart, datarooom?]
+	
+		- Ahora se va a trabajar uno a uno cada proyecto.
+		- Se va a comenzar con el proyecto "INTEGRACION DE MERCADOS"
+		- la motivacion es, que si se ataca este proyecto, se puede motivar mayor inversion en la bolsa
+	
+	1: identificar los procesos [PROCESS MODEL]
+	
+		- listado de PROCESOS de negocio "orientados a los clientes"	
+		
+			[PREGUNTA: Qué servicios/procesos actualmente solicitan los clientes desde afuera y que pueden llegar a automatizarse ?]	
+
+		- scope de piloto a implementar: buscar el killer service [PREGUNTA: cuáles de ellos considera el mas relevante?])
+			- NOTA: motivadores para hacer la selección: 	
+				* ROI de corto plazo
+				* innovacion tecnológica
+				* diferenciacion ante la competencia
+			
+		- por cada uno de los procesos identificados en el paso anterior ...: (comenzar por el killer service)
+		
+			- describir la forma como se hace hoy en dia (identificacion AS-IS)
+	
+				PREGUNTA: actualmente de alguna forma se está resolviendo el problema de integración de órdenes, por favor describir este flujo de actividades
+				NOTA1: tener en cuenta las aplicaciones/fuentes de información que interactúan en el proceso	[PREGUNTA: qué aplicaciones interactúan en este proceso?]
+				NOTA2: tener en cuenta identificar SERVICIOS requeridos para ejecutar cada proceso (por aplicacion) [PREGUNTA: qué servicio es expuesto? qué servicio se consume?]
+				NOTA3: elementos reguladores [PREGUNTA: qué regulaciones aplican a la ejecución de este proceso?]
+				
+			- describir la forma esperada de hacerlo [identificacion TO-BE]
+				- PREGUNTA: cuál sería la forma esperada de hacerlo?
+				- actividades: [PREGUNTA: qué actividades se pueden automatizar de cada proceso?]
+				- indicadores [PREGUNTA: cuáles son los indicadores de mayor interés que se pueden sacar luego de ejecutado un proceso?]
+			
+			- describir la capa en la cual se realizaría integración
+				(a nivel de presentacion)
+				(a nivel de servicios)
+				(a nivel de datos)
+
+
+	2: 	identificar los datos requeridos para propósitos de la itnegración [INFORMATION MODEL]		
+		- identificar origenes de datos  / aplicación origen y destino
+			- PREGUNTA: de las aplicaciones levantadas en el paso anterior, cuáles son las entidades de negocio manejadas, qué aplicación es dueña de qué datos y a quién tiene que notificar?
+		- identificar datos intercambiados en el modelo
+			- PREGUNTA: por servicio, qué datos se están intercambiando?
+				- campo.nombre
+				- campo.tipo
+				- campo.tamaño
+				- campo.nullable?
+				- reglas de procesamiento/ reglas de transformacion
+		
+	3. definir metodo de integracion a usar [TECHNOLOGY MODEL]
+		
+			- tecnica
+				- point to point
+				- middleware
+			- detalles 
+				- request-reply/request-only,
+				- protocolo y tecnologia (ej: soap over http, rest, jms)
+					PREGUNTA: bajo qué tecnología se expondrán los servicios? [soap/rest]				
+			- tecnologias de trabajo para integracion existentes 
+				- (middleware,integration platforms) 
+					- runtimes de apoyo
+					- plomería / middleware 
+					- software base
+					
+					[PREGUNTA: se cuenta con inversión en tecnologías de middleware?, cuales? ]
+					
+				- estándares
+					[PREGUNTA: qué estándares deben manejar estos servicios? [fix] ]
+			- no funcionales requeridos
+				- seguridad 	
+					[PREGUNTA: hoy en día cómo se gestiona la seguridad en el proceso XXXX ?]
+					[PREGUNTA: hoy en día cómo se maneja la identidad de cada persona que entra a ejecutar un proceeo? ?]
+					[PREGUNTA: existe algun estandar o alguna politica de seguridad manejada al interior de la bolsa?]
+				- monitoring / bam
+					PREGUNTA: cómo se van a monitorear estos servicios?
+				- testing
+				- scheduling		
+				- monetizing
+					PREGUNTA: cómo se van a monetizar estos servicios?
+				- rendimiento 
+					[PREGUNTA: hoy en día cuánto dura la ejecución del proceso XXXX ?]
+				- disponibilidad 
+					[PREGUNTA: hoy en día cómo se garantiza la disponibilidad del proceso xxxx?]
+				- concurrencia 
+					[PREGUNTA: hoy en día cuántas personas a la vez en condiciones pico/valle ejecutan el proceso xxxx?]
+	
+
+PLAN PARA IMPLEMENTAR DATAROOM (dms/cms)------------------------------------------------------------------------------------- 
+1. identificacion de motivadores/problemas de negocio: 
+	-> en la Linea de negocio: Suministrar informacion a los actores del mercado:
+		- baja latencia en disponibilidad de la informacion (proyecto:dataroom)
+ 
+	TODO
+PLAN PARA IMPLEMENTAR DATAMART (bi)------------------------------------------------------------------------------------- 
+	TODO
+
+	
+	
+Referencias
+- succesful soa implementatio
+  http://www.huibert-aalbers.com/IT_Insight/Spanish/WhitePapers/ITI007Sp-SuccessfulSOAImplementation.pdf	
+- metodologia 1
+  http://www.acis.org.co/fileadmin/Base_de_Conocimiento/XXIX_Salon_de_Informatica/1-ConsueloFranky-PanoramaSOA-conceptos-retos.pdf
+Ejemplos bolsas de valores
+ - Tradelect & Infoelect http://www.londonstockexchange.com/products-and-services/technical-library/technical-guidance-notes/fix-technical-specification.pdf	
+ - Etrading IBM: http://public.dhe.ibm.com/common/ssi/ecm/en/fab03002usen/FAB03002USEN.PDF
+ - soa colombia: http://www.acis.org.co/fileadmin/Base_de_Conocimiento/XXIX_Salon_de_Informatica/10-WalterPaternina-SOA-BolsaColombiana.pdf
+ - tibco, metodologia: http://www.sophosbanking.com/documentos/servicios_bancarios/experiencia/Consultoria%20en%20Arquitectura%20SOA.pdf
+  
+  
+  
+-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------  

@@ -1,0 +1,12 @@
+# startdb
+shutdown immediate
+startup
+
+# configure session
+select PDB from v$services;
+#alter session set container=cdb$root;
+
+# activates the mode to not write c## to create a user in 12c.
+alter session set "_oracle_script"=true;
+
+

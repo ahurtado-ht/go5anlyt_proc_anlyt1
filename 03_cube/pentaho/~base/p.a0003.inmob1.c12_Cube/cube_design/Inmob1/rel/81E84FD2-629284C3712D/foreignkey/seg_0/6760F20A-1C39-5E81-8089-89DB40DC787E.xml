@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="6760F20A-1C39-5E81-8089-89DB40DC787E" name="fk_prinm_ubic">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>inmob1</sourceObjSchema>
+<sourceObjName>fk_prinm_ubic</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<containerWithKeyObject>B6F89614-8C21-0BBC-384F-F4B9C60456BA</containerWithKeyObject>
+<deleteRule>NO ACTION</deleteRule>
+<localFKIndex>06B9889E-93BD-3280-F3C4-73161A48AD9C</localFKIndex>
+<keyObject>E404A83D-D789-9926-7984-F2C430507CA2</keyObject>
+<mandatory>false</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

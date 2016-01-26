@@ -1,0 +1,60 @@
+=====================================
+= PLAN PARA IMPLEMENTAR DATAROOM 
+=====================================
+
+
+0.Que es un data room?
+-------------------------------------
+El data room, es simplemente un punto 
+de información, en donde se comparten 
+estadísticas, datos logísticos y en 
+general datos básicos en el desarrollo 
+empresarial. 
+
+
+1.Data room interno o externo?
+-------------------------------------
+
+Internos: Son los que sirven de punto 
+de información interna, exclusiva 
+y confidencial de las compañías. 
+
+
+Externos: Son los rooms en donde la 
+información es abierta y disponible, 
+generalmente para clientes, proveedores 
+o investigadores. 
+
+
+2.Analisis de requerimientos
+-------------------------------------
+	.Cual sera la finalidad del data room ?
+		La información debe tener una finalidad 
+		en el momento de ser transmitida. 
+		El propósito básico es informar, evaluar, 
+		convencer u organizar la información.
+
+	.Cual seria Modo y formato de generar la informacion
+		Documentos o Graficos, ambos?
+
+	.CUal seria la Redundancia/eficiencia de la informacion
+		La redundancia es el exceso de información 
+		transmitida por unidad de datos. 
+		Constituye una medida de seguridad en contra 
+		de los errores en el proceso de comunicación. 
+		La eficiencia del lenguaje de datos es el 
+		complemento de la redundancia.
+
+	.Cual seria la frecuencia en que se consulta la informacion
+		La frecuencia con que se transmite o recibe 
+		información repercute en su valor. 
+		La información que aparece con excesiva frecuencia 
+		tiende a producir interferencia, ruido o distracción.
+	
+
+	
+
+		
+	
+	
+

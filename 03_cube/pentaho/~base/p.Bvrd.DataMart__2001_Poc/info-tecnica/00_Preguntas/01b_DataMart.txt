@@ -1,0 +1,172 @@
+Caso Practico (Proceso XXXXXXXXXXXXXX = Proceso de Programacion de pagos - FiduPagos)
+	Cuáles son los objetivos estratégicos que un cliente busca cuando observa la informacion reportada?
+
+PASO 1: IDENTIFICAR PREGUNTAS 	
+	
+	* Idea central: preguntas sobre el negocio que incluyan variables de análisis que se consideren relevantes (ya que son éstas las que permitirán estudiar la información desde diferentes perspectivas)
+	* que la información se pueda sacar de un OLTP
+	PREGUNTA: actividades de mayor relevancia en el proceso de programacion y pagos que sean medibles
+	PREGUNTA: qué indicadores representan de mejor modo el proceso XXXXXXXXXXXXXX 
+		(ejemplo: si el proceso son las ventas espero datos relacionados con las unidades vendidas y el monto total de ventas)
+	PREGUNTA: perspectivas desde las cuales se consultarán dichos indicadores
+		(ejemplo: unidades vendidas de producto para los clientes en un periodo determinado )
+		(ejemplo: monto total de ventas a los clientes discriminado por regional a través rangos de tiempo determinados -  meses/años - )
+PASO 2: IDENTIFICAR INDICADORES Y PERSPECTIVAS
+	obtener indicadores y perspectivas del caso anterior
+	indicadores: valores numericos / saldos, promedios, sumatorias
+	perspectivas: objetos mediante los cuales se quiere examinar los indicadores
+	ejemplo: 
+		indicador: unidades vendidas
+		perspectivcas: producto, cliente, periodo-determinado
+	ejemplo: 
+		indicador: monto-total-de-ventas
+		perspecctivas: clientes, regional, rango-de-tiempo
+		
+----------------------------------------------------------------------------------------------
+EJEMPLOS PREG FINANCIERAs (108 of pentaho e-book)
+
+	* How much revenue do we generate by region, month, and movie category?
+	* Which movie categories generate the highest revenue and is this constant over time?
+	* How does our performance compare to the total entertainment market?
+	* Are we growing faster or slower than our main competitors?
+
+----------------------------------------------------------------------------------------------
+PUNTOS A TENER EN CUENTA (195 of pentaho e-book)
+	Requerimientos:
+		Topic		(area principal o proceso al cual el requerimeinto pertenece)
+		Audience	(usuario de negocio de la solución  - del cubo - )
+		Owner		(usuario a quien le sirve más la solución)
+		User Demand (qué necesita el usuario y cómo lo va a usar)
+		Questions answwered (las preguntas de negpcio a las cuales la solución da respuesta)
+		Delivery Mechanism (la forma en la cual se va a enviar la información generada a los usuarios)
+		Information Sources: dónde hay información adicional al respecto o qué personas deben ser preguntados
+		Data Sources: databases/tables  usadas apra obtener la informacion
+		Data Coverage: indicar la completez de los datos disponibles para responder la pregunta de negocio
+		Cost Estimation: time + investment necesitado para construir la solucion
+
+------------------------------------------------------------------------------------------		
+No olvidar validar: 
+* que los requerimientos o user stories sean SMART (Specific, Measurable,Achievable,Relevant, Time-bound)
+* 5 why (con el fin de validar las preguntas de negocio que salen):por qué es importante x pregunta de negocio
+		
+------------------------------------------------------------------------------------------		
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------		
+------------------------------------------------------------------------------------------		
+
+REUNION: 
+
+cantidad de solicitudes
+valores
+fuentes de pago
+cuánto se le paga a grandes contribuyentes
+cuanto por tipo de negocio: inmobiliario, por garantia
+
+======================
+Proceso de pagos
+ 1. REGISTRO DE OEPRACION
+ - yo registro la operacion (qué va a pagar, cuándo se va a pagar, a quién, qué empresa a quién)
+ - la operacion tiene 3 fuentes 
+	-> [registro-manual FDMOGRMV]
+	-> [registro-masivo FDMOGRMV] fideicomiso, tipo de movimiento, solicitudes de pago (un excel de fidupagos. la forma lo convierte a un csv)
+	-> [registro-masivo fidupagos]
+	-> [cargues de cuentas x pagar FDMOCAMI]
+	-> [cargue integral FDMO]: que pretende que el cargue masivo no se use a futuro. arranca con un txt
+ 2. PRELIQUIDACION
+ - a aprtir de una formula y segun el concepto de pago , calcula los impuestos (retefuente, reteiva, reteica, impuestos territpriales, otros tipos de descuento)
+ - crea las instrucciones; ejemplo: 
+	del $1000000 que tenia que pagar, se me fueron $900 para el proveedor -> instruccion 100
+									  se me fueron $100 en descuentos
+		
+	
+ 3. GRABACION DE LAS INSTRUCCIONES [FDMOINPG tabla:FD_TINPG al confirmar salta a la tabla CP_TINPG]
+ - slo si preliquidé []
+ -> en la grabacio se define cómo voy a pagara
+		-> transferncia a cuentas
+		-> transfernciias a encargo
+		-> puede definir los beneficiarios del pago
+ ->  cómo pago a los impuestos? [fiduciaria reenvía a la sociedad? la sociedad los paga?]		
+ 4. AUTORIZAR OPERACION [FDMOAOOE]
+ -> efectos presupuestales
+ -> efectos contables (causacion)
+ -> orden de pago (ORPA que llega a tesoreria)
+ 
+ --> termina programacion de pagos <--
+ luego sigue la tesoreria
+ 5.CUMPLIMIENTO
+  -> afecta la caretar o la cuenta con la cual se dijo que se iba a hacer el pago
+ 
+ 
+ 
+CAMINOS ALTERNOS ========== 
+1.1 VARIATE: que reducen el base para calcular impuestos
+	-> descuentos financieros
+	-> notas debito
+2.1 VARIANTE: luego de preliquidar (marcar para causar sin instrucciones)
+ - dejeme causada una factura, pero no se de dónde la voy a apgar
+ - se coloca la marca para causaar.
+ - la parte de autorizr operacion la puede ver, pero la tesoreria no la ve xq no tiene instrucciones de pago
+3.1 FONDEOS
+ - si voy a pagar x cuenta o x encargo, puedo traer los recursos de una cuenta dispersora ()
+PARTICULARIDADES COLDEX ====
+sifi no es multimoneda, pero coldex hace muchas oepracioens en doolares, 
+3.2 toca guaardar la TRM con la que caucé, y con la que pagué. pueden ser diferentes: debe ajustar el valor para que cuadre la contabilidad.
+4.2 
+ 
+============== 
+---> el modulo le cuenta cómo está trabajando, pero no le toma decisiones
+ - en régimen simplificado
+ - a  cuánto se le paga para negocios inmobiliarios, 
+ - cuánto se estpa pagando por garantía
+ - qué tipo de negocio me está generando menos pagos
+ - cómo hago mis pagos de obligaciones?
+ --> soli hace caso lo que dice el fideucomitente
+ 
+============== QUIKS del asunto 
+ que la activida exista
+ que sea definida bien la ciudad
+=========================
+ROLES: analissitas y directores de negocio [miran el registro de la oepracion]
+ROLES: preliquidacon y grabacion: anallisitas
+ROLES: utorizdores: director de negocio
+ROLES: cumplimiento: lo hace el tesorero
+ 
+==== 
+-> cantidad de oepraciones  y valor (le cobro $100 por hacer 1 opracion y le cobro a este $200 por hacer 50 operaciones)
+-> cuánto le cobro en comision (problema: si se está cobrando fija la comisión) 
+-> distribución x ciudad por la cual se captura la solicitud (la ciudad donde se causó el impuesto donde el tercero prestó el servicio: donde declaró el tercero)
+-> cantidad de solicitudes (por negocio, por periodo, fuente de pago, )
+==== 
+
+cantidad de operaciones
+ por ciudad [region]
+ por oficina
+ por periodo
+ por concepto
+ por origen de los recursos [desde dónde voy a sacar la plata para cumplir]
+ comisión que estoy cobrando por operaicon [ojo que depende si está cbrando fija la comisión]
+ [por tipo de negocio: ]
+ [por tipo de retencion: regimen simplificado, regimen comun AUXITPRET]
+
+-- acorde a los ejemplos  -----------------
+categoria: por tipo de negocio y por tipo de retencion 
+si la cantidad de operacione ses constante sobre el tiempo 
+fideicomiso tiene unis tipos de negocio con x caracteristicas, pero el mencaro se está moviendo hacia cierto tipo de fideicomisos
+[clasificacion por tipo y subtipo del fideicomiso]: 
+a nivel del sector, mis negocios respecto a otro cómo se clasifican
+
+=========================================
+ cómo relacionarlo con facturación y cartera [pra establecer las comisiones]
+=========================================
+ es para fiducoldex: cldxprod
+ [por tipologia y por tipo de negocio]
+ 
+-------------------------------------------------------------------------------
+ hoy: plan de trabajo (validar estado del arte )
+ fashion: 70% esta semana 
+ revision modelo dimensional: raul [jueves en la tarde, previa confirmacion: a las 4:30]
+ preubas para poder validar el cubo []
+-------------------------------------------------------------------------------
+ 
+
+ 

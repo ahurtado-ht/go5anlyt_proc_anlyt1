@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<reportRecord xmlns="http://www.pentaho.com">
+    <commonStorageAttributes update="2013-09-10T12:12:08" created="2013-09-09T16:52:24" updatedBy="joe" createdBy="joe">
+        <path folder="APP_ROOT/0002_Dashboards/WidgetLibrary/0010-03a_TopNVrTransad Mercado (H).xanalyzer" name="0010-03a_TopNVrTransad Mercado (H)"/>
+    </commonStorageAttributes>
+    <report freezeRows="true" freezeColumns="true" autoRefresh="true" version="8" showDrillLinks="true" emptyCellDisplay="-" showEmptyCells="false" useNonVisualTotals="false" showColumnGrandTotal="false" showRowGrandTotal="false" reportTypeEnum="PIVOT" cube="00_RentaFija" catalog="BVRD_DemoSchema">
+        <measures>
+            <measure gembarOrdinal="0" gembarId="measures" id="[MEASURE:0]" sortOrderEnum="DESC" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showAggregate="true" showSum="false" formula="[Measures].[VrTran]">
+                <displayLabels>
+                    <displayLabel labelPlural="" label="VrTran" locale=""/>
+                </displayLabels>
+                <numberFormat currencySymbol="$" formatShortcut="DATA_BAR_GREEN" formatScale="0" formatCategory="Default">
+                    <formatExpression></formatExpression>
+                </numberFormat>
+            </measure>
+            <measure id="[MEASURE:1]" sortOrderEnum="NONE" measureTypeEnum="PCTOF" showMin="false" showMax="false" showCount="false" showAverage="false" showAggregate="true" showSum="false" formula="[Measures].[VrTran]">
+                <displayLabels>
+                    <displayLabel labelPlural="" label="% of VrTran" locale=""/>
+                </displayLabels>
+                <summaryFacet useNonVisualTotals="false" summaryAcrossEnum="ROWS"/>
+                <numberFormat currencySymbol="$" formatShortcut="NONE" formatScale="2" formatCategory="Percentage (%)">
+                    <formatExpression></formatExpression>
+                </numberFormat>
+            </measure>
+        </measures>
+        <columnAttributes/>
+        <rowAttributes>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Emision_Dim.Emision_Hierarchy].[Emision]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[CaracteristicasEmision_Dim.CaracteristicasEmision_Hierarchy].[Instrumento]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Emisor_Dim.Emisor_Hierarchy].[Emisor]"/>
+        </rowAttributes>
+        <filters>
+            <filter viewFilterEnum="MULTIPLE" formula="[Emision_Dim.Emision_Hierarchy].[Emision]">
+                <topBottom count="5" type="TOP" formula="[Measures].[VrTran]"/>
+            </filter>
+        </filters>
+        <chartOptions legendFontFamily="Default" labelFontFamily="Default" legendStyle="PLAIN" legendColor="#000000" legendSize="12" legendBackgroundColor="#ffffff" labelStyle="PLAIN" backgroundColorEnd="#ffffff" maxChartsPerRow="3" backgroundFill="NONE" labelSize="12" labelColor="#000000" backgroundColor="#ffffff" maxValues="100" lineShape="CIRCLE" lineWidth="2" displayUnitsSecondary="UNITS_0" autoRangeSecondary="true" displayUnits="UNITS_0" autoRange="true" showLegend="true" legendPosition="RIGHT" customChartType="ccc_line" chartType="CUSTOM"/>
+        <selectionFilters/>
+        <selectionItems/>
+        <pageSetup excelScalingPageTall="1" excelScalingPageWide="1" excelScalingPercent="100" excelScalingType="PERCENT" pdfOrientation="LANDSCAPE" excelOrientation="LANDSCAPE" pdfPageSize="LETTER" excelPageSize="LETTER"/>
+    </report>
+    <uiAttributes showFilterPanel="false" showFieldLayout="true" showFieldList="true">
+        <rowFieldWidths actualWidths="96,188,141"/>
+        <columnDataFieldWidths actualWidths="120,120">
+            <labelWidth index="0">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="1">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="2">
+                <width>0</width>
+            </labelWidth>
+        </columnDataFieldWidths>
+        <pluginData>[]</pluginData>
+    </uiAttributes>
+</reportRecord>

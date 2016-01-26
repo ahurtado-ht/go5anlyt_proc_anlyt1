@@ -1,0 +1,187 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="72AE5AE9-6A8C-0286-B3EF-FA0B9374DA28" name="revision_fact">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>inmob1</sourceObjSchema>
+<sourceObjName>revision_fact</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<commentInRDBMS>sinonimos para esta entidad: &lt;br/&gt;- avance del proyecto inmobiliario&lt;br/&gt;- evento de reporte&lt;br/&gt;- evolucion del proyecto inmobiliario&lt;br/&gt;- item de captura de avance del proyecto&lt;br/&gt;- track de eventos que surgen en un proyecto inmobiliario&lt;br/&gt;++++++++++++++++++++++&lt;br/&gt;modela el &lt;&lt; QUE &gt;&gt;</commentInRDBMS>
+<ownerDesignName>Inmob1</ownerDesignName>
+<schemaObject>3B09C9D2-8641-2D9E-5785-92EF0DA80BC9</schemaObject>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="069E95D2-D6E0-5EDE-BBCD-6A576A4246EA">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>revision_fact</sourceObjSchema>
+<sourceObjName>id</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_proyectoinmob" id="9010398D-2828-DEAD-E687-1D558400A3B7">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>revision_fact</sourceObjSchema>
+<sourceObjName>id_proyectoinmob</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<delegate>00041403-39F4-DB0B-7694-E1BE669AA093</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="43E7C825-8DE5-13F4-4453-2C8CA0F1FAD8" referredColumn="00041403-39F4-DB0B-7694-E1BE669AA093"/>
+</associations>
+</Column>
+<Column name="fecha" id="BB178581-CDFD-C736-CDD2-05F585F144F1">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>revision_fact</sourceObjSchema>
+<sourceObjName>fecha</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<commentInRDBMS>fecha de revision.&lt;br/&gt;si no se tiene dia se coloca el primero del mes&lt;br/&gt;se usa para construir la dimension virtual de tiempo (dia/mes/anio)&lt;br/&gt;&lt;&lt; modela el CUANDO &gt;&gt;&lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="venta_monto_reportado" id="1464BFBF-8261-C89E-D82E-CB828EED0FF0">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>revision_fact</sourceObjSchema>
+<sourceObjName>venta_monto_reportado</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="venta_num_unidades_vendida" id="424DD341-D463-DF50-8074-12583A45BC68">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>revision_fact</sourceObjSchema>
+<sourceObjName>venta_num_unidades_vendida</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tmp_tipologia_revision" id="79ED0E52-265D-0247-F8D3-B43AE17F2922">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>revision_fact</sourceObjSchema>
+<sourceObjName>tmp_tipologia_revision</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<commentInRDBMS>- si es nuevo proyecto&lt;br/&gt;- si es un reporte de avance&lt;br/&gt;(TODO: validar si es la misma tipologia para proyecto inmobiliario)</commentInRDBMS>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>128</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_cliente_desarrollador" id="8B5282AF-528C-737C-A28C-C4862A481689">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>revision_fact</sourceObjSchema>
+<sourceObjName>id_cliente_desarrollador</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<delegate>8028213E-8C98-A6BC-8D9F-2EB98401D07E</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E773611A-13E8-3019-814C-3CD5831E0BAB" referredColumn="8028213E-8C98-A6BC-8D9F-2EB98401D07E"/>
+</associations>
+</Column>
+<Column name="id_cliente_constructor" id="EBC4C631-219F-0A2A-50F8-ABA1100E7E57">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>revision_fact</sourceObjSchema>
+<sourceObjName>id_cliente_constructor</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<delegate>D739930C-0602-5C28-6D8B-EC316A73B269</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CF596F67-6123-ABC9-792D-A5DA4CDC21BE" referredColumn="D739930C-0602-5C28-6D8B-EC316A73B269"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F6A3AB6B-AFEA-0A1C-8C25-5FE66604AB9E" name="pk_itemvt">
+<sourceConnName>inmob1_dw.postgres</sourceConnName>
+<sourceObjSchema>inmob1</sourceObjSchema>
+<sourceObjName>pk_itemvt</sourceObjName>
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="069E95D2-D6E0-5EDE-BBCD-6A576A4246EA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="56C20444-21EB-3A56-74A4-69B735439886" name="fk_revi_clntcnst">
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EBC4C631-219F-0A2A-50F8-ABA1100E7E57"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0FA07248-B28A-FB90-A8EC-0E61420B4FD6" name="fk_revi_clntdesa">
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8B5282AF-528C-737C-A28C-C4862A481689"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D8CE4032-022E-1AFC-3BBA-8A1B05AC0CF1" name="fk_itemvt_prinmb">
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:08 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9010398D-2828-DEAD-E687-1D558400A3B7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

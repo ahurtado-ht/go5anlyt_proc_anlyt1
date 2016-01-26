@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<StorageDesignDB2v80 class="oracle.dbtools.crest.model.design.storage.db2.v80.StorageDesignDB2v80" name="DB2/390 8" id="68F3A497-096F-FEA8-FA31-69AA5E73160A" siteID="CC7FDCE5-F5A5-F2C0-C9A7-0C07C92C898D" siteName="DB2/390 8" siteType="1">
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:07 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+</StorageDesignDB2v80>

@@ -1,0 +1,52 @@
+<Schema name="BONOS-ANLYT-Eventos" description="Esquema de hechos relacionados con los eventos de bonos" >
+
+  <Cube name="Redenciones" visible="true" cache="true" enabled="true" description="Cubo de datos con los eventos de bonos">
+    <View alias="Evento_F">
+      <SQL dialect="generic">
+        <![CDATA[
+		select  EVENTO_ID                  ,
+				EVENTO_TIPO                ,
+				EVENTO_FECHA               ,
+				EVENTO_FECHA_YEAR          ,
+				EVENTO_FECHA_MONTH         ,
+				EVENTO_FECHA_DAY           ,
+				EVENTO_DIRECCION_IP        ,
+				EVENTO_CANAL               ,
+				EVENTO_RESP_NROCONFIRMACION,
+				EVENTO_RESP_COD            ,
+				EVENTO_RESP_DESCRIPCION    ,
+				COMERCIO_COD               ,
+				CAJA_ID                    ,
+				TX_ORIGEN_CUENTA           ,
+				TX_DESTINO_CUENTA          ,
+				CAJERO_ID                  ,
+				BONO_SERIAL                ,
+				BONO_ESPECIE_COD           ,
+				BONO_EMISOR_COD            ,
+				BONO_ESPECIE_VER           ,
+				BONO_ESTADO                ,
+				BONO_VALOR                 ,
+				BONO_DENOMINACION          ,
+				BONO_FECHA_VENCIMIENTO     
+		   FROM v_op_evento
+	  ]]>
+      </SQL>
+    </View>
+    <Dimension type="TimeDimension" visible="true" highCardinality="false" name="Tiempo_D">
+	  <Hierarchy name="Tiempo" visible="true" hasAll="true">
+	    <Level name="Anho" visible="true" column="EVENTO_FECHA_YEAR" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+	  	<Annotations><Annotation name="AnalyzerDateFormat">[yyyy]</Annotation></Annotations>
+	    </Level>
+	    <Level name="Mes" visible="true" column="EVENTO_FECHA_MONTH" type="Numeric" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+	  	<Annotations><Annotation name="AnalyzerDateFormat">[yyyy].[mm]</Annotation></Annotations>
+	    </Level>
+	    <Level name="Dia" visible="true" column="EVENTO_FECHA_DAY" type="Numeric" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+	    </Level>
+	  </Hierarchy>
+	  
+    </Dimension>
+
+    <Measure name="valor_bono" column="BONO_VALOR" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

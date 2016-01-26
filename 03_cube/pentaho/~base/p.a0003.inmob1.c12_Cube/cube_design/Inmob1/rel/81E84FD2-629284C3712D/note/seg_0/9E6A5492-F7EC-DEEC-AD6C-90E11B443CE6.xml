@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Note class="oracle.dbtools.crest.model.design.Note" name="Note_1" directorySegmentName="seg_0" id="9E6A5492-F7EC-DEEC-AD6C-90E11B443CE6">
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:06:19 UTC</createdTime>
+<comment>-&gt; modela el estimado a futuro del proyecto&lt;br/&gt;&gt;&gt; modela liquidez y ROI del proyecto&lt;br/&gt;     - si se puede vender rapido&lt;br/&gt;     - si se puede vender bien&lt;br/&gt;     - analisis costo beneficio&lt;br/&gt;&gt;&gt; escala&lt;br/&gt;     - si la escala de la obra es similar a otras obras anteriores de determinado desarrollador</comment>
+<ownerDesignName>Inmob1</ownerDesignName>
+</Note>

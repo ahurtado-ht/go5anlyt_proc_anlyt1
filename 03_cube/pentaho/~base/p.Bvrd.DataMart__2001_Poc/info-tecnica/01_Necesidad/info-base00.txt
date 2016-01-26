@@ -1,0 +1,176 @@
+- bolsa de valors de la republica dominicana
+- agenda estrategica de soluciones
+
+-> martin
+-> fernando leon
+-> ivan carvajal: comercial
+-> wingston rodriguez: tecnologia
+-> marcos troncoso (republica dominicana)
+-> esteban
+
+-> los requerimientos los hace itc (a traves de oportunidades de negocio)
+
+
+-> DataMart (no DataMarket)
+
+	-> 11 reportes
+	-> gestor de preguntas al mercado
+	-> saca info de db transaccionales y de info publica (banco central republcia dominicana, informes de superfinanciera)
+	-> 
+	
+-> 
+	ventanilla unica
+	
+----------------------------------------------------------	
+
+
+----------------------------------------------------------	
+sistema de garantias: itc aopya la construccion de software
+----------------------------------------------------------	
+
+-----------------------------------------------------------------
+-> DATAROOM: 
+-----------------------------------------------------------------
+
+	-> lugar donde entran los itneresados (comisionistas, emisores, compradores, para revisar info de organizaciones): infoo que debe ser transmitida a al bolsa / repositorio de archivos
+	-> cómo cobrar: suscripcion mensual
+	-> lo más simple, pero que funcione
+	
+	destinatarios: 
+	
+		(gobierno corporativo) [aprox equipo de 11 personas] ---------------------------------------- [DATA ROOM 2]
+			- ingresa informacion: 
+				gerente general
+				agente legal []
+				auditoria
+				
+				reportan a la bolsa, a menos que la info sea expedida para propositos de suditoria
+			- ej: notificacion de una reunion
+				- se van haciendo preguntas / observaciones (como un meetup) [que notifique x correo electronico]
+			- dominios de inforamcion acorde a cada grupo
+			
+		
+		-> repositorio de documentos 
+		-> un lugar seguro con la documentacion relativa a sesiones de trabajo
+		-> que se pueda distribuir 
+		-> informacion documental para toma de decisiones
+		-> publciacion de actas
+		-> resultado de las decisiones de la junta
+		
+		
+
+		emisores / participantes o intermediarios del mercado (remiten) ----------------------------- [DATA ROOM 1]
+		-> actores
+			-> participantes del mercado (publciacion)/ puestos de bolsa de valores 5 x puesto x [ puestos de bolsa (11) + afp's (5), bancos (14), afis (10),supervalores,banco central,hacienda]
+			
+			-> EMISORES
+			-> INTERMEDIAROS
+			-> OBLIGACIONISTAS
+			-> regulador: puede reportar en la bolsa, mercado secundario (ej: bloqueo de transacciones)
+			
+		-> entregan varios documentos
+			- estados financieros [no se tiene un formato estandar con el cual reportan]
+			- prospectos
+			- noticias/hechos relevantes
+		-> eventos que pasan como noticia y deben comunicarlas
+		-> ej: cambio en presidente / hay una normativa ()
+		-> ej: cambio en tasa de interes
+		-> ej: recogen la emision
+		-> ej: que se publicó un informe financiero
+		-> ej: una calificacion
+		-> ej venta de acciones
+
+			los envian por:
+			-> envia por email/cd
+			-> 100megas
+			
+			-calificadora de riesgo
+
+		GENERALES ---------------------
+		-> dispositivo movil
+		-> traders
+		-> gerentes de operaciones
+		-> 
+		pueden ser flujos (pero en inicio una sola persona del emisor entrega)
+		puede ser documentos word/pdf o digitalizados (fotografias)
+		
+	comparacion en cuanto a funcionaldiad
+		- soluciones de dataroom del mercado bursatil: lo usan para intercambiar info en el mercado de valores o en el mercado de inversion
+		- 
+
+REFERENCIAS:
+	el proceso de dataroom: http://asba-supervision.org/index.php?option=com_docman&task=doc_download&gid=145&Itemid=6&lang=es
+		
+--------------------------------------------------------------------------------------------------------------------------------
+	INTEGRACION DE MERCADOS
+--------------------------------------------------------------------------------------------------------------------------------
+	> de forma segura
+	> de forma rapida
+	> transacciones electronicas del mercado local
+	
+	
+	flujo: orden de compra / orden de venta / programacion pactada telefonicamente [calzar operaicon]
+	
+	> un corredor de bolsa coloca una operacion
+	> a su vez debe remitir informacion al socio y par ello
+	> inr a la aplicacion transaccional de la bolsa
+	> ir a loquidar a la central de valores
+	> procesamiento de pago en el banco central
+	> remitir info a los reguladores
+	> 
+	
+	PROCESO DE COMPRA DE UN BONO (comprador transfiere un titulo y vendedor recibe efectivo )
+	
+	interactuan los 2: el que compra y el que vende (van los 2 al banco): por cuestiones de seguridad
+	
+	- registran postura de compra de un bono [registro en la bolsa]
+	- se calza: confirmacion de la operacion
+	- va a cevaldom a registrar transferencia / registra datos de la transferencia [hay una pantalla cada uno tiene acceso]. quien quiere iniciar oepracion se la habilita a la contraparte
+	- cevaldom (liquidador) manda a banco central y confirma la oepracion al banco central [LBTR==SEBRA] swift (el que va a comprar va y lleva el efectivo)
+	- registrar ante la superintendencia de la operacion
+	
+	OTRAS TANSACCIONES
+	- bursatil (inicia con la operacion ya pactada) [estandar mundial es:??]
+	- OTC
+	
+	- consultar si un titulo esta disponible en l cartera de un participante
+	- quiénes tendrían que ofrecer servicios web / 
+	
+	----> SIOPEL: frontend (core transacciones bursatiles) [de seguro lo que necesita cevaldom lo tiene siopel]
+	----> tienen un backoffice
+	estos 2 serian fuente para el bus:
+	-> una sola interfaz ui frontend (por debajo un bus)
+	
+	-> puesto de bolsa
+	-> cevaldom: webservices/swift/seri:sistema de los participantes para reportar a la superfinanciera [comprador y vendedor van a seri
+	-> bolsa de valores (nosotros)
+	-> banco central
+	-> supervalores
+	
+	
+	-------------------------------------------------
+	DATA MART
+		- 11 formatos existentes
+		- una data con la cual se consturyen n-formatos (una estructura del dw)
+		- la parte de bi: estructura disponible
+		- fuentes de informacion
+			- backoffice de la bolsa
+			- sistema transaccional de operaicones de la bolsa
+			- otras inforamcino es extenras (web del banco central, minhacienda): inflacion, tasa de cambio, variables economicas externas
+			- 
+		- 
+		
+	tareas: --------------------------------------------------
+	7
+		- doc entendimiento dataroom1 y 2 	[alfresco / pte : oracle / sql server]
+		- arquitectura del bus				[wso2, oracle soa suite]
+		- taller para lo del market data	[pentaho, ]
+		
+	--------------------------------	
+		- proximo: prototipo arquitectura posible
+	----------------------------------
+		- [[ trabajo comercial ]]
+	
+	
+	
+	

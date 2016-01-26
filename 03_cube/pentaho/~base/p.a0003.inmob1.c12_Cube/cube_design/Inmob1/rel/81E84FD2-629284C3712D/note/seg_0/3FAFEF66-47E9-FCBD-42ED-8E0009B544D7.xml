@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Note class="oracle.dbtools.crest.model.design.Note" name="Note_5" directorySegmentName="seg_0" id="3FAFEF66-47E9-FCBD-42ED-8E0009B544D7">
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:08:38 UTC</createdTime>
+<comment>modela la solvencia/ trayectoria del desarrollador (de igual forma se puede hacer para el constructor) </comment>
+<ownerDesignName>Inmob1</ownerDesignName>
+</Note>

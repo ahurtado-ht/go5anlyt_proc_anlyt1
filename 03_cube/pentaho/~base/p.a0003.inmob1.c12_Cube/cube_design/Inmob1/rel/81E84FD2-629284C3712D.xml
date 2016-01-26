@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="inmob1_dw.postgres" id="81E84FD2-4F04-F231-4582-629284C3712D" mainViewID="B0B26C9C-3F66-C98E-3E8B-D46A961E6F7B">
+<createdBy>ahurtado</createdBy>
+<createdTime>2015-02-09 11:04:07 UTC</createdTime>
+<ownerDesignName>Inmob1</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>CC7FDCE5-F5A5-F2C0-C9A7-0C07C92C898D</selectedRDBMSSite>
+<importConnectionStamps>
+<importConnectionStamp class="oracle.dbtools.crest.imports.DBConnectionStamp">
+<connName>inmob1_dw.postgres</connName>
+<connUrl>jdbc:postgresql://localhost:5432/inmob1_dw</connUrl>
+<connUser>postgres</connUser>
+<connType>0</connType>
+</importConnectionStamp>
+</importConnectionStamps>
+</relationalModel>

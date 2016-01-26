@@ -1,0 +1,161 @@
+reunion 20130604
+-------------------------------------
+ reunion pasada, se dividian en 3 capitulos las preguntas
+ para simplificar:
+ 
+ - pre-negociacion
+	- postura es un valor (no toda termina en una negociacion)
+	
+	
+ - post-negociacion
+   despues que se calza la orden: post-negociacion
+   
+   PREGUNTAS: ::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	despues de negociar, se tiene el titulo en cartera e interesa saber: 
+	  - el precio al que está / link de este titulo con innfo para : 
+	  - fecha en el cual va a pagar el titulo (se derivan las condiciones del titulo)
+	  - proximo pago de cupon
+	  - calificacion de riesgo (si ha cambiado sube o baja)
+	  - si se va a negociar al dia de hoy: una calculadora para saber a cuanto lo venderia al dia de hoy
+		- a la ultima postura que se tuvo 
+		- o si es una postura por encima de una negociacion
+		- o maximo precio del titulo en los ultimos meses
+	    
+		- backoffice bolsa de valores (db de posturas de la bolsa)
+			- descargan de la plataforma la postura de forma diaria
+		- un titulo se negocia por otc (menos competitivo) o por bolsa de valores
+		- precio promedio acorde al tipo de volumen
+		
+	(como 2 mese cubo)
+	con quien es que normaalmente consigo los mejores precios (precio de referencia o del mercado vs precio del participante )
+		poder tener una tabla de inforamcion que permita saber las negociaciones con c/u de los participantes
+	con quien he logrado mayor monto de transaccionalidad	
+	cual es el puesto de bolsa o banco que mas ha movido x volumen de x titulo (en los ultimos 6 o 12 meses)	
+	quien es el participante en un periodo que mas ha tranzado, por tipologia
+	participantes mas activos (que se han movido mas en primario)
+	participantes mas activos (que se han movido mas en secundario)
+	
+	historico comparativo de las variables macroeconomicas
+		- tasa de inflacion, tasa de cambio, tasa de referencia o precios de petroleo (monitorearlas)
+		- 
+		
+	- que el participante pueda manejar un portafolio
+		
+		
+	- cuanto tengo en cartera de un titulo x
+	
+	HECHOS :
+	
+	- operaciones de mercado que denotan liquidez
+	- hechos macroeconomicos (inflacion, crecimiento, inversion extranjera)
+
+	- posturas    (bursatil)
+	- operaciones primario
+	- operaciones secundario	
+	- operaciones OTC (si se va a meter)
+	- emision y subasta
+	
+	DIMENSIONES (MAESTROS)
+	. titulos
+	. participantes
+	. emisores
+	. 
+	
+	PROCESOS
+	
+		tienen los procesos ya escritos? -> (registro de emisores, registro de emisiones)
+		
+			- registro de info de mercado que denotan liquidez
+			- obtencion de info macroeconomica
+			
+			- operaciones de mercado primario, secundario y OTC
+			- posturas de mercado primario y secundario
+			- emisiones y subastas (la bolsa emite tambien)
+		
+	
+	
+jueves: procesos dentro de la bolsa (flujos)
+
+- operaciones
+- emisiones
+- hechos macroeconomicos	
+
+------------------------------------------------------------------
+	hechos: 
+		ordenes en firme
+		
+	
+-------------------------------------------------------------------------------
+	
+		
+    -> la data economica es un aspecto transversal a los procesos
+	-> 
+   
+   
+   
+   
+   
+ 
+
+recomeindaciones oscar:
+-------------------------------------
+metodologias, 
+ mision, vision, cadena de valor
+ - como lo hacen hoy en dia
+ - que unformacion pide el cliente que es mas costosa
+ - 
+ 
+otros puntos: 
+	Cuáles son los objetivos estratégicos que un cliente busca cuando observa la informacion reportada?
+
+PASO 1: IDENTIFICAR PREGUNTAS 	
+	
+	* Idea central: preguntas sobre el negocio que incluyan variables de análisis que se consideren relevantes (ya que son éstas las que permitirán estudiar la información desde diferentes perspectivas)
+	* que la información se pueda sacar de un OLTP
+	PREGUNTA: actividades de mayor relevancia en el proceso de programacion y pagos que sean medibles
+	PREGUNTA: qué indicadores representan de mejor modo el proceso XXXXXXXXXXXXXX 
+		(ejemplo: si el proceso son las ventas espero datos relacionados con las unidades vendidas y el monto total de ventas)
+	PREGUNTA: perspectivas desde las cuales se consultarán dichos indicadores
+		(ejemplo: unidades vendidas de producto para los clientes en un periodo determinado )
+		(ejemplo: monto total de ventas a los clientes discriminado por regional a través rangos de tiempo determinados -  meses/años - )
+PASO 2: IDENTIFICAR INDICADORES Y PERSPECTIVAS
+	obtener indicadores y perspectivas del caso anterior
+	indicadores: valores numericos / saldos, promedios, sumatorias
+	perspectivas: objetos mediante los cuales se quiere examinar los indicadores
+	ejemplo: 
+		indicador: unidades vendidas
+		perspectivcas: producto, cliente, periodo-determinado
+	ejemplo: 
+		indicador: monto-total-de-ventas
+		perspecctivas: clientes, regional, rango-de-tiempo
+		
+----------------------------------------------------------------------------------------------
+EJEMPLOS PREG FINANCIERAs (108 of pentaho e-book)
+
+	* How much revenue do we generate by region, month, and movie category?
+	* Which movie categories generate the highest revenue and is this constant over time?
+	* How does our performance compare to the total entertainment market?
+	* Are we growing faster or slower than our main competitors?
+
+----------------------------------------------------------------------------------------------
+PUNTOS A TENER EN CUENTA (195 of pentaho e-book)
+	Requerimientos:
+		Topic		(area principal o proceso al cual el requerimeinto pertenece)
+		Audience	(usuario de negocio de la solución  - del cubo - )
+		Owner		(usuario a quien le sirve más la solución)
+		User Demand (qué necesita el usuario y cómo lo va a usar)
+		Questions answwered (las preguntas de negpcio a las cuales la solución da respuesta)
+		Delivery Mechanism (la forma en la cual se va a enviar la información generada a los usuarios)
+		Information Sources: dónde hay información adicional al respecto o qué personas deben ser preguntados
+		Data Sources: databases/tables  usadas apra obtener la informacion
+		Data Coverage: indicar la completez de los datos disponibles para responder la pregunta de negocio
+		Cost Estimation: time + investment necesitado para construir la solucion
+
+------------------------------------------------------------------------------------------		
+No olvidar validar: 
+* que los requerimientos o user stories sean SMART (Specific, Measurable,Achievable,Relevant, Time-bound)
+* 5 why (con el fin de validar las preguntas de negocio que salen):por qué es importante x pregunta de negocio
+		
+------------------------------------------------------------------------------------------		
+
+	

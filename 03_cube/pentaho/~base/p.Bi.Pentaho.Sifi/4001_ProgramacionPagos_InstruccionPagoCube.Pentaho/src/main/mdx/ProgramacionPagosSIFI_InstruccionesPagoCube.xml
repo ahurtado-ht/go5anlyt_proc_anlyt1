@@ -1,0 +1,124 @@
+<Schema name="sFIN-Pagos_Prog_Instruc" description="Esquema relacionado con hechos relevantes para el modulo de programacion SIFI">
+  <Cube name="InstruccionesPago_Cube" visible="true" description="Cubo de instrucciones de pago en el que representa los pagos realizados a terceros a traves del modulo de programacion y pagos" cache="true" enabled="true">
+    <View alias="INSTRUCCION_ORDEN_PAGO">
+      <SQL dialect="generic">
+        <![CDATA[SELECT ID_ORDEN_PAGO, ID_INSTRUCCION, NEGOCIO, VIGENCIA, NUMERO_ORDEN, NOMBRE_BENEFICIARIO, ID_BENEFICIARIO, TIPO_ID_BENEFICIARIO, TIPO_RETENCION, FUENTE_PAGO, ID_FUENTE_PAGO, TIPO_INSTRUCCION, ESTADO_INSTRUCCION, ANHO_PAGO, MES_PAGO, DIA_PAGO, CIUDAD_PAGO, VALOR_NETO_INSTRUCCION, VALOR_BRUTO_FACTURA, VALOR_DESCUENTO_FACTURA, VALOR_NETO_FACTURA, CLASE_NEGOCIO, CLASE_CONTRATO, TIPO_NEGOCIO, SUBTIPO_NEGOCIO FROM INSTRUCCION_ORDEN_PAGO]]>
+      </SQL>
+    </View>
+    <Dimension type="TimeDimension" visible="true" highCardinality="false" name="Tiempo_Dimension">
+      <Hierarchy name="TimeHierarchy 0" visible="true" hasAll="true">
+        <Level name="Anho_level" visible="true" column="ANHO_PAGO" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="Mes_Level" visible="true" column="MES_PAGO" type="Numeric" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="Dia_Level " visible="true" column="DIA_PAGO" type="Numeric" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="TipoRetencionBeneficiaro_Dimension">
+      <Hierarchy name="TipoRetencionBeneficiaro_Hierarchy" visible="true" hasAll="true">
+        <Level name="TipoRetencion" visible="true" column="TIPO_RETENCION" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="FuentePago_Dimension">
+      <Hierarchy name="FuentePago_Hierarchy" visible="true" hasAll="true">
+        <Level name="FuentePago" visible="true" column="FUENTE_PAGO" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="NEGOCIO" highCardinality="false" name="Negocio_Dimension">
+      <Hierarchy name="Negocio_Hierarchy" visible="true" hasAll="true" allMemberName="Negocios" allMemberCaption="Negocios" primaryKey="NEGOCIO">
+        <View alias="NEGOCIO">
+          <SQL dialect="generic">
+            <![CDATA[SELECT NEGOCIO, TIPO_NEGOCIO, SUBTIPO_NEGOCIO, CLASE_NEGOCIO, CLASE_CONTRATO FROM NEGOCIO]]>
+          </SQL>
+        </View>
+        <Level name="Negocio" visible="true" column="NEGOCIO" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+          <Property name="TipoNegocio" column="TIPO_NEGOCIO" type="String">
+          </Property>
+          <Property name="ClaseNegocio" column="CLASE_NEGOCIO" type="String">
+          </Property>
+          <Property name="ClaseContrato" column="CLASE_CONTRATO" type="String">
+          </Property>
+          <Property name="SubtipoNegocio" column="SUBTIPO_NEGOCIO" type="String">
+          </Property>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="ID_ORDEN_PAGO" highCardinality="false" name="OrdenPago_Dimension">
+      <Hierarchy name="OrdenPago_Hierarchy" visible="true" hasAll="true" allMemberName="OrdenesPago" allMemberCaption="OrdenesPago" primaryKey="ID_ORDEN_PAGO">
+        <View alias="OrdenPago">
+          <SQL dialect="generic">
+            <![CDATA[SELECT ID_ORDEN_PAGO, NEGOCIO, VIGENCIA, NUMERO_ORDEN, VALOR_BRUTO, VALOR_DESCUENTO, FECHA_MOVIMIENTO, VALOR_NETO, ESTADO_ORDEN_PAGO, OFICINA, ORDEN_OPERACION FROM ORDEN_PAGO]]>
+          </SQL>
+        </View>
+        <Level name="OrdenPago" visible="true" column="ID_ORDEN_PAGO" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+          <Property name="ValorNeto" column="VALOR_NETO" type="Numeric">
+          </Property>
+          <Property name="ValorBruto" column="VALOR_BRUTO" type="Numeric">
+          </Property>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="CIUDAD_PAGO" highCardinality="false" name="CiudadPago_Dimension">
+      <Hierarchy name="CiudadPago_Hierarchy" visible="true" hasAll="true">
+        <View alias="CIUDAD_PAGO">
+          <SQL dialect="generic">
+            <![CDATA[SELECT CIUDAD_PAGO, DESCRIPCION FROM CIUDAD_PAGO]]>
+          </SQL>
+        </View>
+        <Level name="CiudadPago" visible="true" column="CIUDAD_PAGO" type="Numeric" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+          <Property name="Descripcion" column="DESCRIPCION" type="String">
+          </Property>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="ClaseNegocio_Dimension">
+      <Hierarchy name="ClaseNegocio_Hierarchy" visible="true" hasAll="true">
+        <Level name="ClaseNegocio" visible="true" column="CLASE_NEGOCIO" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="ClaseContrato_Dimension">
+      <Hierarchy name="ClaseContrato_Hierarchy" visible="true" hasAll="true">
+        <Level name="ClaseContrato" visible="true" column="CLASE_CONTRATO" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="TipoNegocio_Dimension">
+      <Hierarchy name="TipoNegocio_Hierarchy" visible="true" hasAll="true">
+        <Level name="TipoNegocio" visible="true" column="TIPO_NEGOCIO" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="SUBTIPO_NEGOCIO" highCardinality="false" name="SubtipoNegocio_Dimension">
+      <Hierarchy name="SubtipoNegocio_Hierarchy" visible="true" hasAll="true">
+        <Level name="SubtipoNegocio" visible="true" column="SUBTIPO_NEGOCIO" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="EstadoPago_Dimension">
+      <Hierarchy name="EstadoPago_Hierarchy" visible="true" hasAll="true">
+        <Level name="EstadoPago" visible="true" column="ESTADO_INSTRUCCION" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" name="TipoInstruccion_Dimension">
+      <Hierarchy name="TipoInstruccion_Hierarchy" visible="true" hasAll="true">
+        <Level name="TipoInstruccion" visible="true" column="TIPO_INSTRUCCION" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="CantidadOrdenesPago" column="ID_ORDEN_PAGO" datatype="String" aggregator="distinct count" visible="true">
+    </Measure>
+    <Measure name="CantidadInstruccionesPago" column="ID_INSTRUCCION" aggregator="distinct-count" visible="true">
+    </Measure>
+    <Measure name="ValorNetoOrden" column="VALOR_NETO_FACTURA" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="ValorNetoInstruccion" column="VALOR_NETO_INSTRUCCION" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="ValorDescuentosOrden" column="VALOR_DESCUENTO_FACTURA" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

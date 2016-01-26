@@ -1,0 +1,23 @@
+==========================================================================================
+ Proyecto p.Bi.Pentaho.Sifi
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+	Cambios v_1_0_1
+------------------------------------------------------------------------------------------
+	* Se crea la estructura del proyecto
+	* Se crean los manuales de instalacion de cubos
+	* Se el cubo de informacion 4001_ProgramacionPagos_InstruccionPagoCube
+		- Se crea manual tecnico
+		- Se crean objetos de base de datos relacionados al cubo
+		- Se crea cubo para despliegue en pentaho bi-server
+
+------------------------------------------------------------------------------------------
+	Cambios v_1_0_2
+------------------------------------------------------------------------------------------
+	* Se modifica el script 02_programacion_pagos_cube_ddl.sql en el que se ajusta
+	  la vista de instrucciones:
+	  	- Se modifica para que el auxiliar sea el de la orden de pago y no de la instruccion
+	  	- Se modifica para que el valor de la instruccion se tome de fd_tinpg
+	  	- Se ajusta los estados de la instruccion para mostrar todos los posibles estados 
+  	

@@ -1,0 +1,334 @@
+--------------------------------------------------------
+--  File created - Wednesday-August-14-2013   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Sequence SEQ_DEMOBULKDATA_ID
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "SEQ_DEMOBULKDATA_ID"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 7001 CACHE 20 NOORDER  NOCYCLE;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_OPERACIONFACT_ID
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "SEQ_OPERACIONFACT_ID"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 11781 CACHE 20 NOORDER  NOCYCLE;
+--------------------------------------------------------
+--  DDL for Table DEMO_BULKDATA
+--------------------------------------------------------
+
+  CREATE TABLE "DEMO_BULKDATA" 
+   (	"CODIGOEMISION" VARCHAR2(30), 
+	"NEMOTECNICO" VARCHAR2(10), 
+	"CODIGOISIN" VARCHAR2(15), 
+	"FECHAEMISION" DATE, 
+	"FECHAVENCIMIENTO" DATE, 
+	"FECHALIQUIDACION" DATE, 
+	"MONTO_EMITIDO" NUMBER(30,10), 
+	"INVERSIONMINIMA" NUMBER(8,0), 
+	"INVERSIONMAXIMA" NUMBER(8,0), 
+	"TIPOTASA" VARCHAR2(20), 
+	"TIPOLIQUIDACION" VARCHAR2(40), 
+	"CUPON" NUMBER(10,2), 
+	"FECHAINICIOCOLOCACION" DATE, 
+	"FECHAFINALCOLOCACION" DATE, 
+	"CODIGOINTERNO" VARCHAR2(5), 
+	"EMISOR" VARCHAR2(200), 
+	"BASELIQUIDACION" VARCHAR2(20), 
+	"NOMBREINSTRUMENTO" VARCHAR2(100), 
+	"MONEDA" VARCHAR2(4), 
+	"FECHAHORAGENERACION" DATE, 
+	"INDUSTRIA" VARCHAR2(200), 
+	"SECTOR" VARCHAR2(100), 
+	"DESCRIPCIONEMISION" VARCHAR2(1000), 
+	"SPREAD" NUMBER(6,2), 
+	"FECHAULTIMACALIFICACION" DATE, 
+	"CALIFICACION" VARCHAR2(5), 
+	"DESCRIPCIONCALIFICACION" VARCHAR2(100), 
+	"TIPOEMISOR" VARCHAR2(10), 
+	"TIPOPERIODOCODIGO" NUMBER(4,0), 
+	"FECHA_OPER" DATE, 
+	"DIAS_ACUM" NUMBER(5,0), 
+	"DIAS_ALVENCI" NUMBER(5,0), 
+	"VALOR_NOM_UNIT" NUMBER(30,10), 
+	"CANT_TIT" NUMBER(12,0), 
+	"VALOR_NOM_TOT" NUMBER(30,10), 
+	"PRECIO_LIMP" NUMBER(30,10), 
+	"VALOR_TRAN" NUMBER(30,10), 
+	"YIELD" NUMBER(30,10), 
+	"MERCADO" NUMBER(4,0), 
+	"NEMO_INS" VARCHAR2(10), 
+	"CANTIDADOPERACIONES" NUMBER(5,0), 
+	"NOMBREMERCADO" VARCHAR2(400), 
+	"VRTRANSADOEQUIVDOP" NUMBER(30,10), 
+	"VRTRANSADOEQUIVUSD" NUMBER(30,10), 
+	"ID" NUMBER(8,0)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table EMISION_DIM
+--------------------------------------------------------
+
+  CREATE TABLE "EMISION_DIM" 
+   (	"ID" NUMBER(8,0), 
+	"CODIGO" VARCHAR2(30), 
+	"MNEMOTECNICO" VARCHAR2(10), 
+	"CODIGOISIN" VARCHAR2(15), 
+	"MONTOEMITIDO" NUMBER(30,10), 
+	"INVERSIONMINIMA" NUMBER(20,0), 
+	"INVERSIONMAXIMA" NUMBER(20,0), 
+	"TIPOTASA" VARCHAR2(20), 
+	"YIELD" NUMBER(30,10), 
+	"NOMBREINSTRUMENTO" VARCHAR2(100), 
+	"MONEDA" VARCHAR2(4), 
+	"CODIGOINTERNO" VARCHAR2(10), 
+	"ID_TLD_FECHAEMISION" NUMBER(8,0), 
+	"ID_TLD_FECHAVENCIMIENTO" NUMBER(8,0), 
+	"ID_TLD_FECHALIQUIDACION" NUMBER(8,0), 
+	"ID_TLD_FECHACOLOCACIONINICIO" NUMBER(8,0), 
+	"ID_TLD_FECHACOLOCACIONFIN" NUMBER(8,0), 
+	"DESCRIPCION" VARCHAR2(1000), 
+	"ID_EMISOR" NUMBER(8,0), 
+	"ID_INDUSTRIA" NUMBER(8,0), 
+	"MD_VERSION" NUMBER(4,0), 
+	"MD_VALID_FROM" DATE, 
+	"MD_VALID_TO" DATE,
+	"VRPLAZO"  NUMBER(8,0)
+   ) ;
+
+   COMMENT ON COLUMN "EMISION_DIM"."YIELD" IS 'semueve a la operacion
+';
+   COMMENT ON COLUMN "EMISION_DIM"."DESCRIPCION" IS 'descripcion de la emision';
+--------------------------------------------------------
+--  DDL for Table EMISOR_DIM
+--------------------------------------------------------
+
+  CREATE TABLE "EMISOR_DIM" 
+   (	"ID" NUMBER(8,0), 
+	"EMISORTIPO" VARCHAR2(20), 
+	"EMISORNOMBRE" VARCHAR2(150), 
+	"CALIFICACIONDESCRIPCION" VARCHAR2(100), 
+	"CALIFICACIONVR" VARCHAR2(5), 
+	"MERCADONOMBRE" VARCHAR2(100), 
+	"MERCADOCODIGO" VARCHAR2(20), 
+	"ID_TIMELINE_FECHACALIFICACION" NUMBER(8,0), 
+	"MD_VERSION" NUMBER(4,0), 
+	"MD_VALID_FROM" DATE, 
+	"MD_VALID_TO" DATE
+   ) ;
+
+   COMMENT ON COLUMN "EMISOR_DIM"."CALIFICACIONVR" IS 'calificacion dada al emisor (char)';
+   COMMENT ON COLUMN "EMISOR_DIM"."MERCADONOMBRE" IS 'nombre del mercado';
+   COMMENT ON COLUMN "EMISOR_DIM"."MERCADOCODIGO" IS 'codigo de identificacion del mercado
+';
+   COMMENT ON COLUMN "EMISOR_DIM"."ID_TIMELINE_FECHACALIFICACION" IS 'referencia: fecha ultima calificacion';
+--------------------------------------------------------
+--  DDL for Table INDUSTRIA_DIM
+--------------------------------------------------------
+
+  CREATE TABLE "INDUSTRIA_DIM" 
+   (	"ID" NUMBER(8,0), 
+	"INDUSTRIANOMBRE" VARCHAR2(200), 
+	"SECTORECONOMICONOMBRE" VARCHAR2(100)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table OPERACION_FACT
+--------------------------------------------------------
+
+  CREATE TABLE "OPERACION_FACT" 
+   (	"ID" NUMBER(8,0), 
+	"CANTIDADOPER" NUMBER(8,0), 
+	"VRTRANSADOUSD" NUMBER(30,10), 
+	"VRTRANSADODOP" NUMBER(30,10), 
+	"DIASACUM" NUMBER(8,0), 
+	"DIASALVENCI" NUMBER(8,0), 
+	"CANTIDADTITULOS" NUMBER(12,0), 
+	"VRNOMTOTAL" NUMBER(30,10), 
+	"VRNOMUNIT" NUMBER(30,10), 
+	"PRECIOLIMP" NUMBER(30,10), 
+	"NEMOINS" VARCHAR2(20), 
+	"ID_TLD_FECHAREGOPERACION" NUMBER(8,0), 
+	"ID_BULKDATA" NUMBER(8,0), 
+	"ID_EMISION" NUMBER(8,0), 
+	"YIELD" NUMBER(30,10),
+	"VRCUPON" NUMBER(30,10),
+	"VRTRAN" NUMBER(30,10)
+   ) ;
+
+   COMMENT ON COLUMN "OPERACION_FACT"."ID_BULKDATA" IS 'identificador de la tabla bulk de extraccion';
+--------------------------------------------------------
+--  DDL for Table TIMELINE_DIM
+--------------------------------------------------------
+
+  CREATE TABLE "TIMELINE_DIM" 
+   (	"ID" NUMBER(8,0), 
+	"YEAR" NUMBER(4,0), 
+	"MONTH" NUMBER(2,0), 
+	"DAY" NUMBER(2,0)
+   ) ;
+--------------------------------------------------------
+--  DDL for View V_OPERACIONESEMISIONEMISOR
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "V_OPERACIONESEMISIONEMISOR" ("PK_OPERACION", "CANTIDADOPER", "VRTRANSADOUSD", "VRTRANSADODOP", "DIASACUM", "DIASALVENCI", "CANTIDADTITULOS", "VRNOMTOTAL", "VRNOMUNIT", "PRECIOLIMP", "NEMOINS", "ID_TLD_FECHAREGOPERACION", "ID_BULKDATA", "ID_EMISION", "PK_EMISION", "CODIGO", "MNEMOTECNICO", "CODIGOISIN", "MONTOEMITIDO", "INVERSIONMINIMA", "INVERSIONMAXIMA", "TIPOTASA", "YIELD", "NOMBREINSTRUMENTO", "MONEDA", "CODIGOINTERNO", "ID_TLD_FECHAEMISION", "ID_TLD_FECHAVENCIMIENTO", "ID_TLD_FECHALIQUIDACION", "ID_TLD_FECHACOLOCACIONINICIO", "ID_TLD_FECHACOLOCACIONFIN", "DESCRIPCION", "ID_EMISOR", "ID_INDUSTRIA", "PK_EMISOR", "EMISORTIPO", "EMISORNOMBRE", "CALIFICACIONDESCRIPCION", "CALIFICACIONVR", "MERCADONOMBRE", "MERCADOCODIGO", "ID_TIMELINE_FECHACALIFICACION", "VRTRAN", "VRCUPON", "VRPLAZO" ) AS 
+  SELECT OPERACION_FACT.ID PK_OPERACION,
+  CANTIDADOPER,
+  VRTRANSADOUSD,
+  VRTRANSADODOP,
+  DIASACUM,
+  DIASALVENCI,
+  CANTIDADTITULOS,
+  VRNOMTOTAL,
+  VRNOMUNIT,
+  PRECIOLIMP,
+  NEMOINS,
+  ID_TLD_FECHAREGOPERACION,
+  ID_BULKDATA,
+  ID_EMISION,
+  EMISION_DIM.ID pk_emision,
+  CODIGO,
+  MNEMOTECNICO,
+  CODIGOISIN,
+  MONTOEMITIDO,
+  INVERSIONMINIMA,
+  INVERSIONMAXIMA,
+  TIPOTASA,
+  OPERACION_FACT.YIELD,
+  NOMBREINSTRUMENTO,
+  MONEDA,
+  CODIGOINTERNO,
+  ID_TLD_FECHAEMISION,
+  ID_TLD_FECHAVENCIMIENTO,
+  ID_TLD_FECHALIQUIDACION,
+  ID_TLD_FECHACOLOCACIONINICIO,
+  ID_TLD_FECHACOLOCACIONFIN,
+  DESCRIPCION,
+  ID_EMISOR,
+  ID_INDUSTRIA,
+  EMISOR_DIM.ID pk_emisor,
+  EMISORTIPO,
+  EMISORNOMBRE,
+  CALIFICACIONDESCRIPCION,
+  CALIFICACIONVR,
+  MERCADONOMBRE,
+  MERCADOCODIGO,
+  ID_TIMELINE_FECHACALIFICACION,
+  OPERACION_FACT.VRTRAN,
+  OPERACION_FACT.VRCUPON VRCUPON,
+  EMISION_DIM.VRPLAZO  
+FROM  OPERACION_FACT,
+      EMISION_DIM,
+      EMISOR_DIM
+WHERE EMISOR_DIM.ID = EMISION_DIM.ID_EMISOR
+  AND OPERACION_FACT.ID_EMISION = EMISION_DIM.ID;
+--------------------------------------------------------
+--  DDL for Index IDX_TIMELINE_DIM_LOOKUP
+--------------------------------------------------------
+
+  CREATE INDEX "IDX_TIMELINE_DIM_LOOKUP" ON "TIMELINE_DIM" ("YEAR", "MONTH", "DAY") 
+  ;
+--------------------------------------------------------
+--  DDL for Index PK_INDUSTRIA
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "PK_INDUSTRIA" ON "INDUSTRIA_DIM" ("ID") 
+  ;
+--------------------------------------------------------
+--  DDL for Index PK_EMISORDIM
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "PK_EMISORDIM" ON "EMISOR_DIM" ("ID") 
+  ;
+--------------------------------------------------------
+--  DDL for Index EMISION_DIM_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "EMISION_DIM_PK" ON "EMISION_DIM" ("ID") 
+  ;
+--------------------------------------------------------
+--  DDL for Index PK_TIMELINEDIM
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "PK_TIMELINEDIM" ON "TIMELINE_DIM" ("ID") 
+  ;
+--------------------------------------------------------
+--  DDL for Index PK_OPERACIONFACT
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "PK_OPERACIONFACT" ON "OPERACION_FACT" ("ID") 
+  ;
+--------------------------------------------------------
+--  DDL for Index PK_DEMO_BULKDATA
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "PK_DEMO_BULKDATA" ON "DEMO_BULKDATA" ("ID") 
+  ;
+--------------------------------------------------------
+--  Constraints for Table DEMO_BULKDATA
+--------------------------------------------------------
+
+  ALTER TABLE "DEMO_BULKDATA" MODIFY ("ID" NOT NULL ENABLE);
+  ALTER TABLE "DEMO_BULKDATA" ADD CONSTRAINT "PK_DEMOBULKDATA" PRIMARY KEY ("ID")
+  USING INDEX  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table OPERACION_FACT
+--------------------------------------------------------
+
+  ALTER TABLE "OPERACION_FACT" MODIFY ("ID" NOT NULL ENABLE);
+  ALTER TABLE "OPERACION_FACT" ADD CONSTRAINT "PK_OPERACIONFACT" PRIMARY KEY ("ID")
+  USING INDEX  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table INDUSTRIA_DIM
+--------------------------------------------------------
+
+  ALTER TABLE "INDUSTRIA_DIM" MODIFY ("ID" NOT NULL ENABLE);
+  ALTER TABLE "INDUSTRIA_DIM" ADD CONSTRAINT "PK_INDUSTRIA" PRIMARY KEY ("ID")
+  USING INDEX  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table EMISION_DIM
+--------------------------------------------------------
+
+  ALTER TABLE "EMISION_DIM" MODIFY ("ID" NOT NULL ENABLE);
+  ALTER TABLE "EMISION_DIM" ADD CONSTRAINT "PK_EMISIONDIM" PRIMARY KEY ("ID")
+  USING INDEX  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table TIMELINE_DIM
+--------------------------------------------------------
+
+  ALTER TABLE "TIMELINE_DIM" MODIFY ("ID" NOT NULL ENABLE);
+  ALTER TABLE "TIMELINE_DIM" ADD CONSTRAINT "PK_TIMELINEDIM" PRIMARY KEY ("ID")
+  USING INDEX  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table EMISOR_DIM
+--------------------------------------------------------
+
+  ALTER TABLE "EMISOR_DIM" MODIFY ("ID" NOT NULL ENABLE);
+  ALTER TABLE "EMISOR_DIM" ADD CONSTRAINT "PK_EMISORDIM" PRIMARY KEY ("ID")
+  USING INDEX  ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table EMISION_DIM
+--------------------------------------------------------
+
+  ALTER TABLE "EMISION_DIM" ADD CONSTRAINT "FK_EMISION_EMISOR" FOREIGN KEY ("ID_EMISOR")
+	  REFERENCES "EMISOR_DIM" ("ID") ENABLE;
+  ALTER TABLE "EMISION_DIM" ADD CONSTRAINT "FK_EMISION_INDUSTRIA" FOREIGN KEY ("ID_INDUSTRIA")
+	  REFERENCES "INDUSTRIA_DIM" ("ID") ENABLE;
+  ALTER TABLE "EMISION_DIM" ADD CONSTRAINT "FK_EMISION_TIMELINE_CLCFIN" FOREIGN KEY ("ID_TLD_FECHACOLOCACIONFIN")
+	  REFERENCES "TIMELINE_DIM" ("ID") ENABLE;
+  ALTER TABLE "EMISION_DIM" ADD CONSTRAINT "FK_EMISION_TIMELINE_CLCINI" FOREIGN KEY ("ID_TLD_FECHACOLOCACIONINICIO")
+	  REFERENCES "TIMELINE_DIM" ("ID") ENABLE;
+  ALTER TABLE "EMISION_DIM" ADD CONSTRAINT "FK_EMISION_TIMELINE_EMIS" FOREIGN KEY ("ID_TLD_FECHAEMISION")
+	  REFERENCES "TIMELINE_DIM" ("ID") ENABLE;
+  ALTER TABLE "EMISION_DIM" ADD CONSTRAINT "FK_EMISION_TIMELINE_LIQUID" FOREIGN KEY ("ID_TLD_FECHALIQUIDACION")
+	  REFERENCES "TIMELINE_DIM" ("ID") ENABLE;
+  ALTER TABLE "EMISION_DIM" ADD CONSTRAINT "FK_EMISION_TIMELINE_VENC" FOREIGN KEY ("ID_TLD_FECHAVENCIMIENTO")
+	  REFERENCES "TIMELINE_DIM" ("ID") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table EMISOR_DIM
+--------------------------------------------------------
+
+  ALTER TABLE "EMISOR_DIM" ADD CONSTRAINT "FK_EMISOR_TLD_CALIF" FOREIGN KEY ("ID_TIMELINE_FECHACALIFICACION")
+	  REFERENCES "TIMELINE_DIM" ("ID") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table OPERACION_FACT
+--------------------------------------------------------
+
+  ALTER TABLE "OPERACION_FACT" ADD CONSTRAINT "FK_OPERACION_TIMELINE" FOREIGN KEY ("ID_TLD_FECHAREGOPERACION")
+	  REFERENCES "TIMELINE_DIM" ("ID") ENABLE;

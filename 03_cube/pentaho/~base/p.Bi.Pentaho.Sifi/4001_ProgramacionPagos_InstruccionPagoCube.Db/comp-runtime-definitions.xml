@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="4001_ProgramacionPagos_InstruccionesPagoCube.Db" default="00" >
+	
+	<!-- 	+ 
+			| 	HISTORIAL MODIFICACIONES
+			|	20111117	ahurtado	creacion version de componente compartida 
+			+ -->	
+	
+	<dirname property="imported.basedir" file="${ant.file.4001_ProgramacionPagos_InstruccionesPagoCube.Db}"/>
+	<property prefix="env" file="${imported.basedir}/comp-runtime-definitions.properties"  />
+	
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+	<property name="target.war.dir" value="target/deploy" />
+	<property name="target.war.deflated" value="${env.artifact-name}-zip" />
+	<property name="target.war.compressed.name" value="${env.artifact-name}" />
+	<property name="target.war.compressed.extension" value=".zip" />
+	<property name="target.war.compressed" value="${target.war.compressed.name}${target.war.compressed.extension}" />
+
+	<property name="target.ear.dir" value="target/deploy" />
+	<property name="target.ear.deflated" value="${env.artifact-name}-ear" />
+	<property name="target.ear.compressed" value="${env.artifact-name}.ear" />
+	
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+	<!-- generate the build in a temporal directory -->
+	<property name="target.war.tmpdir" value="TMP_WAR_DATAPI" />	
+	
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+	<property name="project.global.name" value="${env.artifact-name}" />
+	<property name="project.name" value="${env.artifact-name}" />
+
+	<property name="sql.dir" location="src/main/sql" />
+	<property name="pls.dir" location="src/main/pls" />
+	<property name="etc.dir" location="etc/files" />
+	
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<target name="00" />
+
+<target name="_default-clean">
+	<delete dir="${target.war.dir}" />
+</target>
+	
+<target name="_default-prepare">
+
+	<tstamp>
+	  <format property="short-time-date" pattern="yyyyMMddHH24mm" />
+	</tstamp>
+	<echo message="${short-time-date}: Creating exploded version of the file ..." />
+	
+	<delete dir="${target.war.tmpdir}" description="eliminar directorio temporal de trabajo" />
+	<mkdir dir="${target.war.tmpdir}" />
+	
+	<copy todir="${target.war.tmpdir}" failonerror="false">
+		<fileset dir="${sql.dir}">
+			<!-- include other files -->
+			<include name="**/*.*" />
+		</fileset>
+		<fileset dir="${pls.dir}">
+			<!-- include other files -->
+			<include name="**/*.*" />
+		</fileset>
+		<fileset dir="${etc.dir}" >
+			<!-- include other files -->
+			<include name="**/*.*" />
+		</fileset>		
+	</copy>
+	
+	
+	<!-- ================ EXTENSIONS (BEGIN) ================= -->
+	<!-- ================ EXTENSIONS (END) =================== -->
+	
+	<!-- ================ CONTAINER-SPECIFIC (BEGIN) ========= -->	
+	<echo message="| Executing ContainerSpecific-Shared  (BEGIN) ... " />
+	
+	<copy todir="${target.war.tmpdir}" description="" overwrite="true">
+		<fileset dir="${env.container._shared.DEFINITIONS_WARCONTENT}" >
+		</fileset>
+	</copy>	
+	
+	<echo message="| Executing ContainerSpecific-Shared (END) ... " />
+	<!-- ================ CONTAINER-SPECIFIC (END) ========= -->		
+
+	<!-- extra actions -->
+	<!-- put the default compressed version -->
+
+	<delete dir="${target.war.dir}/${target.war.deflated}" failonerror="false" quiet="true" />
+	<delete file="${target.war.dir}/${target.war.deflated}" failonerror="false" quiet="true" />
+	<mkdir dir="${target.war.dir}" />
+	
+	<!-- #region deflated version  -->
+	<move todir="${target.war.dir}/${target.war.deflated}" description="">
+		<fileset dir="${target.war.tmpdir}" />
+	</move>	
+	
+	<delete dir="${target.war.tmpdir}" description="eliminar directorio temporal de trabajo" />	
+	
+</target>
+	
+
+<target name="_default-war" depends="_default-prepare">
+
+	<tstamp>
+	  <format property="short-time-date" pattern="yyyyMMddHH24mm" />
+	</tstamp>
+	<echo message="${short-time-date}: Creating compressed version of the file ..." />
+	
+	<!-- #region compressed version -->
+	<zip destfile="${target.war.dir}/${target.war.compressed}" description="empaquetar como war">
+		<zipfileset dir="${target.war.dir}/${target.war.deflated}">
+			<!--
+			<include name="**/*.*" />
+			-->
+		</zipfileset>
+	</zip>		
+	<!-- #endregion -->	
+	
+</target>
+			
+</project>
