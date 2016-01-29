@@ -1,4 +1,5 @@
 <Schema name="BONOS-ANLYT-Eventos" description="Esquema de hechos relacionados con los eventos de bonos">
+
   
   <Dimension name='Geo_Ciudad_D' table='OP_CIUDAD' key='ID_CIUDAD'>
     <Attributes>
@@ -30,16 +31,29 @@
 		<Attribute name='Longitude' keyColumn='LONGITUD' hasHierarchy='false'/>
 	</Attributes>
 
-	<Hierarchies>
-		<Hierarchy name='Ciudades' allMemberName='Todas las Ciudades'>
-			<Level attribute='Pais'/>
-			<Level attribute='Departamento'/>
-			<Level attribute='Ciudad'/>
-			<Level attribute='Ciudad Nombre'/>
-		</Hierarchy>
-	</Hierarchies>
+	<Hierarchy name='Ciudades' allMemberName='Todas las Ciudades'>
+		<Level attribute='Pais'/>
+		<Level attribute='Departamento'/>
+		<Level attribute='Ciudad'/>
+		<Level attribute='Ciudad Nombre'/>
+	</Hierarchy>
   </Dimension>
   
+  <Dimension visible="true" highCardinality="false" name="PerfilUsuario_D">
+    <Hierarchy name="PerfilUsuario_H" visible="true" hasAll="true" primaryKey="ID_CUENTA_COD" primaryKeyTable="OP_REDENCION_CUENTA">
+      <Join leftKey="ID_CATEGORIA_EDAD" rightKey="ID_CATEGORIA_EDAD">
+        <Table name="OP_REDENCION_CUENTA">
+        </Table>
+        <Table name="OP_CATEGORIA_EDAD">
+        </Table>
+      </Join>
+      <Level name="RangoEdad" visible="true" table="OP_CATEGORIA_EDAD" column="DESC_CATEGORIA_EDAD" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+	  <Level name="Cuenta" visible="true" table="OP_REDENCION_CUENTA" column="ID_CUENTA_COD" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+	  </Level>
+    </Hierarchy>
+  </Dimension>
+
   
   <Cube name="Redenciones" visible="true" description="Cubo de datos con los eventos de bonos" cache="true" enabled="true">
     <View alias="Evento_F">
@@ -69,12 +83,15 @@ SELECT EVENTO_COD,
   BONO_DENOMINACION,
   BONO_FECHA_VENCIMIENTO,
   ID_EVENTORAW   
+
 FROM V_OP_EVENTO
 	  ]]>
       </SQL>
     </View>
 	
 	<!--<Dimension source='Geo_Ciudad_D'/>-->
+	<DimensionUsage name="PerfilUsuario_D" source="PerfilUsuario_D" foreignKey="TX_ORIGEN_CUENTA" />
+
 	
     <Dimension type="TimeDimension" visible="true" highCardinality="false" name="Tiempo_D">
       <Hierarchy name="Tiempo_H" visible="true" hasAll="true">
@@ -96,7 +113,19 @@ FROM V_OP_EVENTO
         </Level>
       </Hierarchy>
     </Dimension>
+
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Emision_D">
+      <Hierarchy name="Emision_H" visible="true" hasAll="true">
+        <Level name="Empresa" visible="true" column="BONO_EMISOR_COD" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Especie" visible="true" column="BONO_ESPECIE_COD" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Version" visible="true" column="BONO_ESPECIE_VER" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
 	
+
     <Dimension type="StandardDimension" visible="true" foreignKey="ID_CAJA" highCardinality="false" name="Geo_POS_D">
       <Hierarchy name="Empresa_H" visible="true" hasAll="true" allMemberName="Empresas" allMemberCaption="Empresas" primaryKey="ID_CAJA">
         <View alias="GEO_POS">
@@ -138,5 +167,8 @@ FROM V_OP_EVENTO
 	
     <Measure name="valor_bono" column="BONO_VALOR" datatype="Numeric" aggregator="sum" visible="true">
     </Measure>	
+    <Measure name="cantidad_bonos" column="BONO_SERIAL" datatype="Integer" aggregator="count" visible="true">
+    </Measure>	
   </Cube>
 </Schema>
+

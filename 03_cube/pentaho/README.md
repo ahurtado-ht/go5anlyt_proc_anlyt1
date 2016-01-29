@@ -64,6 +64,8 @@ dimensiones lentamente cambianteS (1): http://www.businessintelligence.info/seri
 dimensiones lentamente cambianteS (2): http://www.businessintelligence.info/serie-dwh/claves-subrogadas.html
 modelos de ejemplo pentaho/saiku
 -> ejemplso con una base de datos h2: cliente: squirrel
+documentacion xml de mondrian (base para el modelamiento de cubos)
+  http://mondrian.pentaho.com/head/documentation/schema.php
 
 
 
