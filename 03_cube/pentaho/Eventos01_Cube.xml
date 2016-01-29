@@ -1,52 +1,142 @@
-<Schema name="BONOS-ANLYT-Eventos" description="Esquema de hechos relacionados con los eventos de bonos" >
+<Schema name="BONOS-ANLYT-Eventos" description="Esquema de hechos relacionados con los eventos de bonos">
+  
+  <Dimension name='Geo_Ciudad_D' table='OP_CIUDAD' key='ID_CIUDAD'>
+    <Attributes>
+      <Attribute name='Pais' hasHierarchy='false'>
+			<Key>
+				<Column name='PAIS_NOMBRE'/>
+			</Key>
+		</Attribute>
+		<Attribute name='Departamento' keyColumn='DEPARTAMENTO_COD' hasHierarchy='false'>
+			<Name>
+				<Column name='DEPARTAMENTO_NOMBRE'/>
+			</Name>
+		</Attribute>
+		<Attribute name='Ciudad' hasHierarchy='false'>
+			<Key>
+				<Column name='DEPARTAMENTO_COD'/>
+				<Column name='MUNICIPIO_COD'/>
+			</Key>
+			<Name>
+				<Column name='MUNICIPIO_NOMBRE'/>
+			</Name>
+		</Attribute>
+		<Attribute name='Ciudad Id' keyColumn='ID_CIUDAD' hasHierarchy='false'/>
+		<Attribute name='Ciudad Nombre' keyColumn='CIUDAD_NOMBRE' hasHierarchy='false'>
+			<Property attribute='Latitude'/>
+			<Property attribute='Longitude'/>
+		</Attribute>
+		<Attribute name='Latitude' keyColumn='LATITUD' hasHierarchy='false'/>
+		<Attribute name='Longitude' keyColumn='LONGITUD' hasHierarchy='false'/>
+	</Attributes>
 
-  <Cube name="Redenciones" visible="true" cache="true" enabled="true" description="Cubo de datos con los eventos de bonos">
+	<Hierarchies>
+		<Hierarchy name='Ciudades' allMemberName='Todas las Ciudades'>
+			<Level attribute='Pais'/>
+			<Level attribute='Departamento'/>
+			<Level attribute='Ciudad'/>
+			<Level attribute='Ciudad Nombre'/>
+		</Hierarchy>
+	</Hierarchies>
+  </Dimension>
+  
+  
+  <Cube name="Redenciones" visible="true" description="Cubo de datos con los eventos de bonos" cache="true" enabled="true">
     <View alias="Evento_F">
       <SQL dialect="generic">
-        <![CDATA[
-		select  EVENTO_ID                  ,
-				EVENTO_TIPO                ,
-				EVENTO_FECHA               ,
-				EVENTO_FECHA_YEAR          ,
-				EVENTO_FECHA_MONTH         ,
-				EVENTO_FECHA_DAY           ,
-				EVENTO_DIRECCION_IP        ,
-				EVENTO_CANAL               ,
-				EVENTO_RESP_NROCONFIRMACION,
-				EVENTO_RESP_COD            ,
-				EVENTO_RESP_DESCRIPCION    ,
-				COMERCIO_COD               ,
-				CAJA_ID                    ,
-				TX_ORIGEN_CUENTA           ,
-				TX_DESTINO_CUENTA          ,
-				CAJERO_ID                  ,
-				BONO_SERIAL                ,
-				BONO_ESPECIE_COD           ,
-				BONO_EMISOR_COD            ,
-				BONO_ESPECIE_VER           ,
-				BONO_ESTADO                ,
-				BONO_VALOR                 ,
-				BONO_DENOMINACION          ,
-				BONO_FECHA_VENCIMIENTO     
-		   FROM v_op_evento
+      <![CDATA[
+SELECT EVENTO_COD,
+  EVENTO_TIPO,
+  EVENTO_FECHA,
+  EVENTO_FECHA_YEAR,
+  EVENTO_FECHA_MONTH,
+  EVENTO_FECHA_DAY,
+  EVENTO_DIRECCION_IP,
+  EVENTO_CANAL,
+  EVENTO_RESP_NROCONFIRMACION,
+  EVENTO_RESP_COD,
+  EVENTO_RESP_DESCRIPCION,
+  ID_CAJA,
+  TX_ORIGEN_CUENTA,
+  TX_DESTINO_CUENTA,
+  ID_CAJERO,
+  BONO_SERIAL,
+  BONO_ESPECIE_COD,
+  BONO_EMISOR_COD,
+  BONO_ESPECIE_VER,
+  BONO_ESTADO,
+  BONO_VALOR,
+  BONO_DENOMINACION,
+  BONO_FECHA_VENCIMIENTO,
+  ID_EVENTORAW   
+FROM V_OP_EVENTO
 	  ]]>
       </SQL>
     </View>
+	
+	<!--<Dimension source='Geo_Ciudad_D'/>-->
+	
     <Dimension type="TimeDimension" visible="true" highCardinality="false" name="Tiempo_D">
-	  <Hierarchy name="Tiempo" visible="true" hasAll="true">
-	    <Level name="Anho" visible="true" column="EVENTO_FECHA_YEAR" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
-	  	<Annotations><Annotation name="AnalyzerDateFormat">[yyyy]</Annotation></Annotations>
-	    </Level>
-	    <Level name="Mes" visible="true" column="EVENTO_FECHA_MONTH" type="Numeric" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
-	  	<Annotations><Annotation name="AnalyzerDateFormat">[yyyy].[mm]</Annotation></Annotations>
-	    </Level>
-	    <Level name="Dia" visible="true" column="EVENTO_FECHA_DAY" type="Numeric" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
-	    </Level>
-	  </Hierarchy>
-	  
+      <Hierarchy name="Tiempo_H" visible="true" hasAll="true">
+        <Level name="Anho" visible="true" column="EVENTO_FECHA_YEAR" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+          <Annotations>
+            <Annotation name="AnalyzerDateFormat">
+              <![CDATA[[yyyy]]]>
+            </Annotation>
+          </Annotations>
+        </Level>
+        <Level name="Mes" visible="true" column="EVENTO_FECHA_MONTH" type="Numeric" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+          <Annotations>
+            <Annotation name="AnalyzerDateFormat">
+              <![CDATA[[yyyy].[mm]]]>
+            </Annotation>
+          </Annotations>
+        </Level>
+        <Level name="Dia" visible="true" column="EVENTO_FECHA_DAY" type="Numeric" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
     </Dimension>
-
+	
+    <Dimension type="StandardDimension" visible="true" foreignKey="ID_CAJA" highCardinality="false" name="Geo_POS_D">
+      <Hierarchy name="Empresa_H" visible="true" hasAll="true" allMemberName="Empresas" allMemberCaption="Empresas" primaryKey="ID_CAJA">
+        <View alias="GEO_POS">
+          <SQL dialect="generic">
+            <![CDATA[
+				SELECT CAJA_COD,
+				  CAJA_ID_SUCURSAL,
+				  ID_CAJA,
+				  SUCURSAL_COD,
+				  SUC_RAZON_SOCIAL,
+				  SUC_LATITUD,
+				  SUC_LONGITUD,
+				  SUC_ID_CIUDAD,
+				  SUC_ID_EMPRESA,
+				  ID_SUCURSAL,
+				  ID_CIUDAD,
+				  PAIS_NOMBRE,
+				  DEPARTAMENTO_COD,
+				  DEPARTAMENTO_NOMBRE,
+				  MUNICIPIO_COD,
+				  MUNICIPIO_NOMBRE,
+				  CIUD_LATITUD,
+				  CIUD_LONGITUD,
+				  ID_EMPRESA,
+				  NIT,
+				  EMP_RAZON_SOCIAL
+				FROM V_OP_POS				
+			]]>
+          </SQL>
+        </View>
+        <Level name="Empresa" visible="true" column="EMP_RAZON_SOCIAL" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+		</Level>
+        <Level name="Sucursal" visible="true" column="SUC_RAZON_SOCIAL" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+		</Level>
+        <Level name="Caja" visible="true" column="CAJA_COD" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+		</Level>
+      </Hierarchy>
+    </Dimension>	
+	
     <Measure name="valor_bono" column="BONO_VALOR" datatype="Numeric" aggregator="sum" visible="true">
-    </Measure>
+    </Measure>	
   </Cube>
 </Schema>
