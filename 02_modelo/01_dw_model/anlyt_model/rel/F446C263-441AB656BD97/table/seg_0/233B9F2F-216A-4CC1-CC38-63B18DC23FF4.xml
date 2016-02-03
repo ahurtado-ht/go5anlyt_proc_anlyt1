@@ -1,0 +1,102 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="233B9F2F-216A-4CC1-CC38-63B18DC23FF4" schemaObject="BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D" name="OP_CATEGORIA_EDAD">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>OP_CATEGORIA_EDAD</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_CATEGORIA_EDAD" id="CD3CF2D2-04A5-88AC-63C7-E774B3A7AE0C">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_CATEGORIA_EDAD</sourceObjSchema>
+<sourceObjName>ID_CATEGORIA_EDAD</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EDAD_INICIAL" id="8CF3AAEB-82FF-C47E-45F1-E2B74DC3AA92">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_CATEGORIA_EDAD</sourceObjSchema>
+<sourceObjName>EDAD_INICIAL</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EDAD_FINAL" id="FE972DEF-4FD7-53E9-83F9-2298D840F9DA">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_CATEGORIA_EDAD</sourceObjSchema>
+<sourceObjName>EDAD_FINAL</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESC_CATEGORIA_EDAD" id="9BC3F6F4-EC53-3468-06C5-E0A27573EDB8">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_CATEGORIA_EDAD</sourceObjSchema>
+<sourceObjName>DESC_CATEGORIA_EDAD</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="ED860091-902C-2CD0-2848-EE74A851B23E" name="PK_CATEGORIA_EDAD_ID">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>PK_CATEGORIA_EDAD_ID</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CD3CF2D2-04A5-88AC-63C7-E774B3A7AE0C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="544B7D16-0E64-1F53-B819-E2C4F741A9E3" schemaObject="BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D" name="PK_CATEGORIA_EDAD_ID">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>PK_CATEGORIA_EDAD_ID</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CD3CF2D2-04A5-88AC-63C7-E774B3A7AE0C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

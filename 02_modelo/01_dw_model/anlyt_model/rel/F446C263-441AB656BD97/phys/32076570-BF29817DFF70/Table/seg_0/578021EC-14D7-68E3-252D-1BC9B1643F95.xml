@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="OP_CIUDAD" directorySegmentName="seg_0" id="578021EC-14D7-68E3-252D-1BC9B1643F95">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<schemaObject>BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>FA57D182-49C2-6DB2-F53B-0A589EC0FFEF</segment>
+<tableSpace>CF4AD76F-089F-0A68-1AB3-A188F1C01D91</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="MUNICIPIO_COD" id="15029B7B-4617-5CF6-DA72-E21E74D57A6F">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PAIS_NOMBRE" id="1A8BF90A-E0AB-47DB-8D18-B9B842B6AE75">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LATITUD" id="4CD62914-AFC5-03AB-69CF-8153DDE82DF3">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEPARTAMENTO_COD" id="5A00F4F0-D957-C3B4-DAD5-5F72FC749C68">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LONGITUD" id="600F23D3-C6D3-CDE6-62C5-F2EABF5F776F">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_CIUDAD" id="C2A165A2-B225-69CA-E231-4537B35EB7A8">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MUNICIPIO_NOMBRE" id="C76841D8-0D93-8D0E-172F-15D5BCB2A33D">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEPARTAMENTO_NOMBRE" id="C956E8FA-6187-5285-4703-8D2DDB0343BE">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="UK_CIUDAD" id="8C9FAB7A-A8AC-6603-ACB6-4D2DF33BB52B">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<schemaObject>BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D</schemaObject>
+<segment>E44449E1-9040-6238-373C-33459C6875D0</segment>
+<tableSpace>CF4AD76F-089F-0A68-1AB3-A188F1C01D91</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_CIUDAD_ID" id="E884AFD0-8A95-A1C6-ED5B-1979470CB6EF">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<schemaObject>BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D</schemaObject>
+<segment>E44449E1-9040-6238-373C-33459C6875D0</segment>
+<tableSpace>CF4AD76F-089F-0A68-1AB3-A188F1C01D91</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_CIUDAD_ID" id="D6C14D11-9D00-7968-A8D1-427F002290FC">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<segment>E44449E1-9040-6238-373C-33459C6875D0</segment>
+<tableSpace>CF4AD76F-089F-0A68-1AB3-A188F1C01D91</tableSpace>
+<existingIndex>E884AFD0-8A95-A1C6-ED5B-1979470CB6EF</existingIndex>
+<indexSegment>E44449E1-9040-6238-373C-33459C6875D0</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="UK_CIUDAD" id="D642FCF0-4BEE-3C68-F2E2-6CDE51082AB3">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<segment>E44449E1-9040-6238-373C-33459C6875D0</segment>
+<tableSpace>CF4AD76F-089F-0A68-1AB3-A188F1C01D91</tableSpace>
+<existingIndex>8C9FAB7A-A8AC-6603-ACB6-4D2DF33BB52B</existingIndex>
+<indexSegment>E44449E1-9040-6238-373C-33459C6875D0</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev11g>

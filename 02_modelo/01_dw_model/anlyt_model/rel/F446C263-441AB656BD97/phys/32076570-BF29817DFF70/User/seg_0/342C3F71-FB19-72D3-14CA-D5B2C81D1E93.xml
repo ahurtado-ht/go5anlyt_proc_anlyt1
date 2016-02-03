@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="ANLYT" directorySegmentName="seg_0" id="342C3F71-FB19-72D3-14CA-D5B2C81D1E93">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjName>ANLYT</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:08 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<schemaObject>BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D</schemaObject>
+<privileges>CREATE VIEW, UNLIMITED TABLESPACE</privileges>
+</UserOraclev10g>

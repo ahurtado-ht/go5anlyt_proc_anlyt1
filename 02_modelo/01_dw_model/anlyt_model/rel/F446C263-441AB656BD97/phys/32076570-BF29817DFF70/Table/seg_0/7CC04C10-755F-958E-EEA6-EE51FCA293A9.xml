@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="OP_SUCURSAL" directorySegmentName="seg_0" id="7CC04C10-755F-958E-EEA6-EE51FCA293A9">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<schemaObject>BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>FA57D182-49C2-6DB2-F53B-0A589EC0FFEF</segment>
+<tableSpace>CF4AD76F-089F-0A68-1AB3-A188F1C01D91</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="ID_SUCURSAL" id="1B4AF221-40C9-4388-9526-9DCC655DC009">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LATITUD" id="4932249E-728F-A262-3B72-0A95900FC81E">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_CIUDAD" id="4E5BD360-D2AA-7E09-1F81-43615B559B27">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SUCURSAL_COD" id="7C0D4C1B-1C99-B6E6-C05C-783ECD45CCE3">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="RAZON_SOCIAL" id="87B26D9A-249B-53B0-A5B5-9B7511430F94">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_EMPRESA" id="D4D8FC28-0617-85AE-2E3E-49B7BF42A835">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LONGITUD" id="F110F2F4-0E01-1F06-B7CF-2D8D2A557AC0">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="UK_SUCURSAL" id="16E8F946-463F-3E89-AAB9-76BA599E8E3C">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<schemaObject>BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D</schemaObject>
+<segment>E44449E1-9040-6238-373C-33459C6875D0</segment>
+<tableSpace>CF4AD76F-089F-0A68-1AB3-A188F1C01D91</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_SUCURSAL_ID" id="B5506D7B-E037-07EC-0BD6-22C6C3063ECC">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<schemaObject>BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D</schemaObject>
+<segment>E44449E1-9040-6238-373C-33459C6875D0</segment>
+<tableSpace>CF4AD76F-089F-0A68-1AB3-A188F1C01D91</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_SUCURSAL_EMPRESA" id="1433AD6B-578A-C203-D2A6-1450F57BDDE4">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:11 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_SUCURSAL_CIUDAD" id="76381931-5546-6691-E2FE-B7159EAB4A7D">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:11 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_SUCURSAL_ID" id="D3BB2916-5F04-7DA4-FFFD-781C3AC99A1C">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<segment>E44449E1-9040-6238-373C-33459C6875D0</segment>
+<tableSpace>CF4AD76F-089F-0A68-1AB3-A188F1C01D91</tableSpace>
+<existingIndex>B5506D7B-E037-07EC-0BD6-22C6C3063ECC</existingIndex>
+<indexSegment>E44449E1-9040-6238-373C-33459C6875D0</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="UK_SUCURSAL" id="A7B24BBC-0E76-35B1-6954-6EF3D8A6B69A">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<segment>E44449E1-9040-6238-373C-33459C6875D0</segment>
+<tableSpace>CF4AD76F-089F-0A68-1AB3-A188F1C01D91</tableSpace>
+<existingIndex>16E8F946-463F-3E89-AAB9-76BA599E8E3C</existingIndex>
+<indexSegment>E44449E1-9040-6238-373C-33459C6875D0</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev11g>

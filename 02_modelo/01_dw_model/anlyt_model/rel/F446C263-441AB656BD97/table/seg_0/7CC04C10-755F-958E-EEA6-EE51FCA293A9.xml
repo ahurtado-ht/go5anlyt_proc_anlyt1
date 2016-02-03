@@ -1,0 +1,203 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7CC04C10-755F-958E-EEA6-EE51FCA293A9" schemaObject="BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D" name="OP_SUCURSAL">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>OP_SUCURSAL</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SUCURSAL_COD" id="7C0D4C1B-1C99-B6E6-C05C-783ECD45CCE3">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_SUCURSAL</sourceObjSchema>
+<sourceObjName>SUCURSAL_COD</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RAZON_SOCIAL" id="87B26D9A-249B-53B0-A5B5-9B7511430F94">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_SUCURSAL</sourceObjSchema>
+<sourceObjName>RAZON_SOCIAL</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LATITUD" id="4932249E-728F-A262-3B72-0A95900FC81E">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_SUCURSAL</sourceObjSchema>
+<sourceObjName>LATITUD</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>9</dataTypePrecision>
+<dataTypeScale>6</dataTypeScale>
+<ownDataTypeParameters>,9,6</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LONGITUD" id="F110F2F4-0E01-1F06-B7CF-2D8D2A557AC0">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_SUCURSAL</sourceObjSchema>
+<sourceObjName>LONGITUD</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>9</dataTypePrecision>
+<dataTypeScale>6</dataTypeScale>
+<ownDataTypeParameters>,9,6</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_CIUDAD" id="4E5BD360-D2AA-7E09-1F81-43615B559B27">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_SUCURSAL</sourceObjSchema>
+<sourceObjName>ID_CIUDAD</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,4,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4B4422E7-8524-755C-E096-951D4DD3DD15" referredColumn="C2A165A2-B225-69CA-E231-4537B35EB7A8"/>
+</associations>
+</Column>
+<Column name="ID_EMPRESA" id="D4D8FC28-0617-85AE-2E3E-49B7BF42A835">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_SUCURSAL</sourceObjSchema>
+<sourceObjName>ID_EMPRESA</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>9</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,9,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C91F21DF-CD08-9820-4E14-BCB016B1BDEA" referredColumn="EB10CB83-41E0-1487-4A83-C98E41173B1B"/>
+</associations>
+</Column>
+<Column name="ID_SUCURSAL" id="1B4AF221-40C9-4388-9526-9DCC655DC009">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_SUCURSAL</sourceObjSchema>
+<sourceObjName>ID_SUCURSAL</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>9</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,9,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D3BB2916-5F04-7DA4-FFFD-781C3AC99A1C" name="PK_SUCURSAL_ID">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>PK_SUCURSAL_ID</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1B4AF221-40C9-4388-9526-9DCC655DC009"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A7B24BBC-0E76-35B1-6954-6EF3D8A6B69A" name="UK_SUCURSAL">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>UK_SUCURSAL</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="87B26D9A-249B-53B0-A5B5-9B7511430F94"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B5506D7B-E037-07EC-0BD6-22C6C3063ECC" schemaObject="BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D" name="PK_SUCURSAL_ID">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>PK_SUCURSAL_ID</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1B4AF221-40C9-4388-9526-9DCC655DC009"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="16E8F946-463F-3E89-AAB9-76BA599E8E3C" schemaObject="BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D" name="UK_SUCURSAL">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>UK_SUCURSAL</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="87B26D9A-249B-53B0-A5B5-9B7511430F94"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="76381931-5546-6691-E2FE-B7159EAB4A7D" name="FK_SUCURSAL_CIUDAD">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:11 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4E5BD360-D2AA-7E09-1F81-43615B559B27"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1433AD6B-578A-C203-D2A6-1450F57BDDE4" name="FK_SUCURSAL_EMPRESA">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:11 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D4D8FC28-0617-85AE-2E3E-49B7BF42A835"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

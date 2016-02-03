@@ -1,0 +1,408 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5996A47D-B3AF-F682-95BF-602150421536" schemaObject="BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D" name="OP_EVENTO">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>OP_EVENTO</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="EVENTO_COD" id="9F3D40EC-8E6A-1947-C8DE-0925E64B0403">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>EVENTO_COD</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>viene desde el evento raw (del broker), pero se maneja aparte una llave artificial para evitar duplicidad</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>16</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,16,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EVENTO_TIPO" id="861A4D80-60E5-28C7-C587-32FCEB3AFFDC">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>EVENTO_TIPO</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>&quot;E1:EmisionCompletada,E2:TransferenciaAgregadorRealizada,E3:TransferenciaEmpresarioRealizada,E4:RedencionRealizada&quot;</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EVENTO_FECHA" id="0988E734-CFCE-7238-0BEA-A03BB9FCA90E">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>EVENTO_FECHA</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>fecha en la cual se ejecutó el evento en la plataforma (la boveda)&lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EVENTO_DIRECCION_IP" id="34EA1BE2-561E-6729-8D16-E058BFF60432">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>EVENTO_DIRECCION_IP</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>direccion ip de la maquina donde se hace la redencion&lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EVENTO_CANAL" id="A1B1DEAC-0746-6762-B66D-8767C8129147">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>EVENTO_CANAL</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>canal a traves del cual se solicitó la ejecución del evento dominio: DATAFONO, APPMOVIL, APPWEB,PLATAFORMA_GOFIVE,PORTAL&lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EVENTO_RESP_NROCONFIRMACION" id="D824A0DC-D083-A824-F912-D047FE46D3B0">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>EVENTO_RESP_NROCONFIRMACION</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>numero de confirmacion de la transaccion efectuada y confirmada&lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>16</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,16,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EVENTO_RESP_COD" id="C35A4E8A-C4FE-1546-A9B4-5311D44A169D">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>EVENTO_RESP_COD</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>codigo de respuesta enviada por la boveda&lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EVENTO_RESP_DESCRIPCION" id="82CFFA01-8A6D-2CA9-922F-31BBE7448344">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>EVENTO_RESP_DESCRIPCION</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>mensaje de feedback enviado por la boveda&lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>256 BYTE</dataTypeSize>
+<ownDataTypeParameters>256 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_CAJA" id="797066BA-CF4A-BDCC-399F-01C9D0926373">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>ID_CAJA</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>Id de la caja donde se redime&lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>9</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,9,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5F0B281F-E863-B5C3-8152-8A927B9EF9B5" referredColumn="01874B35-726F-05F6-861F-553193EAAE35"/>
+</associations>
+</Column>
+<Column name="TX_ORIGEN_CUENTA" id="29F56117-78AA-8CA1-5D40-6EA305AA69B9">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>TX_ORIGEN_CUENTA</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>cuenta origen de la transaccion (redencion: de la persona que redime)&lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A3AFDB82-DAC2-7A3A-E798-57372C8F9EFD" referredColumn="4F55F573-FE56-6C62-E14B-DB3B67F4B72C"/>
+</associations>
+</Column>
+<Column name="TX_DESTINO_CUENTA" id="3DEA361A-CD4B-906B-47AA-ACB6098D5719">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>TX_DESTINO_CUENTA</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>codigo que identifica a la cuenta destino de la transaccion (redención: del comercio donde se redime)&lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_CAJERO" id="F14E4F47-7A72-0BC9-A589-F772879F4D32">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>ID_CAJERO</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>Id del cajero donde se redime&lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>9</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,9,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6C9884EE-64EA-F940-6ECB-9F8B991461C5" referredColumn="41CD6329-79D3-15BE-09AF-C0F5719C3AE2"/>
+</associations>
+</Column>
+<Column name="BONO_SERIAL" id="CF5F21F8-589B-6F00-6017-E9FCC4518A6D">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>BONO_SERIAL</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>numero serial del bono (S/N)&lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BONO_ESPECIE_COD" id="815C2C1D-F83D-4E42-C41E-F570C75869EC">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>BONO_ESPECIE_COD</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>codigo que identifica al comercio-emisor del bono&lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BONO_EMISOR_COD" id="9CF2E60A-9C99-8DBA-2A53-7B1B60343168">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>BONO_EMISOR_COD</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>dato del bono que identifica la especie bajo la que fue emitida&lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BONO_ESPECIE_VER" id="79C90A20-762C-057A-8623-BE1AE3B3F38D">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>BONO_ESPECIE_VER</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>dato del bono que identifica la version de especie bajo la que fue emitida&lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BONO_ESTADO" id="DBB30C1C-9420-0EFF-4349-897120462643">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>BONO_ESTADO</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>dominio: CREADO,ALMACENADO,DISPONIBLE,ACTIVO,REDIMIDO,VENCIDO,ANULADO&lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BONO_VALOR" id="DCBB3F5D-7624-7098-401E-FB4E9928ABF0">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>BONO_VALOR</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>valor del bono &lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>16</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,16,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BONO_DENOMINACION" id="32FB1A8B-DAC8-538F-5B6B-14B7451B5E44">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>BONO_DENOMINACION</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>identifica la denominacion del bono &lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>256 BYTE</dataTypeSize>
+<ownDataTypeParameters>256 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BONO_FECHA_VENCIMIENTO" id="01157D44-3560-A8FC-C0FA-C55BF6ABBA96">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>BONO_FECHA_VENCIMIENTO</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>fecha en la cual se vence el bono&lt;br/&gt;</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_EVENTORAW" id="E90CD3D0-D50E-CBA7-6BE7-036AC8EC45DE">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_EVENTO</sourceObjSchema>
+<sourceObjName>ID_EVENTORAW</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>llave artificial</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>16</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,16,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="79CC40B6-959A-8F7C-FA64-6C981CA83DF4" referredColumn="2164652C-CC0A-92CA-2896-91B4AD79B7E9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="59E5281A-7B65-40E0-DB22-CCA19D7F4760" name="OP_EVENTO_FK1">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E90CD3D0-D50E-CBA7-6BE7-036AC8EC45DE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7637ABC2-562A-289D-56AB-A2E93DE01E20" name="OP_EVENTO_FK2">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:11 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="797066BA-CF4A-BDCC-399F-01C9D0926373"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E8FB8FB0-E9AC-4C65-6B6B-146A8C415EDE" name="OP_EVENTO_FK3">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:11 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F14E4F47-7A72-0BC9-A589-F772879F4D32"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F977B1FE-F389-EA1E-3C69-FFF7C9ABC79F" name="OP_EVENTO_FK5">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:11 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="29F56117-78AA-8CA1-5D40-6EA305AA69B9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

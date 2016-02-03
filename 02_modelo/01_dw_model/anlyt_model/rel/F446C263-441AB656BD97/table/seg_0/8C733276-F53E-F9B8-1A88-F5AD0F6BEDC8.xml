@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8C733276-F53E-F9B8-1A88-F5AD0F6BEDC8" schemaObject="BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D" name="OP_SEGMENTO">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>OP_SEGMENTO</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_SEGMENTO" id="B91D2506-D80E-2E2A-F908-6EC850F28C73">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_SEGMENTO</sourceObjSchema>
+<sourceObjName>ID_SEGMENTO</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESC_SEGMENTO" id="BD147E74-2CE2-7333-8F36-0FF312A4EF5D">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_SEGMENTO</sourceObjSchema>
+<sourceObjName>DESC_SEGMENTO</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A06CA8DE-5FB7-E36B-1271-373D6759EEB4" name="PK_SEGMENTO_ID">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>PK_SEGMENTO_ID</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B91D2506-D80E-2E2A-F908-6EC850F28C73"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="121CAFFE-85C6-5D20-F735-8CD3E32AE990" name="UK_DESC_SEGMENTO">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>UK_DESC_SEGMENTO</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BD147E74-2CE2-7333-8F36-0FF312A4EF5D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="703CA33F-C59E-55DD-AEB1-AA51C1EF405E" schemaObject="BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D" name="PK_SEGMENTO_ID">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>PK_SEGMENTO_ID</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B91D2506-D80E-2E2A-F908-6EC850F28C73"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="49E3679F-B976-5A27-0638-EAC9CC02D60F" schemaObject="BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D" name="UK_DESC_SEGMENTO">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>UK_DESC_SEGMENTO</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BD147E74-2CE2-7333-8F36-0FF312A4EF5D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

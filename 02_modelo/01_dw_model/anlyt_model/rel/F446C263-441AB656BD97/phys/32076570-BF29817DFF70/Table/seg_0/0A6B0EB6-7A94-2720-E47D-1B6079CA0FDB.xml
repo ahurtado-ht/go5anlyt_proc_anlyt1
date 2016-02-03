@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="OP_EMPRESA" directorySegmentName="seg_0" id="0A6B0EB6-7A94-2720-E47D-1B6079CA0FDB">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<schemaObject>BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>FA57D182-49C2-6DB2-F53B-0A589EC0FFEF</segment>
+<tableSpace>CF4AD76F-089F-0A68-1AB3-A188F1C01D91</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="RAZON_SOCIAL" id="70B70A3A-6791-FC2E-9327-801F6F3C5C24">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_EMPRESA" id="EB10CB83-41E0-1487-4A83-C98E41173B1B">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NIT" id="FBC14BAB-4EE4-96B7-63A9-609A78E34882">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="UK_NIT" id="10AF2285-AAD3-0BCE-F100-67A448ED6CAF">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<schemaObject>BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D</schemaObject>
+<segment>E44449E1-9040-6238-373C-33459C6875D0</segment>
+<tableSpace>CF4AD76F-089F-0A68-1AB3-A188F1C01D91</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_EMPRESA_ID" id="F075D78B-3277-76C3-0B79-737707B270EB">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<schemaObject>BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D</schemaObject>
+<segment>E44449E1-9040-6238-373C-33459C6875D0</segment>
+<tableSpace>CF4AD76F-089F-0A68-1AB3-A188F1C01D91</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_EMPRESA_ID" id="054AD079-1ACA-249E-63EF-256031925822">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<segment>E44449E1-9040-6238-373C-33459C6875D0</segment>
+<tableSpace>CF4AD76F-089F-0A68-1AB3-A188F1C01D91</tableSpace>
+<existingIndex>F075D78B-3277-76C3-0B79-737707B270EB</existingIndex>
+<indexSegment>E44449E1-9040-6238-373C-33459C6875D0</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="UK_NIT" id="3D1F61DB-4A0C-CC90-2E51-D206BE556817">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<segment>E44449E1-9040-6238-373C-33459C6875D0</segment>
+<tableSpace>CF4AD76F-089F-0A68-1AB3-A188F1C01D91</tableSpace>
+<existingIndex>10AF2285-AAD3-0BCE-F100-67A448ED6CAF</existingIndex>
+<indexSegment>E44449E1-9040-6238-373C-33459C6875D0</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev11g>

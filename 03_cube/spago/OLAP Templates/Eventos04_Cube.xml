@@ -1,0 +1,100 @@
+<?xml version="1.0" ?>
+<SCHEMA name="Eventos04_Cube">
+<Dimension name="Tiempo_D">
+<Hierarchy hasAll="true" 
+allMemberName="All Tiempo_D"
+primaryKey="${hierarchy.primaryKey}" 
+name="Tiempo_H"
+>
+<Table name="V_OP_EVENTO"/>
+<Level name="EVENTO FECHA YEAR" column="EVENTO_FECHA_YEAR" 
+uniqueMembers="false"
+/>
+<Level name="EVENTO FECHA MONTH" column="EVENTO_FECHA_MONTH" 
+uniqueMembers="false"
+/>
+<Level name="EVENTO FECHA DAY" column="EVENTO_FECHA_DAY" 
+uniqueMembers="false"
+/>
+</Hierarchy>
+</Dimension> 
+<Dimension name="Geo_Ciudad_D">
+<Hierarchy hasAll="true" 
+allMemberName="All Geo_Ciudad_D"
+primaryKey="ID_CIUDAD" 
+name="Geo_Ciudad_D"
+>
+<Table name="OP_CIUDAD"/>
+<Level name="PAIS NOMBRE" column="PAIS_NOMBRE" 
+uniqueMembers="false"
+/>
+<Level name="DEPARTAMENTO NOMBRE" column="DEPARTAMENTO_NOMBRE" 
+uniqueMembers="false"
+/>
+<Level name="MUNICIPIO NOMBRE" column="MUNICIPIO_NOMBRE" 
+uniqueMembers="false"
+/>
+</Hierarchy>
+</Dimension> 
+<Dimension name="Emision_D">
+<Hierarchy hasAll="true" 
+allMemberName="All Emision_D"
+primaryKey="${hierarchy.primaryKey}" 
+name="Emision_H"
+>
+<Table name="V_OP_EVENTO"/>
+<Level name="BONO EMISOR COD" column="BONO_EMISOR_COD" 
+uniqueMembers="false"
+/>
+<Level name="BONO ESPECIE COD" column="BONO_ESPECIE_COD" 
+uniqueMembers="false"
+/>
+<Level name="BONO ESPECIE VER" column="BONO_ESPECIE_VER" 
+uniqueMembers="false"
+/>
+</Hierarchy>
+</Dimension> 
+<Dimension name="Geo_Pos_D">
+<Hierarchy hasAll="true" 
+allMemberName="All Geo_Pos_D"
+primaryKey="${hierarchy.primaryKey}" 
+name="Empresa_H"
+>
+<Table name="V_OP_POS"/>
+<Level name="EMP RAZON SOCIAL" column="EMP_RAZON_SOCIAL" 
+uniqueMembers="false"
+/>
+<Level name="SUC RAZON SOCIAL" column="SUC_RAZON_SOCIAL" 
+uniqueMembers="false"
+/>
+<Level name="CAJA COD" column="CAJA_COD" 
+uniqueMembers="false"
+/>
+</Hierarchy>
+</Dimension> 
+<Dimension name="Cuenta_D">
+<Hierarchy hasAll="true" 
+allMemberName="All Cuenta_D"
+primaryKey="${hierarchy.primaryKey}" 
+name="Cuenta_H"
+>
+<Table name="V_OP_CUENTA"/>
+<Level name="DESC CATEGORIA EDAD" column="DESC_CATEGORIA_EDAD" 
+uniqueMembers="false"
+/>
+<Level name="ID CUENTA COD" column="ID_CUENTA_COD" 
+uniqueMembers="false"
+/>
+</Hierarchy>
+</Dimension> 
+<Cube name="Evento_F">
+<Table name="V_OP_EVENTO"/>
+<DimensionUsage name="Tiempo_D" source="Tiempo_D" foreignKey="ID_EVENTORAW"/>
+<DimensionUsage name="Emision_D" source="Emision_D" foreignKey="ID_EVENTORAW"/>
+<DimensionUsage name="Geo_Pos_D" source="Geo_Pos_D" foreignKey="ID_CAJA"/>
+<DimensionUsage name="Cuenta_D" source="Cuenta_D" foreignKey="TX_ORIGEN_CUENTA"/>
+<Measure name="BONO VALOR" column="BONO_VALOR" aggregator="sum" formatString="#,###"/>
+<Measure name="ID EVENTORAW" column="ID_EVENTORAW" aggregator="count" formatString="#,###"/>
+<Measure name="EVENTO COD" column="EVENTO_COD" aggregator="sum" formatString="#,###"/>
+</Cube> 
+</SCHEMA>

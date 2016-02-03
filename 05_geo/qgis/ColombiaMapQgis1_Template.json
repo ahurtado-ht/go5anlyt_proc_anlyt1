@@ -1,0 +1,57 @@
+{
+		mapName: "ColombiaMapQgis1",
+
+		analysisType: "proportionalSymbols",
+		analysisConf: {
+			type: "choropleth"
+			, indicator: "VALOR_REDENCION"
+			, method:  "CLASSIFY_BY_QUANTILS" // "CLASSIFY_BY_EQUAL_INTERVALS"
+			, classes: 3
+			, fromColor: "#C0C0C0"
+			, toColor: "#333399"
+		},
+		
+		feautreInfo: [["Departamento","DEPARTAMENTO_NOMBRE"], ["Sucursal","SUCURSAL_RAZON_SOCIAL"]],
+		indicators: [["VALOR_REDENCION", "Valor redencion"],["NUMERO_BONOS_REDIMIDOS", "Num bonos redimodos"]],
+		
+		businessId: "DEPARTAMENTO_GEO_CODE", //it links to alphanumeric data into spagobi dataset
+		geoId: "HASC_1", //it links to geometires 
+
+		targetLayerConf: {
+			text: 'States'
+			, name: 'bonos_ws:COL_adm1'
+			, url: 'http://localhost:8082/geoserver/wfs'	
+			//, data: 'usa_states.json'
+		},
+		
+		inlineDocumentConf: {
+			label: 'DIALCHART_simpledial'
+			, staticParams: {
+				param1: 'andrea'
+			}
+			, dynamicParams: {
+				state: 'DEPARTAMENTO_NOMBRE'
+			}
+			, displayToolbar: 'false'
+			, displaySliders: 'false'
+		},
+
+		detailDocumentConf: {
+			label: 'DepartmentList'
+			, staticParams: {
+				departmentId: '3'
+			}
+			, dynamicParams: {
+				state: 'DEPARTAMENTO_NOMBRE'
+			}
+			, displayToolbar: 'false'
+			, displaySliders: 'false'
+		} ,
+			    
+		role: "spagobi/admin",
+				
+			    
+		lon: -96.800,
+		lat: 40.800,
+		zoomLevel: 4
+}

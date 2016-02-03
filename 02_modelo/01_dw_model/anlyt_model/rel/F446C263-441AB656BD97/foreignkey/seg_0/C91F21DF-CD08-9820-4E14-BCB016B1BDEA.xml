@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C91F21DF-CD08-9820-4E14-BCB016B1BDEA" containerWithKeyObject="7CC04C10-755F-958E-EEA6-EE51FCA293A9" localFKIndex="1433AD6B-578A-C203-D2A6-1450F57BDDE4" name="FK_SUCURSAL_EMPRESA">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>FK_SUCURSAL_EMPRESA</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:11 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>0A6B0EB6-7A94-2720-E47D-1B6079CA0FDB</referredTableID>
+<keyObject>054AD079-1ACA-249E-63EF-256031925822</keyObject>
+<referredKeyID>054AD079-1ACA-249E-63EF-256031925822</referredKeyID>
+<mandatory>false</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="A3AFDB82-DAC2-7A3A-E798-57372C8F9EFD" containerWithKeyObject="5996A47D-B3AF-F682-95BF-602150421536" localFKIndex="F977B1FE-F389-EA1E-3C69-FFF7C9ABC79F" name="OP_EVENTO_FK5">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>OP_EVENTO_FK5</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:11 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>EF72659A-7913-B481-7458-547D3EFAF658</referredTableID>
+<keyObject>5CFAFE84-7EA6-E45F-14F0-3B51B15BDBFC</keyObject>
+<referredKeyID>5CFAFE84-7EA6-E45F-14F0-3B51B15BDBFC</referredKeyID>
+<mandatory>false</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

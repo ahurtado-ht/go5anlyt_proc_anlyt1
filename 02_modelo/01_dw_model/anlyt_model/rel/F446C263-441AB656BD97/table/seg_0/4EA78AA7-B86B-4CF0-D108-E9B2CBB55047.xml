@@ -1,0 +1,131 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4EA78AA7-B86B-4CF0-D108-E9B2CBB55047" schemaObject="BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D" name="OP_REDENCION_CAJA">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>OP_REDENCION_CAJA</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CAJA_COD" id="80EDDC05-58D4-F4EC-D612-7F62151FD578">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_REDENCION_CAJA</sourceObjSchema>
+<sourceObjName>CAJA_COD</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>codigo de la caja donde se redime</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_SUCURSAL" id="615197D9-E7DB-77C9-D8C6-98A56ACBE33F">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_REDENCION_CAJA</sourceObjSchema>
+<sourceObjName>ID_SUCURSAL</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>identificador unico de la sucursal</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>9</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,9,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="72923F57-3A85-4795-4AFE-8EB3BA707914" referredColumn="1B4AF221-40C9-4388-9526-9DCC655DC009"/>
+</associations>
+</Column>
+<Column name="ID_CAJA" id="01874B35-726F-05F6-861F-553193EAAE35">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_REDENCION_CAJA</sourceObjSchema>
+<sourceObjName>ID_CAJA</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<commentInRDBMS>identificador unico del registro</commentInRDBMS>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>9</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,9,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E22D2BA8-C19D-84BB-47C3-C0BEEC78A226" name="OP_REDENCION_CAJA_PK">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>OP_REDENCION_CAJA_PK</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="01874B35-726F-05F6-861F-553193EAAE35"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9CCF397B-2B31-A4E3-FB8A-229A3F43BF74" name="OP_REDENCION_CAJA_UK1">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>OP_REDENCION_CAJA_UK1</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="80EDDC05-58D4-F4EC-D612-7F62151FD578"/>
+<colUsage columnID="615197D9-E7DB-77C9-D8C6-98A56ACBE33F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="421AF9B8-DF70-A6D7-0FF2-2FE8D7C69461" schemaObject="BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D" name="OP_REDENCION_CAJA_UK1">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>OP_REDENCION_CAJA_UK1</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="80EDDC05-58D4-F4EC-D612-7F62151FD578"/>
+<colUsage columnID="615197D9-E7DB-77C9-D8C6-98A56ACBE33F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="057723F1-DF46-81D1-784C-C0B00C5332DD" schemaObject="BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D" name="PK_ID_CAJA">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>PK_ID_CAJA</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="01874B35-726F-05F6-861F-553193EAAE35"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="69B36B45-9C70-8D03-397A-8EE9726327B4" name="OP_REDENCION_CAJA_FK1">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:11 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="615197D9-E7DB-77C9-D8C6-98A56ACBE33F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

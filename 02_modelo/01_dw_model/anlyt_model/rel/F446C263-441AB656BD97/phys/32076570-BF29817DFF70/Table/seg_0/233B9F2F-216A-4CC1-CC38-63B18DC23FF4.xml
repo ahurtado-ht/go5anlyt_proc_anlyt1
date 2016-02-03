@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="OP_CATEGORIA_EDAD" directorySegmentName="seg_0" id="233B9F2F-216A-4CC1-CC38-63B18DC23FF4">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<schemaObject>BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>FA57D182-49C2-6DB2-F53B-0A589EC0FFEF</segment>
+<tableSpace>CF4AD76F-089F-0A68-1AB3-A188F1C01D91</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="EDAD_INICIAL" id="8CF3AAEB-82FF-C47E-45F1-E2B74DC3AA92">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DESC_CATEGORIA_EDAD" id="9BC3F6F4-EC53-3468-06C5-E0A27573EDB8">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_CATEGORIA_EDAD" id="CD3CF2D2-04A5-88AC-63C7-E774B3A7AE0C">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EDAD_FINAL" id="FE972DEF-4FD7-53E9-83F9-2298D840F9DA">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_CATEGORIA_EDAD_ID" id="544B7D16-0E64-1F53-B819-E2C4F741A9E3">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<schemaObject>BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D</schemaObject>
+<segment>E44449E1-9040-6238-373C-33459C6875D0</segment>
+<tableSpace>CF4AD76F-089F-0A68-1AB3-A188F1C01D91</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_CATEGORIA_EDAD_ID" id="ED860091-902C-2CD0-2848-EE74A851B23E">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<segment>E44449E1-9040-6238-373C-33459C6875D0</segment>
+<tableSpace>CF4AD76F-089F-0A68-1AB3-A188F1C01D91</tableSpace>
+<existingIndex>544B7D16-0E64-1F53-B819-E2C4F741A9E3</existingIndex>
+<indexSegment>E44449E1-9040-6238-373C-33459C6875D0</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

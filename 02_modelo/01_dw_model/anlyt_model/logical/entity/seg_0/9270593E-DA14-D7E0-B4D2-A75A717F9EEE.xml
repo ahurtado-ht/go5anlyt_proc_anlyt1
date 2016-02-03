@@ -15,7 +15,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="eventoId" id="B01CD622-0EC9-3F4E-39AA-827DF7F57FFE">
+<Attribute name="evento_cod" id="B01CD622-0EC9-3F4E-39AA-827DF7F57FFE">
 <createdBy>andres</createdBy>
 <createdTime>2016-01-23 23:14:49 UTC</createdTime>
 <ownerDesignName>anlyt_model</ownerDesignName>

@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="72923F57-3A85-4795-4AFE-8EB3BA707914" containerWithKeyObject="4EA78AA7-B86B-4CF0-D108-E9B2CBB55047" localFKIndex="69B36B45-9C70-8D03-397A-8EE9726327B4" name="OP_REDENCION_CAJA_FK1">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>OP_REDENCION_CAJA_FK1</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:11 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>7CC04C10-755F-958E-EEA6-EE51FCA293A9</referredTableID>
+<keyObject>D3BB2916-5F04-7DA4-FFFD-781C3AC99A1C</keyObject>
+<referredKeyID>D3BB2916-5F04-7DA4-FFFD-781C3AC99A1C</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

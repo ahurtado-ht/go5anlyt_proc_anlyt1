@@ -1,0 +1,115 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EF72659A-7913-B481-7458-547D3EFAF658" schemaObject="BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D" name="OP_REDENCION_CUENTA">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>OP_REDENCION_CUENTA</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:09 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_CUENTA_COD" id="4F55F573-FE56-6C62-E14B-DB3B67F4B72C">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_REDENCION_CUENTA</sourceObjSchema>
+<sourceObjName>ID_CUENTA_COD</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_CATEGORIA_EDAD" id="63DD9CF8-9634-F0B2-03EB-4D35B85C55D0">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_REDENCION_CUENTA</sourceObjSchema>
+<sourceObjName>ID_CATEGORIA_EDAD</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DC82D3B4-12C8-4D9E-40CF-4BF505CB5490" referredColumn="CD3CF2D2-04A5-88AC-63C7-E774B3A7AE0C"/>
+</associations>
+</Column>
+<Column name="ID_SEGMENTO" id="487BB317-2A3A-B191-8C2A-C9072B9E1D09">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>OP_REDENCION_CUENTA</sourceObjSchema>
+<sourceObjName>ID_SEGMENTO</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DD7FABE4-84B8-F3C8-9F3B-A825C63A6A50" referredColumn="B91D2506-D80E-2E2A-F908-6EC850F28C73"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5CFAFE84-7EA6-E45F-14F0-3B51B15BDBFC" name="PK_CUENTA_ID">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>PK_CUENTA_ID</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4F55F573-FE56-6C62-E14B-DB3B67F4B72C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="45D34B30-9A15-1A71-A0E3-E18BEC20FD00" schemaObject="BCA05B08-0DE6-3DBE-0BDC-981F30E80A9D" name="PK_CUENTA_ID">
+<sourceConnName>ht_0_1_Anlyt__anlyt</sourceConnName>
+<sourceObjSchema>ANLYT</sourceObjSchema>
+<sourceObjName>PK_CUENTA_ID</sourceObjName>
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:10 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4F55F573-FE56-6C62-E14B-DB3B67F4B72C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D867DDF3-52BD-1AB5-818D-D7531C7E35D5" name="FK_RED_CTA_CATEGORIA_EDAD">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:11 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="63DD9CF8-9634-F0B2-03EB-4D35B85C55D0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C7A8C311-71E1-74E9-73B5-F085E271BCF8" name="FK_RED_CTA_SEGMENTO">
+<createdBy>andres</createdBy>
+<createdTime>2016-01-29 19:22:11 UTC</createdTime>
+<ownerDesignName>anlyt_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="487BB317-2A3A-B191-8C2A-C9072B9E1D09"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
