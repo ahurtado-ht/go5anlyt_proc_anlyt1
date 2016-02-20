@@ -55,7 +55,7 @@
   </Dimension>
 
   
-  <Cube name="Redenciones" visible="true" description="Cubo de datos con los eventos de bonos" cache="true" enabled="true">
+  <Cube name="OperatividadBonos" visible="true" description="Cubo de datos con los eventos de bonos" cache="true" enabled="true">
     <View alias="Evento_F">
       <SQL dialect="generic">
       <![CDATA[
@@ -114,6 +114,47 @@ FROM V_OP_EVENTO
       </Hierarchy>
     </Dimension>
 
+<!--	
+	<Dimension type="StandardDimension" visible="true" highCardinality="false" name="TipoEvento_D">
+      <Hierarchy name="TipoEvento_H" visible="true" hasAll="true">
+        <Level name="EventoTipo" visible="true" column="EVENTO_TIPO" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+-->	
+	
+	<Dimension type="StandardDimension" visible="true" highCardinality="false" name="TipoEvento_D" foreignKey="EVENTO_TIPO">
+      <Hierarchy name="TipoEvento_H" visible="true" hasAll="true" primaryKey="id" >
+		<InlineTable alias="TipoEvento_Lookup">
+			<ColumnDefs>
+				<ColumnDef name="id" type="String"/>
+				<ColumnDef name="desc" type="String"/>
+			</ColumnDefs>
+			<Rows>
+				<Row>
+					<Value column="id">E1</Value>
+					<Value column="desc">1-Emision</Value>
+				</Row>
+				<Row>
+					<Value column="id">E2</Value>
+					<Value column="desc">2-Agregador (Tr)</Value>
+				</Row>
+				<Row>
+					<Value column="id">E3</Value>
+					<Value column="desc">3-Empresario (Tr)</Value>
+				</Row>
+				<Row>
+					<Value column="id">E4</Value>
+					<Value column="desc">4-Redencion</Value>
+				</Row>
+			</Rows>
+		</InlineTable>	  
+	  
+        <Level name="EventoTipo" visible="true" column="id" nameColumn="desc" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+	
     <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Emision_D">
       <Hierarchy name="Emision_H" visible="true" hasAll="true">
         <Level name="Empresa" visible="true" column="BONO_EMISOR_COD" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">

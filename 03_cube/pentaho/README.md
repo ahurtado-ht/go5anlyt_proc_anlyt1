@@ -1,3 +1,7 @@
+============================================
+SAIKU 
+============================================
+
 ============================
 MODELAMIENTO
 ============================
@@ -10,7 +14,7 @@ se crea conexion (Options > Connection)
 nombre: ht_0_1_Anlyt__anlyt
 
 ============================
-saiku-instalacion
+-> instalacion
 ============================
 instalar jdk
 sudo dnf install java-1.8.0
@@ -50,6 +54,9 @@ saiku
 		-> schema name: BONOS-ANLYT-Eventos
 		-> archivo: go5anlyt_proc_anlyt1\03_cube\pentaho
 
+		
+	(NOTA: si hay que refrescar el cubo, subirlo y reiniciar, dado que el datasource se encuentra enlazado)	
+		
 -> crear datasource
   
   -> subir app
@@ -113,7 +120,7 @@ saiku-administrador
 		-> ./shutdowun.sh
 		-> tailf logs/catalina.out
 
-(sube por el peurto 8080)
+(sube por el puerto 8080 por defecto)
 		
 =================================
 saiku-usuario
