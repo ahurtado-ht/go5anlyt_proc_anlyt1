@@ -54,6 +54,10 @@ ver subproyecto: go5app_portal_meanjs (READMe.2: para inatalar plugins y embed c
 SAIKU:SERVER-CONFIGURACION
 --------------------------
 
+# descargar proyecto
+cd /.apps
+git clone https://github.com/ahurtado-ht/go5anlyt_proc_anlyt1.git
+
 
 # CONFIGURAR SAIKU (DATASET Y CUBO)
 
