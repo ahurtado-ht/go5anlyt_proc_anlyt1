@@ -51,7 +51,7 @@ SAIKU:PLUGINS y EMBED-CLIENT
 ver subproyecto: go5app_portal_meanjs (READMe.2: para inatalar plugins y embed client)
 
 --------------------------
-SAIKU:SERVER-CONFIGURACION
+SAIKU:SERVER-CONFIGURACION (1)
 --------------------------
 
 # descargar proyecto
@@ -101,7 +101,20 @@ password=anlyt
 # CONFIGURAR SAIKU (FOLDER)
 	
   /ROOT/MISPESOS
-	
+
+
+  
+--------------------------
+SAIKU:SERVER-CONFIGURACION (2)
+--------------------------
+- hace referencia a la instalacion de los reportes preconstruidos
+hacer un import de backup
+desde:
+go5anlyt_proc_anlyt1\06_objects\saiku\backup.zip
+
+
+  
+  
 
 --------------------------
 SAIKU:SERVER-ADMINISTRACION
@@ -116,6 +129,9 @@ SAIKU:SERVER-ADMINISTRACION
 		(windows: start-saiku.bat )
 	bajar
 		./stop-saiku.sh
+	
+	logs
+		tailf tomcat/logs/catalina.out
 	
 	metodo alternativo
 		finalmetne es un tomcat, asi que sirven los scritps
