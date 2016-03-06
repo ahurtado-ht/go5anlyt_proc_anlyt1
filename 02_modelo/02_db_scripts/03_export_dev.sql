@@ -2,6 +2,19 @@
 -- Archivo creado  - sábado-marzo-05-2016   
 --------------------------------------------------------
 --------------------------------------------------------
+--  DDL for DB Link DBLINK_MISPESOS
+--------------------------------------------------------
+
+  CREATE DATABASE LINK "DBLINK_MISPESOS"
+   CONNECT TO "MISPESOS" IDENTIFIED BY VALUES '058AD070191DC55B84CA7D4E9E5E857C0A8779C5A88A05BF50'
+   USING '(DESCRIPTION=
+    (ADDRESS=
+     (PROTOCOL=TCP)
+    (HOST=192.168.1.236)
+     (PORT=1521))
+     (CONNECT_DATA=
+      (SID=PERSONAL)))';
+--------------------------------------------------------
 --  DDL for Sequence SEQ_ID_OPEVENTORAW
 --------------------------------------------------------
 
@@ -353,6 +366,129 @@ FROM OP_EVENTO;
  WHERE OP_REDENCION_CAJA.ID_SUCURSAL = OP_SUCURSAL.ID_SUCURSAL
    AND OP_SUCURSAL.ID_CIUDAD = OP_CIUDAD.ID_CIUDAD 
    AND OP_EMPRESA.ID_EMPRESA = OP_SUCURSAL.ID_EMPRESA;
+--------------------------------------------------------
+--  DDL for View VX_CATEGORIA_EDAD
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "ANLYT"."VX_CATEGORIA_EDAD" ("ID_CATEGORIA_EDAD", "EDAD_INICIAL", "EDAD_FINAL", "DESC_CATEGORIA_EDAD") AS 
+  select "ID_CATEGORIA_EDAD","EDAD_INICIAL","EDAD_FINAL","DESC_CATEGORIA_EDAD"
+  from op_categoria_edad;
+--------------------------------------------------------
+--  DDL for View VXD_CUENTA
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "ANLYT"."VXD_CUENTA" ("ID_CUENTA_COD", "CTA_ID_CATEGORIA_EDAD", "ID_SEGMENTO", "ID_CATEGORIA_EDAD", "EDAD_INICIAL", "EDAD_FINAL", "DESC_CATEGORIA_EDAD") AS 
+  SELECT 
+  OP_REDENCION_CUENTA.ID_CUENTA_COD,
+  OP_REDENCION_CUENTA.ID_CATEGORIA_EDAD CTA_ID_CATEGORIA_EDAD,
+  OP_REDENCION_CUENTA.ID_SEGMENTO,
+  OP_CATEGORIA_EDAD.ID_CATEGORIA_EDAD,
+  OP_CATEGORIA_EDAD.EDAD_INICIAL,
+  OP_CATEGORIA_EDAD.EDAD_FINAL,
+  OP_CATEGORIA_EDAD.DESC_CATEGORIA_EDAD
+FROM VX_REDENCION_CUENTA OP_REDENCION_CUENTA
+LEFT JOIN vx_CATEGORIA_EDAD OP_CATEGORIA_EDAD ON OP_REDENCION_CUENTA.ID_CATEGORIA_EDAD = OP_CATEGORIA_EDAD.ID_CATEGORIA_EDAD
+LEFT JOIN vx_SEGMENTO OP_SEGMENTO ON OP_REDENCION_CUENTA.ID_SEGMENTO = OP_SEGMENTO.ID_SEGMENTO;
+--------------------------------------------------------
+--  DDL for View VXD_POS
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "ANLYT"."VXD_POS" ("CAJA_COD", "CAJA_ID_SUCURSAL", "ID_CAJA", "SUCURSAL_COD", "SUC_RAZON_SOCIAL", "SUC_LATITUD", "SUC_LONGITUD", "SUC_ID_CIUDAD", "SUC_ID_EMPRESA", "ID_SUCURSAL", "ID_CIUDAD", "PAIS_NOMBRE", "DEPARTAMENTO_COD", "DEPARTAMENTO_NOMBRE", "MUNICIPIO_COD", "MUNICIPIO_NOMBRE", "CIUD_LATITUD", "CIUD_LONGITUD", "ID_EMPRESA", "NIT", "EMP_RAZON_SOCIAL") AS 
+  SELECT OP_REDENCION_CAJA.CAJA_COD, 
+       OP_REDENCION_CAJA.ID_SUCURSAL CAJA_ID_SUCURSAL, 
+       OP_REDENCION_CAJA.ID_CAJA,
+       OP_SUCURSAL.SUCURSAL_COD,
+       OP_SUCURSAL.RAZON_SOCIAL SUC_RAZON_SOCIAL,
+       OP_SUCURSAL.LATITUD SUC_LATITUD,
+       OP_SUCURSAL.LONGITUD SUC_LONGITUD,
+       OP_SUCURSAL.ID_CIUDAD SUC_ID_CIUDAD,
+       OP_SUCURSAL.ID_EMPRESA SUC_ID_EMPRESA,
+       OP_SUCURSAL.ID_SUCURSAL,
+       null ID_CIUDAD,
+       null PAIS_NOMBRE,
+       null DEPARTAMENTO_COD,
+       null DEPARTAMENTO_NOMBRE,
+       null MUNICIPIO_COD,
+       null MUNICIPIO_NOMBRE,
+       null  CIUD_LATITUD,
+       null CIUD_LONGITUD,
+       OP_EMPRESA.ID_EMPRESA, 
+       OP_EMPRESA.NIT, 
+       OP_EMPRESA.RAZON_SOCIAL EMP_RAZON_SOCIAL
+  FROM vx_redencion_caja OP_REDENCION_CAJA,
+       vx_sucursal  OP_SUCURSAL,
+       vx_empresa OP_EMPRESA
+ WHERE OP_REDENCION_CAJA.ID_SUCURSAL = OP_SUCURSAL.ID_SUCURSAL
+   AND OP_EMPRESA.ID_EMPRESA = OP_SUCURSAL.ID_EMPRESA;
+--------------------------------------------------------
+--  DDL for View VX_EMPRESA
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "ANLYT"."VX_EMPRESA" ("ID_EMPRESA", "NIT", "RAZON_SOCIAL") AS 
+  select CMT_GRUPO_COMERCIO.ID_GRUPO_COMERCIO id_empresa,
+       CRT_PERSONA.NUMERO_IDENTIFICACION nit, 
+       CMT_GRUPO_COMERCIO.nombre razon_social
+  from CMT_GRUPO_COMERCIO
+  left join CRT_PERSONA 
+    on CMT_GRUPO_COMERCIO.ID_PERSONA = CRT_PERSONA.ID_PERSONA;
+--------------------------------------------------------
+--  DDL for View VX_REDENCION_CAJA
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "ANLYT"."VX_REDENCION_CAJA" ("CAJA_COD", "ID_SUCURSAL", "ID_CAJA") AS 
+  select cmt_comercio.nombre             caja_cod,
+       cmt_comercio.id_establecimiento id_sucursal,
+       cmt_comercio.id_comercio        id_caja
+  from cmt_comercio;
+--------------------------------------------------------
+--  DDL for View VX_REDENCION_CAJERO
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "ANLYT"."VX_REDENCION_CAJERO" ("CAJERO_COD", "NOMBRES_CAJERO", "PRIMER_APELLIDO_CAJERO", "SEGUNDO_APELLIDO_CAJERO", "ID_SUCURSAL", "ID_CAJERO") AS 
+  select  id_cajero CAJERO_COD,
+        CRT_PERSONA.nombres NOMBRES_CAJERO,
+        CRT_PERSONA.apellidos PRIMER_APELLIDO_CAJERO,
+        null SEGUNDO_APELLIDO_CAJERO,
+        CMT_COMERCIO.id_establecimiento ID_SUCURSAL,
+        id_cajero ID_CAJERO
+  from CMT_CAJERO
+  left join CMT_COMERCIO on CMT_CAJERO.id_comercio = CMT_COMERCIO.id_comercio
+  left join AUT_USUARIO on CMT_CAJERO.id_usuario = AUT_USUARIO.id_usuario
+  left join CRT_PERSONA on CRT_PERSONA.id_persona = AUT_USUARIO.id_persona;
+--------------------------------------------------------
+--  DDL for View VX_REDENCION_CUENTA
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "ANLYT"."VX_REDENCION_CUENTA" ("ID_CUENTA_COD", "ID_CATEGORIA_EDAD", "ID_SEGMENTO") AS 
+  SELECT CRT_CUENTA.id_cuenta ID_CUENTA_COD,
+       op_categoria_edad.ID_CATEGORIA_EDAD,
+       --trunc(months_between(SysDate, CRT_PERSONA.fecha_nacimiento)/12) edad,
+       null ID_SEGMENTO
+ FROM CRT_CUENTA 
+ left join CRT_PERSONA on CRT_CUENTA.id_persona = CRT_PERSONA.id_persona
+ left join op_categoria_edad 
+   on trunc(months_between(SysDate, CRT_PERSONA.fecha_nacimiento)/12) between op_categoria_edad.edad_inicial and op_categoria_edad.edad_final;
+--------------------------------------------------------
+--  DDL for View VX_SEGMENTO
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "ANLYT"."VX_SEGMENTO" ("ID_SEGMENTO", "DESC_SEGMENTO") AS 
+  select "ID_SEGMENTO","DESC_SEGMENTO"
+  from op_segmento;
+--------------------------------------------------------
+--  DDL for View VX_SUCURSAL
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "ANLYT"."VX_SUCURSAL" ("SUCURSAL_COD", "RAZON_SOCIAL", "LATITUD", "LONGITUD", "ID_CIUDAD", "ID_EMPRESA", "ID_SUCURSAL") AS 
+  select CMT_ESTABLECIMIENTO.ID_ESTABLECIMIENTO sucursal_cod,
+       CMT_ESTABLECIMIENTO.nombre razon_social,
+       GET_UBICACION.latitud,
+       GET_UBICACION.longitud,
+       null id_ciudad,
+       CMT_ESTABLECIMIENTO.id_grupo_comercio id_empresa,
+       CMT_ESTABLECIMIENTO.ID_ESTABLECIMIENTO id_sucursal
+  from CMT_ESTABLECIMIENTO 
+  left join GET_UBICACION on CMT_ESTABLECIMIENTO.id_ubicacion = GET_UBICACION.ID_UBICACION;
 REM INSERTING into ANLYT.OP_CATEGORIA_EDAD
 SET DEFINE OFF;
 Insert into ANLYT.OP_CATEGORIA_EDAD (ID_CATEGORIA_EDAD,EDAD_INICIAL,EDAD_FINAL,DESC_CATEGORIA_EDAD) values ('1','20','29','20-29');
@@ -857,3 +993,43 @@ Insert into ANLYT.OP_SUCURSAL (SUCURSAL_COD,RAZON_SOCIAL,LATITUD,LONGITUD,ID_CIU
 	  REFERENCES "ANLYT"."OP_CIUDAD" ("ID_CIUDAD") ENABLE;
   ALTER TABLE "ANLYT"."OP_SUCURSAL" ADD CONSTRAINT "FK_SUCURSAL_EMPRESA" FOREIGN KEY ("ID_EMPRESA")
 	  REFERENCES "ANLYT"."OP_EMPRESA" ("ID_EMPRESA") ENABLE;
+--------------------------------------------------------
+--  DDL for Synonymn AUT_USUARIO
+--------------------------------------------------------
+
+  CREATE OR REPLACE SYNONYM "ANLYT"."AUT_USUARIO" FOR "AUT_USUARIO"@"DBLINK_MISPESOS";
+--------------------------------------------------------
+--  DDL for Synonymn CMT_CAJERO
+--------------------------------------------------------
+
+  CREATE OR REPLACE SYNONYM "ANLYT"."CMT_CAJERO" FOR "CMT_CAJERO"@"DBLINK_MISPESOS";
+--------------------------------------------------------
+--  DDL for Synonymn CMT_COMERCIO
+--------------------------------------------------------
+
+  CREATE OR REPLACE SYNONYM "ANLYT"."CMT_COMERCIO" FOR "CMT_COMERCIO"@"DBLINK_MISPESOS";
+--------------------------------------------------------
+--  DDL for Synonymn CMT_ESTABLECIMIENTO
+--------------------------------------------------------
+
+  CREATE OR REPLACE SYNONYM "ANLYT"."CMT_ESTABLECIMIENTO" FOR "CMT_ESTABLECIMIENTO"@"DBLINK_MISPESOS";
+--------------------------------------------------------
+--  DDL for Synonymn CMT_GRUPO_COMERCIO
+--------------------------------------------------------
+
+  CREATE OR REPLACE SYNONYM "ANLYT"."CMT_GRUPO_COMERCIO" FOR "CMT_GRUPO_COMERCIO"@"DBLINK_MISPESOS";
+--------------------------------------------------------
+--  DDL for Synonymn CRT_CUENTA
+--------------------------------------------------------
+
+  CREATE OR REPLACE SYNONYM "ANLYT"."CRT_CUENTA" FOR "CRT_CUENTA"@"DBLINK_MISPESOS";
+--------------------------------------------------------
+--  DDL for Synonymn CRT_PERSONA
+--------------------------------------------------------
+
+  CREATE OR REPLACE SYNONYM "ANLYT"."CRT_PERSONA" FOR "CRT_PERSONA"@"DBLINK_MISPESOS";
+--------------------------------------------------------
+--  DDL for Synonymn GET_UBICACION
+--------------------------------------------------------
+
+  CREATE OR REPLACE SYNONYM "ANLYT"."GET_UBICACION" FOR "GET_UBICACION"@"DBLINK_MISPESOS";
