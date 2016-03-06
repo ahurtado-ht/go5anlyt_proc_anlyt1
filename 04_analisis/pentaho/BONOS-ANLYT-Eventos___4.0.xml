@@ -1,0 +1,435 @@
+<?xml version='1.0'?>
+<Schema name="BONOS-ANLYT-Eventos" description="(Esquema de hechos relacionados con los eventos de bonos)" metamodelVersion='4.0' >
+<PhysicalSchema>
+    <Query name='Evento_Q' alias='Evento_Q'>
+     <ExpressionView>
+      <SQL dialect="oracle">
+        <![CDATA[ 
+
+SELECT EVENTO_COD,
+  EVENTO_TIPO,
+  EVENTO_FECHA,
+  EVENTO_FECHA_YEAR,
+  EVENTO_FECHA_MONTH,
+  EVENTO_FECHA_DAY,
+  EVENTO_DIRECCION_IP,
+  EVENTO_CANAL,
+  EVENTO_RESP_NROCONFIRMACION,
+  EVENTO_RESP_COD,
+  EVENTO_RESP_DESCRIPCION,
+  ID_CAJA,
+  TX_ORIGEN_CUENTA,
+  TX_DESTINO_CUENTA,
+  ID_CAJERO,
+  BONO_SERIAL,
+  BONO_ESPECIE_COD,
+  BONO_EMISOR_COD,
+  BONO_ESPECIE_VER,
+  (BONO_ESPECIE_COD || ' ' || BONO_ESPECIE_VER ) BONO_EMISION_FULLNAME,
+  BONO_ESTADO,
+  BONO_VALOR,
+  BONO_DENOMINACION,
+  BONO_FECHA_VENCIMIENTO,
+  ID_EVENTORAW   
+
+FROM VXF_EVENTO		
+		]]>
+      </SQL>
+     </ExpressionView>
+	 <!--
+		<ColumnDefs>
+		  <CalculatedColumnDef name='bono_emision_fullname' type='String'>
+			<ExpressionView>
+			  <SQL dialect='oracle'>
+				<Column name='BONO_ESPECIE_COD'/>  || ' ' || <Column name='BONO_ESPECIE_VER'/>
+			  </SQL>
+			</ExpressionView>
+		  </CalculatedColumnDef>
+		</ColumnDefs>
+	  -->
+	  <Key>
+        <Column name='ID_EVENTORAW'/>
+      </Key>	
+	</Query>
+	
+	<InlineTable name="TipoEvento_Q" alias="TipoEvento_Q">
+		<ColumnDefs>
+			<ColumnDef name="id" type="String"/>
+			<ColumnDef name="desc" type="String"/>
+		</ColumnDefs>
+		<Rows>
+			<Row>
+				<Value column="id">E1</Value>
+				<Value column="desc">1-Emision</Value>
+			</Row>
+			<Row>
+				<Value column="id">E2</Value>
+				<Value column="desc">2-Agregador (Tr)</Value>
+			</Row>
+			<Row>
+				<Value column="id">E3</Value>
+				<Value column="desc">3-Empresario (Tr)</Value>
+			</Row>
+			<Row>
+				<Value column="id">E4</Value>
+				<Value column="desc">4-Redencion</Value>
+			</Row>
+		</Rows>
+	  <Key>
+        <Column name='id'/>
+      </Key>	
+	</InlineTable>	  
+	
+	<!-- {VX_EMPRESA + VX_SUCURSAL + POS (VX_REDENCION_CAJA) } -->
+    <Query name='POS_Q' alias='POS_Q'>
+     <ExpressionView>
+      <SQL dialect="generic">
+        <![CDATA[ 
+	SELECT CAJA_COD,
+	  CAJA_ID_SUCURSAL,
+	  ID_CAJA,
+	  SUCURSAL_COD,
+	  SUC_RAZON_SOCIAL,
+	  SUC_LATITUD,
+	  SUC_LONGITUD,
+	  SUC_ID_CIUDAD,
+	  SUC_ID_EMPRESA,
+	  ID_SUCURSAL,
+	  ID_CIUDAD,
+	  PAIS_NOMBRE,
+	  DEPARTAMENTO_COD,
+	  DEPARTAMENTO_NOMBRE,
+	  MUNICIPIO_COD,
+	  MUNICIPIO_NOMBRE,
+	  CIUD_LATITUD,
+	  CIUD_LONGITUD,
+	  ID_EMPRESA,
+	  NIT,
+	  EMP_RAZON_SOCIAL 
+	  
+	FROM VXD_POS
+		]]>
+      </SQL>
+     </ExpressionView>
+	  <Key>
+        <Column name='ID_CAJA'/>
+      </Key>	
+	</Query>	
+
+	<!-- Join: OP_REDENCION_CUENTA + OP_CATEGORIA_EDAD (ID_CATEGORIA_EDAD=ID_CATEGORIA_EDAD) -->
+    <Query name='PerfilUsuario_Q' alias='PerfilUsuario_Q'>
+     <ExpressionView>
+      <SQL dialect="generic">
+        <![CDATA[ 
+		
+	SELECT ID_CUENTA_COD,
+	  CTA_ID_CATEGORIA_EDAD,
+	  ID_SEGMENTO,
+	  ID_CATEGORIA_EDAD,
+	  EDAD_INICIAL,
+	  EDAD_FINAL,
+	  DESC_CATEGORIA_EDAD 
+	  
+	FROM VXD_PERFILUSUARIO 	
+		]]>
+      </SQL>
+     </ExpressionView>
+	  <Key>
+        <Column name='ID_CUENTA_COD'/>
+      </Key>	
+	</Query>	
+		
+	<!--	
+    <Query name='RedencionCajero_Q' alias='RedencionCajero_Q'>
+     <ExpressionView>
+      <SQL dialect="generic">
+        <![CDATA[ 
+SELECT CAJERO_COD,
+  NOMBRES_CAJERO,
+  PRIMER_APELLIDO_CAJERO,
+  SEGUNDO_APELLIDO_CAJERO,
+  ID_SUCURSAL,
+  ID_CAJERO
+FROM VX_REDENCION_CAJERO		
+		]]>
+      </SQL>
+     </ExpressionView>
+	  <Key>
+        <Column name='ID_CAJERO'/>
+      </Key>	
+	</Query>	
+	-->
+	<!--
+    <Query name='Segmento_Q' alias='Segmento_Q'>
+     <ExpressionView>
+      <SQL dialect="generic">
+        <![CDATA[ 
+SELECT ID_SEGMENTO, 
+       DESC_SEGMENTO  
+  FROM VX_SEGMENTO
+		]]>
+      </SQL>
+     </ExpressionView>
+	  <Key>
+        <Column name='ID_SEGMENTO'/>
+      </Key>	
+	</Query>	
+	-->
+	
+
+	<!--
+	<Link target='Tiempo_Q' source='Tiempo_Q'          foreignKeyColumn='ID_EVENTORAW' />
+	<Link target='Emision_Q' source='Emision_Q'        foreignKeyColumn='ID_EVENTORAW' />
+	<Link target='Evento_Q' source='RedencionCajero_Q' foreignKeyColumn='ID_CAJERO' />
+	-->
+	<Link target='Evento_Q' source='TipoEvento_Q'      foreignKeyColumn='EVENTO_TIPO' />
+	<Link target='Evento_Q' source='POS_Q'             foreignKeyColumn='ID_CAJA' />
+	<Link target='Evento_Q' source='PerfilUsuario_Q'   foreignKeyColumn='TX_ORIGEN_CUENTA' />
+	
+</PhysicalSchema>
+
+
+  <Dimension name='Tiempo_D' type='TIME' table='Evento_Q' key='Tiempo Id' >
+		<Attributes>
+		  <Attribute name='Tiempo Id' keyColumn='ID_EVENTORAW' table='Evento_Q' hasHierarchy='false'/>
+		  <Attribute name='Anho' table='Evento_Q' levelType="TimeYears"  hasHierarchy='false' >
+ 			<Key>
+				<Column name='EVENTO_FECHA_YEAR' table='Evento_Q' />
+			</Key>
+			<Name>
+				<Column name='EVENTO_FECHA_YEAR' table='Evento_Q' />
+			</Name>
+		  </Attribute>
+		  <Attribute name='Mes' table='Evento_Q' levelType="TimeMonths" hasHierarchy='false' >
+			<Key>
+				<Column name='EVENTO_FECHA_YEAR' table='Evento_Q' />
+				<Column name='EVENTO_FECHA_MONTH' table='Evento_Q' />
+			</Key>
+			<Name>
+				<Column name='EVENTO_FECHA_MONTH' table='Evento_Q' />
+			</Name>
+		  </Attribute>
+		  <Attribute name='Dia' table='Evento_Q' levelType="TimeDays"    hasHierarchy='false'>
+			<Key>
+				<Column name='EVENTO_FECHA_YEAR' table='Evento_Q'/>
+				<Column name='EVENTO_FECHA_MONTH' table='Evento_Q'/>
+				<Column name='EVENTO_FECHA_DAY'   table='Evento_Q' />
+			</Key>
+			<Name>
+				<Column name='EVENTO_FECHA'   table='Evento_Q' />
+			</Name>
+		  </Attribute>
+		  <Attribute name='Fecha'  table='Evento_Q' caption='Fecha' keyColumn='EVENTO_FECHA'  hasHierarchy='false' />
+		</Attributes>
+	  
+		<Hierarchies>
+		  <Hierarchy name="Tiempo_H" visible="true" hasAll="true">
+			<Level attribute="Anho" >
+			  <Annotations>
+				<Annotation name="AnalyzerDateFormat">
+				  <![CDATA[[yyyy]]]>
+				</Annotation>
+			  </Annotations>
+			</Level>
+			<Level attribute="Mes" >
+			  <Annotations>
+				<Annotation name="AnalyzerDateFormat">
+				  <![CDATA[[yyyy].[mm]]]>
+				</Annotation>
+			  </Annotations>
+			</Level>
+			<Level attribute="Dia" >
+			  <Annotations>
+				<Annotation name="AnalyzerDateFormat">
+				  <![CDATA[[yyyy].[mm].[dd]]]>
+				</Annotation>
+			  </Annotations>
+			</Level>
+		  </Hierarchy>
+		  <Hierarchy name='Tiempo Fecha' hasAll='true'>
+			<Level attribute='Fecha'>
+			  <Annotations><Annotation name="SaikuDayFormatString">yyyy/mm/dd</Annotation></Annotations>
+			</Level>
+		  </Hierarchy>
+		</Hierarchies>
+  </Dimension>
+	  
+  <Dimension name="Emision_D" table='Evento_Q' key='EmisionEvento Id' >
+    <Attributes>
+	  <Attribute name='EmisionEvento Id' table='Evento_Q' keyColumn="ID_EVENTORAW" />
+	  <Attribute name='Emision' >
+		<Key>
+		  <Column name='BONO_EMISOR_COD'  table='Evento_Q' />
+		  <Column name='BONO_ESPECIE_COD' table='Evento_Q' />
+		  <Column name='BONO_ESPECIE_VER' table='Evento_Q' />
+		</Key>
+		<Name>
+		  <Column name='BONO_EMISION_FULLNAME'  table='Evento_Q' />
+		</Name>
+	  </Attribute>
+	  <Attribute name='Empresa' keyColumn='BONO_EMISOR_COD'  table='Evento_Q' hasHierarchy='false'/>
+	  <Attribute name='Especie' keyColumn='BONO_ESPECIE_COD' table='Evento_Q' hasHierarchy='false'/>
+	  <Attribute name='Version' keyColumn='BONO_ESPECIE_VER' table='Evento_Q' hasHierarchy='false'/>
+	</Attributes>
+    <Hierarchies>
+      <Hierarchy name="Emision_H" visible="true" hasAll="true">
+        <Level attribute="Empresa" />
+        <Level attribute="Especie" />
+        <Level attribute="Version" />
+      </Hierarchy>
+    </Hierarchies>
+  </Dimension>  	  
+ 	  
+  <Dimension name="TipoEvento_D" table='TipoEvento_Q' key='TipoEvento Id' >
+    <Attributes>
+	  <Attribute name="TipoEvento Id" keyColumn='id' hasHierarchy='false' />
+	  <Attribute name="TipoEvento" hasHierarchy='false'>
+		<Key>
+		  <Column name='id'/>
+		</Key>
+		<Name>
+		  <Column name='desc'/>
+		</Name>
+	  </Attribute>
+	</Attributes>
+    <Hierarchies>
+	  <Hierarchy name="TipoEvento_H" allMemberName='Todos los tipos de evento' visible="true" hasAll="true">
+		<Level attribute='TipoEvento'/>
+	  </Hierarchy>
+    </Hierarchies>
+  </Dimension>  	  
+	  
+  <Dimension name="POS_D" table='POS_Q' key='POS Id' >
+    <Attributes>
+	  <Attribute name="POS Id"   keyColumn='CAJA_COD'         hasHierarchy='false'/>
+	  <Attribute name="Empresa"  keyColumn='EMP_RAZON_SOCIAL' hasHierarchy='false' />
+	  <Attribute name='Sucursal' keyColumn='SUC_RAZON_SOCIAL' hasHierarchy='false'/>
+	  <Attribute name="Caja"     keyColumn='CAJA_COD'         hasHierarchy='false'/>
+	</Attributes>
+    <Hierarchies>
+	  <Hierarchy name="SectoresEntidad_H" allMemberName='Todos los sectores' visible="true" hasAll="true">
+		<Level attribute='Empresa'/>
+		<Level attribute='Sucursal'/>
+		<Level attribute='Caja'/>
+	  </Hierarchy>
+    </Hierarchies>
+  </Dimension>  
+
+  <Dimension name="PerfilUsuario_D" table='PerfilUsuario_Q' key='Cuenta Id' >
+    <Attributes>
+	  <Attribute name="RangoEdad Id"  keyColumn='ID_CATEGORIA_EDAD' table='PerfilUsuario_Q'  hasHierarchy='false' />
+	  <Attribute name='RangoEdad' table='PerfilUsuario_Q' hasHierarchy='false' >
+		<Key>
+			<Column name='ID_CATEGORIA_EDAD' table='PerfilUsuario_Q' />
+		</Key>
+		<Name>
+			<Column name='DESC_CATEGORIA_EDAD' table='PerfilUsuario_Q' />
+		</Name>
+	  </Attribute>
+	  
+	  <Attribute name='Cuenta Id' keyColumn='ID_CUENTA_COD' table='PerfilUsuario_Q' hasHierarchy='false'/>
+	</Attributes>
+	
+    <Hierarchies>
+	  <Hierarchy name="PerfilUsuario_H" allMemberName='Todos los perfiles' visible="true" hasAll="true">
+		<Level attribute='RangoEdad'/>
+		<Level attribute='Cuenta Id'/>
+	  </Hierarchy>
+    </Hierarchies>
+  </Dimension>    
+  
+  
+  <!--  
+  <Dimension name="GeoMunicipio_D" table='MUNICIPIO' key='Municipio Id'  >
+    <Attributes>
+	  <Attribute name="Departamento" hasHierarchy='false'>
+		<Key>
+		  <Column name='depto_cod_dane'/>
+		</Key>
+		<Name>
+		  <Column name='depto_nombre'/>
+		</Name>
+	  </Attribute>
+	  <Attribute name='Municipio Id' keyColumn='mpio_cod_dane' hasHierarchy='false'/>
+	  <Attribute name="Municipio Nombre" keyColumn='mpio_nombre' hasHierarchy='false'>
+		<Property attribute='Latitude'/>
+		<Property attribute='Longitude'/>
+	  </Attribute>
+	  <Attribute name="Latitude" keyColumn="latitude" hasHierarchy='false'/>
+	  <Attribute name="Longitude" keyColumn="longitude" hasHierarchy='false'/>
+    </Attributes>
+
+    <Hierarchies>
+	  <Hierarchy name='Municipios_H' allMemberName='Todos los Municipios' visible="true" hasAll="true">
+		<Level attribute='Departamento'/>
+		<Level attribute='Municipio Nombre'/>
+	  </Hierarchy>	
+    </Hierarchies>
+  </Dimension>    
+  
+  <Dimension name="Geo_Municipio_D" foreignKey="NORAMA_INI_MPIO_COD_DANE" >
+    <Hierarchy name="Municipios_H" visible="true" hasAll="true" primaryKey="mpio_cod_dane"  >
+      <Table name="MUNICIPIO" schema="ansc" >
+      </Table>
+      <Level name="Departamento" column="depto_cod_dane" nameColumn="depto_nombre" visible="true" uniqueMembers="false" />
+      <Level name="Municipio" column="mpio_cod_dane" nameColumn="mpio_nombre" type="String"  visible="true" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" >
+        <Property name="Latitude" column="latitude">
+        </Property>
+        <Property name="Longitude" column="longitude">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>	
+  -->  
+
+
+
+	<!--
+  <Dimension name='PercepcionProcesos_F' table='PercepcionProcesos_Q'>
+    <Attributes>
+	  <Attribute name='CUP' keyColumn='NORAMA_INI_310116' hasHierarchy='false' />
+	</Attributes>
+    <Hierarchies>
+      <Hierarchy name="PercepcionProcesos_H" visible="true" hasAll="true">
+		<Level attribute='CUP' />
+	  </Hierarchy>
+	</Hierarchies>
+  </Dimension>
+  -->
+  <!--
+  <MeasureGroups>
+	<MeasureGroup name='Procesos' table='PercepcionProcesos_Q'>
+      <Measure name='Pretensiones Originales' column='PRETEN_ORI_310116' aggregator='sum' formatString='Standard'/>
+      <Measure name='Pretensiones Indexadas' column='PRETEN_310116' aggregator='sum' formatString='Standard'/>
+	</MeasureGroup>
+  </MeasureGroups>
+  -->
+  
+  <Cube name="OperatividadBonos" visible="true" description="Cubo de datos con los eventos de bonos" cache="true" enabled="true">
+	<!--
+    <Table name='PercepcionProcesos_Q' />
+	-->
+    <Dimensions>
+      <Dimension source='Tiempo_D'/>
+      <Dimension source='Emision_D'/>
+      <Dimension source='TipoEvento_D'/>
+      <Dimension source='POS_D'/>
+      <Dimension source='PerfilUsuario_D'/>
+    </Dimensions>
+	<MeasureGroups>
+		<MeasureGroup name='Bonos' table='Evento_Q'>
+			<Measures>
+				<Measure name="valor_bono" column="BONO_VALOR"       table='Evento_Q' formatString="Standard" aggregator="sum" />
+				<Measure name="cantidad_bonos" column="BONO_SERIAL"  table='Evento_Q' formatString="Standard" aggregator="count" />
+			</Measures>
+			<DimensionLinks>
+              <ForeignKeyLink dimension='Tiempo_D'         foreignKeyColumn='ID_EVENTORAW'/>
+              <ForeignKeyLink dimension='Emision_D'        foreignKeyColumn='ID_EVENTORAW'/>
+              <ForeignKeyLink dimension='TipoEvento_D'     foreignKeyColumn='EVENTO_TIPO'/>
+              <ForeignKeyLink dimension='POS_D'            foreignKeyColumn='ID_CAJA'/>
+              <ForeignKeyLink dimension='PerfilUsuario_D'  foreignKeyColumn='TX_ORIGEN_CUENTA'/>
+			</DimensionLinks>
+		</MeasureGroup>
+	</MeasureGroups>
+  </Cube>
+</Schema>

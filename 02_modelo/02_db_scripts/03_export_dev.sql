@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - sábado-marzo-05-2016   
+-- Archivo creado  - domingo-marzo-06-2016   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for DB Link DBLINK_MISPESOS
@@ -374,10 +374,10 @@ FROM OP_EVENTO;
   select "ID_CATEGORIA_EDAD","EDAD_INICIAL","EDAD_FINAL","DESC_CATEGORIA_EDAD"
   from op_categoria_edad;
 --------------------------------------------------------
---  DDL for View VXD_CUENTA
+--  DDL for View VXD_PERFILUSUARIO
 --------------------------------------------------------
 
-  CREATE OR REPLACE FORCE VIEW "ANLYT"."VXD_CUENTA" ("ID_CUENTA_COD", "CTA_ID_CATEGORIA_EDAD", "ID_SEGMENTO", "ID_CATEGORIA_EDAD", "EDAD_INICIAL", "EDAD_FINAL", "DESC_CATEGORIA_EDAD") AS 
+  CREATE OR REPLACE FORCE VIEW "ANLYT"."VXD_PERFILUSUARIO" ("ID_CUENTA_COD", "CTA_ID_CATEGORIA_EDAD", "ID_SEGMENTO", "ID_CATEGORIA_EDAD", "EDAD_INICIAL", "EDAD_FINAL", "DESC_CATEGORIA_EDAD") AS 
   SELECT 
   OP_REDENCION_CUENTA.ID_CUENTA_COD,
   OP_REDENCION_CUENTA.ID_CATEGORIA_EDAD CTA_ID_CATEGORIA_EDAD,
@@ -431,6 +431,38 @@ LEFT JOIN vx_SEGMENTO OP_SEGMENTO ON OP_REDENCION_CUENTA.ID_SEGMENTO = OP_SEGMEN
   from CMT_GRUPO_COMERCIO
   left join CRT_PERSONA 
     on CMT_GRUPO_COMERCIO.ID_PERSONA = CRT_PERSONA.ID_PERSONA;
+--------------------------------------------------------
+--  DDL for View VXF_EVENTO
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "ANLYT"."VXF_EVENTO" ("EVENTO_COD", "EVENTO_TIPO", "EVENTO_FECHA", "EVENTO_FECHA_YEAR", "EVENTO_FECHA_MONTH", "EVENTO_FECHA_DAY", "EVENTO_DIRECCION_IP", "EVENTO_CANAL", "EVENTO_RESP_NROCONFIRMACION", "EVENTO_RESP_COD", "EVENTO_RESP_DESCRIPCION", "ID_CAJA", "TX_ORIGEN_CUENTA", "TX_DESTINO_CUENTA", "ID_CAJERO", "BONO_SERIAL", "BONO_ESPECIE_COD", "BONO_EMISOR_COD", "BONO_ESPECIE_VER", "BONO_ESTADO", "BONO_VALOR", "BONO_DENOMINACION", "BONO_FECHA_VENCIMIENTO", "ID_EVENTORAW") AS 
+  SELECT EVENTO_COD,
+  EVENTO_TIPO,
+  EVENTO_FECHA,
+  extract(year  from EVENTO_FECHA) EVENTO_FECHA_YEAR,
+  extract(month from EVENTO_FECHA) EVENTO_FECHA_MONTH,
+  extract(day   from EVENTO_FECHA) EVENTO_FECHA_DAY,
+  -- extract(hour from cast(EVENTO_FECHA as timestamp)) EVENTO_FECHA_HOUR,
+  -- extract(minute from cast(EVENTO_FECHA as timestamp)) EVENTO_FECHA_MINUTE,
+  EVENTO_DIRECCION_IP,
+  EVENTO_CANAL,
+  EVENTO_RESP_NROCONFIRMACION,
+  EVENTO_RESP_COD,
+  EVENTO_RESP_DESCRIPCION,
+  ID_CAJA,
+  TX_ORIGEN_CUENTA,
+  TX_DESTINO_CUENTA,
+  ID_CAJERO,
+  BONO_SERIAL,
+  BONO_ESPECIE_COD,
+  BONO_EMISOR_COD,
+  BONO_ESPECIE_VER,
+  BONO_ESTADO,
+  BONO_VALOR,
+  BONO_DENOMINACION,
+  BONO_FECHA_VENCIMIENTO,
+  ID_EVENTORAW
+FROM OP_EVENTO;
 --------------------------------------------------------
 --  DDL for View VX_REDENCION_CAJA
 --------------------------------------------------------
