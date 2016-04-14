@@ -83,7 +83,7 @@ git clone https://github.com/ahurtado-ht/go5anlyt_proc_anlyt1.git
 type=OLAP
 name=ht_0_1_Anlyt__anlyt
 driver=mondrian.olap4j.MondrianOlap4jDriver
-location=jdbc:mondrian:Jdbc=jdbc:oracle:thin:@localhost:1521:xe;Catalog=mondrian:///datasources/BONOS-ANLYT-Eventos.xml;JdbcDrivers=oracle.jdbc.OracleDriver
+location=jdbc:mondrian:Jdbc=jdbc:oracle:thin:@localhost:1521:xe;Catalog=mondrian:///datasources/BONOS-ANLYT-Eventos2.xml;JdbcDrivers=oracle.jdbc.OracleDriver
 username=anlyt
 password=anlyt	
 

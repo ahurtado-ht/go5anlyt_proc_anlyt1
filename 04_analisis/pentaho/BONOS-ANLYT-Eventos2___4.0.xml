@@ -1,41 +1,43 @@
 <?xml version='1.0'?>
-<Schema name="BONOS-ANLYT-Eventos" description="(Esquema de hechos relacionados con los eventos de bonos)" metamodelVersion='4.0' >
+<Schema name="BONOS-ANLYT-Eventos2" description="(Esquema de hechos relacionados con los eventos de bonos, accediendo a los origenes de datos reales)" metamodelVersion='4.0' >
 <PhysicalSchema>
     <Query name='Evento_Q' alias='Evento_Q'>
      <ExpressionView>
       <SQL dialect="oracle">
-        <![CDATA[ 
-
-SELECT EVENTO_COD,
-  EVENTO_TIPO,
-  EVENTO_FECHA,
-  EVENTO_FECHA_YEAR,
-  EVENTO_FECHA_MONTH,
-  EVENTO_FECHA_DAY,
-  EVENTO_DIRECCION_IP,
-  EVENTO_CANAL,
-  EVENTO_RESP_NROCONFIRMACION,
-  EVENTO_RESP_COD,
-  EVENTO_RESP_DESCRIPCION,
-  ID_CAJA,
-  TX_ORIGEN_CUENTA,
-  TX_DESTINO_CUENTA,
-  ID_CAJERO,
-  BONO_SERIAL,
-  BONO_ESPECIE_COD,
-  BONO_EMISOR_COD,
-  BONO_ESPECIE_VER,
-  (BONO_ESPECIE_COD || ' ' || BONO_ESPECIE_VER ) BONO_EMISION_FULLNAME,
-  BONO_ESTADO,
-  BONO_VALOR,
-  BONO_DENOMINACION,
-  BONO_FECHA_VENCIMIENTO,
-  ID_EVENTORAW   
-
-FROM VXF_EVENTO		
+        <![CDATA[
+ SELECT EVENTO_COD, 
+  EVENTO_TIPO, 
+  EVENTO_FECHA, 
+  EVENTO_FECHA_YEAR, 
+  EVENTO_FECHA_MONTH, 
+  EVENTO_FECHA_DAY, 
+  EVENTO_DIRECCION_IP, 
+  EVENTO_CANAL, 
+  EVENTO_RESP_NROCONFIRMACION, 
+  EVENTO_RESP_COD, 
+  EVENTO_RESP_DESCRIPCION, 
+  ID_CAJA, 
+  TX_ORIGEN_CUENTA, 
+  TX_DESTINO_CUENTA, 
+  ID_CAJERO, 
+  BONO_SERIAL, 
+  BONO_ESPECIE_COD, 
+  BONO_EMISOR_COD, 
+  BONO_ESPECIE_VER, 
+  (BONO_ESPECIE_COD || ' ' || BONO_ESPECIE_VER ) BONO_EMISION_FULLNAME, 
+  BONO_ESTADO, 
+  BONO_VALOR, 
+  BONO_DENOMINACION, 
+  BONO_FECHA_VENCIMIENTO, 
+  ID_EVENTORAW 
+  
+  FROM VXF_EVENTO 
 		]]>
       </SQL>
      </ExpressionView>
+	 <ColumnDefs>
+		<ColumnDef name="TX_ORIGEN_CUENTA" type="String" />
+	 </ColumnDefs>
 	 <!--
 		<ColumnDefs>
 		  <CalculatedColumnDef name='bono_emision_fullname' type='String'>
@@ -49,9 +51,9 @@ FROM VXF_EVENTO
 	  -->
 	  <Key>
         <Column name='ID_EVENTORAW'/>
-      </Key>	
+      </Key>
 	</Query>
-	
+
 	<InlineTable name="TipoEvento_Q" alias="TipoEvento_Q">
 		<ColumnDefs>
 			<ColumnDef name="id" type="String"/>
@@ -77,87 +79,100 @@ FROM VXF_EVENTO
 		</Rows>
 	  <Key>
         <Column name='id'/>
-      </Key>	
-	</InlineTable>	  
-	
+      </Key>
+	</InlineTable>
+
 	<!-- {VX_EMPRESA + VX_SUCURSAL + POS (VX_REDENCION_CAJA) } -->
     <Query name='POS_Q' alias='POS_Q'>
      <ExpressionView>
       <SQL dialect="generic">
         <![CDATA[ 
-	SELECT CAJA_COD,
-	  CAJA_ID_SUCURSAL,
-	  ID_CAJA,
-	  SUCURSAL_COD,
-	  SUC_RAZON_SOCIAL,
-	  SUC_LATITUD,
-	  SUC_LONGITUD,
-	  SUC_ID_CIUDAD,
-	  SUC_ID_EMPRESA,
-	  ID_SUCURSAL,
-	  ID_CIUDAD,
-	  PAIS_NOMBRE,
-	  DEPARTAMENTO_COD,
-	  DEPARTAMENTO_NOMBRE,
-	  MUNICIPIO_COD,
-	  MUNICIPIO_NOMBRE,
-	  CIUD_LATITUD,
-	  CIUD_LONGITUD,
-	  ID_EMPRESA,
-	  NIT,
+	SELECT CAJA_COD, 
+	  CAJA_ID_SUCURSAL, 
+	  ID_CAJA, 
+	  SUCURSAL_COD, 
+	  SUC_RAZON_SOCIAL, 
+	  SUC_LATITUD, 
+	  SUC_LONGITUD, 
+	  SUC_ID_CIUDAD, 
+	  SUC_ID_EMPRESA, 
+	  ID_SUCURSAL, 
+	  ID_CIUDAD, 
+	  PAIS_NOMBRE, 
+	  DEPARTAMENTO_COD, 
+	  DEPARTAMENTO_NOMBRE, 
+	  MUNICIPIO_COD, 
+	  MUNICIPIO_NOMBRE, 
+	  CIUD_LATITUD, 
+	  CIUD_LONGITUD, 
+	  ID_EMPRESA, 
+	  NIT, 
 	  EMP_RAZON_SOCIAL 
 	  
-	FROM VXD_POS
+	 FROM VXD_POS
 		]]>
       </SQL>
      </ExpressionView>
 	  <Key>
         <Column name='ID_CAJA'/>
-      </Key>	
-	</Query>	
+      </Key>
+	</Query>
 
 	<!-- Join: OP_REDENCION_CUENTA + OP_CATEGORIA_EDAD (ID_CATEGORIA_EDAD=ID_CATEGORIA_EDAD) -->
+	<!-- TODO: no esta funcionando link de perfilusuario con tx_origen_cuenta -->
     <Query name='PerfilUsuario_Q' alias='PerfilUsuario_Q'>
      <ExpressionView>
       <SQL dialect="generic">
-        <![CDATA[ 
-		
-	SELECT ID_CUENTA_COD,
+        <![CDATA[
+	SELECT ID_CUENTA_COD, 
+	  'CU' || LPad(ID_CUENTA_COD, 10, '0' ) ID_CUENTA_BOVEDA, 
 	  CTA_ID_CATEGORIA_EDAD,
 	  ID_SEGMENTO,
 	  ID_CATEGORIA_EDAD,
 	  EDAD_INICIAL,
 	  EDAD_FINAL,
-	  DESC_CATEGORIA_EDAD 
-	  
-	FROM VXD_PERFILUSUARIO 	
+	  DESC_CATEGORIA_EDAD
+	FROM VXD_PERFILUSUARIO
 		]]>
       </SQL>
      </ExpressionView>
 	  <Key>
-        <Column name='ID_CUENTA_COD'/>
-      </Key>	
-	</Query>	
-		
-	<!--	
+        <Column name='ID_CUENTA_BOVEDA'/>
+      </Key>
+	 <ColumnDefs>
+		<ColumnDef name="ID_CUENTA_COD" type="String" />
+		<!--
+		<CalculatedColumnDef name='ID_CUENTA_BOVEDA' type='String'>
+		  <ExpressionView>
+		    <SQL dialect='oracle'>
+			  'CU' || LPad(<Column name='ID_CUENTA_COD'/>, 10, '0' )
+		    </SQL>
+		  </ExpressionView>
+		</CalculatedColumnDef>
+		-->
+	 </ColumnDefs>
+	</Query>
+
+	<!--
     <Query name='RedencionCajero_Q' alias='RedencionCajero_Q'>
      <ExpressionView>
       <SQL dialect="generic">
         <![CDATA[ 
-SELECT CAJERO_COD,
-  NOMBRES_CAJERO,
-  PRIMER_APELLIDO_CAJERO,
-  SEGUNDO_APELLIDO_CAJERO,
-  ID_SUCURSAL,
-  ID_CAJERO
-FROM VX_REDENCION_CAJERO		
+SELECT CAJERO_COD, 
+  NOMBRES_CAJERO, 
+  PRIMER_APELLIDO_CAJERO, 
+  SEGUNDO_APELLIDO_CAJERO, 
+  ID_SUCURSAL, 
+  ID_CAJERO  
+ 
+  FROM VX_REDENCION_CAJERO
 		]]>
       </SQL>
      </ExpressionView>
 	  <Key>
         <Column name='ID_CAJERO'/>
-      </Key>	
-	</Query>	
+      </Key>
+	</Query>
 	-->
 	<!--
     <Query name='Segmento_Q' alias='Segmento_Q'>
@@ -165,17 +180,18 @@ FROM VX_REDENCION_CAJERO
       <SQL dialect="generic">
         <![CDATA[ 
 SELECT ID_SEGMENTO, 
-       DESC_SEGMENTO  
-  FROM VX_SEGMENTO
+       DESC_SEGMENT
+	   O 
+  FROM VX_SEGMENTO 
 		]]>
       </SQL>
      </ExpressionView>
 	  <Key>
         <Column name='ID_SEGMENTO'/>
-      </Key>	
-	</Query>	
+      </Key>
+	</Query>
 	-->
-	
+
 
 	<!--
 	<Link target='Tiempo_Q' source='Tiempo_Q'          foreignKeyColumn='ID_EVENTORAW' />
@@ -185,7 +201,7 @@ SELECT ID_SEGMENTO,
 	<Link target='Evento_Q' source='TipoEvento_Q'      foreignKeyColumn='EVENTO_TIPO' />
 	<Link target='Evento_Q' source='POS_Q'             foreignKeyColumn='ID_CAJA' />
 	<Link target='Evento_Q' source='PerfilUsuario_Q'   foreignKeyColumn='TX_ORIGEN_CUENTA' />
-	
+
 </PhysicalSchema>
 
 
@@ -221,7 +237,7 @@ SELECT ID_SEGMENTO,
 		  </Attribute>
 		  <Attribute name='Fecha'  table='Evento_Q' caption='Fecha' keyColumn='EVENTO_FECHA'  hasHierarchy='false' />
 		</Attributes>
-	  
+
 		<Hierarchies>
 		  <Hierarchy name="Tiempo_H" visible="true" hasAll="true">
 			<Level attribute="Anho" >
@@ -253,7 +269,7 @@ SELECT ID_SEGMENTO,
 		  </Hierarchy>
 		</Hierarchies>
   </Dimension>
-	  
+
   <Dimension name="Emision_D" table='Evento_Q' key='EmisionEvento Id' >
     <Attributes>
 	  <Attribute name='EmisionEvento Id' table='Evento_Q' keyColumn="ID_EVENTORAW" />
@@ -278,8 +294,8 @@ SELECT ID_SEGMENTO,
         <Level attribute="Version" />
       </Hierarchy>
     </Hierarchies>
-  </Dimension>  	  
- 	  
+  </Dimension>
+
   <Dimension name="TipoEvento_D" table='TipoEvento_Q' key='TipoEvento Id' >
     <Attributes>
 	  <Attribute name="TipoEvento Id" keyColumn='id' hasHierarchy='false' />
@@ -297,11 +313,11 @@ SELECT ID_SEGMENTO,
 		<Level attribute='TipoEvento'/>
 	  </Hierarchy>
     </Hierarchies>
-  </Dimension>  	  
-	  
+  </Dimension>
+
   <Dimension name="POS_D" table='POS_Q' key='POS Id' >
     <Attributes>
-	  <Attribute name="POS Id"   keyColumn='CAJA_COD'         hasHierarchy='false'/>
+	  <Attribute name="POS Id"   keyColumn='ID_CAJA'          hasHierarchy='false'/>
 	  <Attribute name="Empresa"  keyColumn='EMP_RAZON_SOCIAL' hasHierarchy='false' />
 	  <Attribute name='Sucursal' keyColumn='SUC_RAZON_SOCIAL' hasHierarchy='false'/>
 	  <Attribute name="Caja"     keyColumn='CAJA_COD'         hasHierarchy='false'/>
@@ -313,7 +329,7 @@ SELECT ID_SEGMENTO,
 		<Level attribute='Caja'/>
 	  </Hierarchy>
     </Hierarchies>
-  </Dimension>  
+  </Dimension>
 
   <Dimension name="PerfilUsuario_D" table='PerfilUsuario_Q' key='Cuenta Id' >
     <Attributes>
@@ -326,20 +342,20 @@ SELECT ID_SEGMENTO,
 			<Column name='DESC_CATEGORIA_EDAD' table='PerfilUsuario_Q' />
 		</Name>
 	  </Attribute>
-	  
-	  <Attribute name='Cuenta Id' keyColumn='ID_CUENTA_COD' table='PerfilUsuario_Q' hasHierarchy='false'/>
+
+	  <Attribute name='Cuenta Id' keyColumn='ID_CUENTA_BOVEDA' table='PerfilUsuario_Q' hasHierarchy='false'/>
 	</Attributes>
-	
+
     <Hierarchies>
 	  <Hierarchy name="PerfilUsuario_H" allMemberName='Todos los perfiles' visible="true" hasAll="true">
 		<Level attribute='RangoEdad'/>
 		<Level attribute='Cuenta Id'/>
 	  </Hierarchy>
     </Hierarchies>
-  </Dimension>    
-  
-  
-  <!--  
+  </Dimension>
+
+
+  <!--
   <Dimension name="GeoMunicipio_D" table='MUNICIPIO' key='Municipio Id'  >
     <Attributes>
 	  <Attribute name="Departamento" hasHierarchy='false'>
@@ -363,10 +379,10 @@ SELECT ID_SEGMENTO,
 	  <Hierarchy name='Municipios_H' allMemberName='Todos los Municipios' visible="true" hasAll="true">
 		<Level attribute='Departamento'/>
 		<Level attribute='Municipio Nombre'/>
-	  </Hierarchy>	
+	  </Hierarchy>
     </Hierarchies>
-  </Dimension>    
-  
+  </Dimension>
+
   <Dimension name="Geo_Municipio_D" foreignKey="NORAMA_INI_MPIO_COD_DANE" >
     <Hierarchy name="Municipios_H" visible="true" hasAll="true" primaryKey="mpio_cod_dane"  >
       <Table name="MUNICIPIO" schema="ansc" >
@@ -379,8 +395,8 @@ SELECT ID_SEGMENTO,
         </Property>
       </Level>
     </Hierarchy>
-  </Dimension>	
-  -->  
+  </Dimension>
+  -->
 
 
 
@@ -404,7 +420,7 @@ SELECT ID_SEGMENTO,
 	</MeasureGroup>
   </MeasureGroups>
   -->
-  
+
   <Cube name="OperatividadBonos" visible="true" description="Cubo de datos con los eventos de bonos" cache="true" enabled="true">
 	<!--
     <Table name='PercepcionProcesos_Q' />
