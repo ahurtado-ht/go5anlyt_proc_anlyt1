@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - miércoles-marzo-09-2016   
+-- Archivo creado  - lunes-abril-18-2016   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for DB Link DBLINK_MISPESOS
@@ -18,7 +18,7 @@
 --  DDL for Sequence SEQ_ID_OPEVENTORAW
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "ANLYT"."SEQ_ID_OPEVENTORAW"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "ANLYT"."SEQ_ID_OPEVENTORAW"  MINVALUE 0 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 47 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Table OP_CATEGORIA_EDAD
 --------------------------------------------------------
@@ -990,13 +990,13 @@ Insert into ANLYT.OP_SUCURSAL (SUCURSAL_COD,RAZON_SOCIAL,LATITUD,LONGITUD,ID_CIU
 --------------------------------------------------------
 
   ALTER TABLE "ANLYT"."OP_EVENTO" ADD CONSTRAINT "OP_EVENTO_FK1" FOREIGN KEY ("ID_EVENTORAW")
-	  REFERENCES "ANLYT"."OP_EVENTO_RAW" ("ID_EVENTORAW") ENABLE;
+	  REFERENCES "ANLYT"."OP_EVENTO_RAW" ("ID_EVENTORAW") DISABLE;
   ALTER TABLE "ANLYT"."OP_EVENTO" ADD CONSTRAINT "OP_EVENTO_FK2" FOREIGN KEY ("ID_CAJA")
-	  REFERENCES "ANLYT"."OP_REDENCION_CAJA" ("ID_CAJA") ENABLE;
+	  REFERENCES "ANLYT"."OP_REDENCION_CAJA" ("ID_CAJA") DISABLE;
   ALTER TABLE "ANLYT"."OP_EVENTO" ADD CONSTRAINT "OP_EVENTO_FK3" FOREIGN KEY ("ID_CAJERO")
-	  REFERENCES "ANLYT"."OP_REDENCION_CAJERO" ("ID_CAJERO") ENABLE;
+	  REFERENCES "ANLYT"."OP_REDENCION_CAJERO" ("ID_CAJERO") DISABLE;
   ALTER TABLE "ANLYT"."OP_EVENTO" ADD CONSTRAINT "OP_EVENTO_FK5" FOREIGN KEY ("TX_ORIGEN_CUENTA")
-	  REFERENCES "ANLYT"."OP_REDENCION_CUENTA" ("ID_CUENTA_COD") ENABLE;
+	  REFERENCES "ANLYT"."OP_REDENCION_CUENTA" ("ID_CUENTA_COD") DISABLE;
 --------------------------------------------------------
 --  Ref Constraints for Table OP_REDENCION_CAJA
 --------------------------------------------------------
@@ -1025,6 +1025,46 @@ Insert into ANLYT.OP_SUCURSAL (SUCURSAL_COD,RAZON_SOCIAL,LATITUD,LONGITUD,ID_CIU
 	  REFERENCES "ANLYT"."OP_CIUDAD" ("ID_CIUDAD") ENABLE;
   ALTER TABLE "ANLYT"."OP_SUCURSAL" ADD CONSTRAINT "FK_SUCURSAL_EMPRESA" FOREIGN KEY ("ID_EMPRESA")
 	  REFERENCES "ANLYT"."OP_EMPRESA" ("ID_EMPRESA") ENABLE;
+--------------------------------------------------------
+--  DDL for Procedure SET_SEQ_TO
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE PROCEDURE "ANLYT"."SET_SEQ_TO" (p_name IN VARCHAR2, p_val IN NUMBER)
+AS
+   l_num   NUMBER;
+BEGIN
+   EXECUTE IMMEDIATE 'select ' || p_name || '.nextval from dual' INTO l_num;
+
+   -- Added check for 0 to avoid "ORA-04002: INCREMENT must be a non-zero integer"
+   IF (p_val - l_num - 1) != 0
+   THEN
+      EXECUTE IMMEDIATE 'alter sequence ' || p_name || ' increment by ' || (p_val - l_num - 1) || ' minvalue 0';
+   END IF;
+
+   EXECUTE IMMEDIATE 'select ' || p_name || '.nextval from dual' INTO l_num;
+
+   EXECUTE IMMEDIATE 'alter sequence ' || p_name || ' increment by 1 ';
+
+   DBMS_OUTPUT.put_line('Sequence ' || p_name || ' is now at ' || p_val);
+END;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure SET_SEQ_TO_DATA
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE PROCEDURE "ANLYT"."SET_SEQ_TO_DATA" (seq_name IN VARCHAR2, table_name IN VARCHAR2, col_name IN VARCHAR2)
+AS
+   nextnum   NUMBER;
+BEGIN
+   EXECUTE IMMEDIATE 'SELECT MAX(' || col_name || ') + 1 AS n FROM ' || table_name INTO nextnum;
+
+   SET_SEQ_TO(seq_name, nextnum);
+END;
+
+/
 --------------------------------------------------------
 --  DDL for Synonymn AUT_USUARIO
 --------------------------------------------------------
